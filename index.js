@@ -1,20 +1,22 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native';
 import styles from './style'
+import { StackNavigator } from 'react-navigation';
 
-export default class AvalonApp extends Component {
-    render() {
-        return (
-            <View style={styles.main_container}>
-                <Text style={styles.title}>Avalon Mobile</Text>
-                
-                <TouchableOpacity style={styles.button}>
-                    <Text>Play</Text>
-                </TouchableOpacity>
+import HomeScreen from "./views/HomeScreen.js"
+import SetupScreen from "./views/SetupScreen.js"
 
-            </View>
-        );
+
+
+const RootNavigator = StackNavigator({
+    Home: {
+        screen: HomeScreen,
+    },
+    Setup: {
+        screen: SetupScreen
     }
-}
+});
 
-AppRegistry.registerComponent('AvalonMobile', () => AvalonApp);
+export default RootNavigator;
+
+AppRegistry.registerComponent('AvalonMobile', () => RootNavigator);
