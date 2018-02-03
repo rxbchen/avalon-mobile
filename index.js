@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native';
 import styles from './style'
+import LinearGradient from 'react-native-linear-gradient';
+
 
 export default class AvalonApp extends Component {
     render() {
@@ -9,9 +11,27 @@ export default class AvalonApp extends Component {
                 <Text style={styles.title}>Avalon Mobile</Text>
                 
                 <TouchableOpacity style={styles.button}>
-                    <Text>Play</Text>
+                    <Text>PLAY</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text>MULTI-PHONE</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text>STATISTICS</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text>HELP</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button}>
+                    <Text>SETTINGS</Text>
                 </TouchableOpacity>
 
+                // Within your render function
+                <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+                <Text style={styles.buttonText}>
+                    Sign in with Facebook
+                </Text>
+                </LinearGradient>
             </View>
         );
     }
