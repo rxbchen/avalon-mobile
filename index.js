@@ -3,8 +3,8 @@ import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native'
 import styles from './style'
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from "./views/HomeScreen.js"
-import SetupScreen from "./views/SetupScreen.js"
+import HomeScreen from "src/views/HomeScreen.js"
+import SetupScreen from "src/views/SetupScreen.js"
 
 
 
