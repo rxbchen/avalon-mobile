@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native';
-import styles from './style'
+import React from 'react';
+import { AppRegistry } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 
-import HomeScreen from "./views/HomeScreen.js"
-import SetupScreen from "./views/SetupScreen.js"
+import HomeScreen from "./src/views/HomeScreen"
+import SetupScreen from "./src/views/SetupScreen"
 
 
 
