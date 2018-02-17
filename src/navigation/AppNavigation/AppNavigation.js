@@ -1,15 +1,10 @@
 import React, { Component } from "react";
-import { StackNavigator, addNavigationHelpers } from 'react-navigation';
-import { connect } from "react-redux";
+import { addNavigationHelpers } from 'react-navigation';
 import AppNavigationStack from './AppNavigationStack';
 import {
     createReduxBoundAddListener, createReactNavigationReduxMiddleware
 } from 'react-navigation-redux-helpers';
 
-
-//
-// import HomeScreen from "../../views/HomeScreen"
-// import SetupScreen from "../../views/SetupScreen"
 export const middleware = createReactNavigationReduxMiddleware(
     "root",
     state => state.NavigationReducer,
@@ -17,10 +12,9 @@ export const middleware = createReactNavigationReduxMiddleware(
 
 const addListener = createReduxBoundAddListener("root");
 
-class AppNavigation extends Component {
+export default class AppNavigation extends Component {
     render() {
         const { navigationState, dispatch } = this.props;
-        console.log('helloworld' , navigationState);
         return (
             <AppNavigationStack
                 navigation={ addNavigationHelpers({ addListener, dispatch, state: navigationState })}
@@ -28,15 +22,3 @@ class AppNavigation extends Component {
         );
     }
 }
-
-const mapStateToProps = state => {
-    return {
-        navigationState: state.NavigationReducer
-    };
-};
-
-export default connect(mapStateToProps)(AppNavigation);
-// export {
-//     AppNavigationStack,
-//     AppNavigation
-// }
