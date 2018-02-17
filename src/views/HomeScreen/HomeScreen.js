@@ -3,10 +3,17 @@ import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native'
 import styles from './style'
 import { NavigationActions } from "react-navigation"
 import { connect } from "react-redux"
+import Dropdown from '../../Components/Dropdown'
 import navigate from '../../navigation/navigate'
 
 class HomeScreen extends Component {
     render() {
+
+        const options = [
+            {value: 'player one'},
+            {value: 'player two'}
+        ];
+
         return (
             <View style={styles.main_container}>
                 <Text style={styles.title}>Avalon Mobile</Text>
@@ -20,7 +27,7 @@ class HomeScreen extends Component {
 
                     <Text>Play</Text>
                 </TouchableOpacity>
-
+                <Dropdown options={options}/>
             </View>
         );
     }
