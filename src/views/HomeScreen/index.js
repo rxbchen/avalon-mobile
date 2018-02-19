@@ -1,3 +1,3 @@
-import HomeScreen from "./HomeScreen";
+import HomeScreen from "./HomeScreenContainer";
 
 export default HomeScreen;
