@@ -5,8 +5,6 @@ import { StackNavigator } from 'react-navigation';
 import HomeScreen from "./src/views/HomeScreen"
 import SetupScreen from "./src/views/SetupScreen"
 
-
-
 const RootNavigator = StackNavigator({
     Home: {
         screen: HomeScreen,
