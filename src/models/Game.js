@@ -1,3 +1,5 @@
+import {NavigationActions} from "react-navigation";
+
 class Game {
   constructor({initialState}) {
     this.initialState = initialState || {}
@@ -6,6 +8,17 @@ class Game {
   setGame() {
 
   }
+
+  getHandlers = () => {
+    return Object.assign({}, {
+      updateGame : (state, action) => Object.assign({}, state, {game: action.payload}),
+    })
+  }
+
+  updateGame(data) {
+      return (dispatch) => dispatch({type: 'updateGame', payload: data})
+  }
+
 
   getReducer() {
     let initialState = this.initialState
