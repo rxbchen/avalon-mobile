@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './HomeScreenStyle'
 
-
 export default class HomeScreen extends Component {
   render() {
     const navigateParams = {
