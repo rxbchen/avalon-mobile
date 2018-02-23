@@ -9,7 +9,7 @@ export default StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold'
      },
-     maincontainer: {
+     main_container: {
         flex: 1,
         flexDirection: 'column',
         justifyContent: 'center',
@@ -17,22 +17,6 @@ export default StyleSheet.create({
         paddingHorizontal: 10,
         borderRadius: 4,
         borderWidth: 0.5,
-        borderColor: '#d6d7da',
-    },
-     verticle_container: {
-        flex: 1,
-        flexDirection: 'column',
-        justifyContent: 'center',
-        alignItems: 'center',
-        paddingHorizontal: 10,
-        borderRadius: 4,
-        borderWidth: 0.5,
-        borderColor: '#d6d7da',
-    },
-    horizontal_container: {
-        flexDirection: 'row',
-        // justifyContent: 'center',
-        // alignItems: 'center',
         borderColor: '#d6d7da',
     },
     button: {
