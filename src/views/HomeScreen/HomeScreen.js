@@ -13,10 +13,12 @@ export default class HomeScreen extends Component {
       <View style={styles.main_container}>
         <Text style={styles.title}>Avalon Mobile</Text>
 
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)
-          }>
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
             <Text>Play</Text>
           </TouchableOpacity>
+
+          <Card>
+          </Card>
         </View>
     );
   }
