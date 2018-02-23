@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './HomeScreenStyle'
-import SelectButton from '../../components/SelectButton/SelectButton'
 
 export default class HomeScreen extends Component {
   render() {
@@ -18,9 +17,6 @@ export default class HomeScreen extends Component {
           }>
             <Text>Play</Text>
           </TouchableOpacity>
-          <SelectButton>
-            Play2!
-          </SelectButton>
         </View>
     );
   }
