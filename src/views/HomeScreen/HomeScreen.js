@@ -18,7 +18,7 @@ export default class HomeScreen extends Component {
           }>
             <Text>Play</Text>
           </TouchableOpacity>
-          <SelectButton>
+          <SelectButton onPress={() => console.log('press')}>
             Play2!
           </SelectButton>
         </View>

@@ -4,16 +4,17 @@ import { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   selectedButton: {
     alignSelf: 'stretch',
-    backgroundColor: '#5d1414',
-    borderRadius: 5,
-    borderWidth: 1,
+    backgroundColor: '#972525',
+    margin: 10
+  },
+  greenBackground: {
+    alignSelf: 'stretch',
+    backgroundColor: '#00a651',
     margin: 10
   },
   unSelectedButton: {
     alignSelf: 'stretch',
     backgroundColor: '#5d1413',
-    borderRadius: 5,
-    borderWidth: 1,
     margin: 10
   },
   textStyle: {
@@ -34,9 +35,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderWidth: .5,
     height: 40,
-    borderRadius: 5 ,
     margin: 10,
     paddingTop: 10,
     paddingBottom: 10
@@ -45,9 +44,7 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    borderWidth: .5,
     height: 40,
-    borderRadius: 5 ,
     margin: 10,
     paddingTop: 10,
     paddingBottom: 10
