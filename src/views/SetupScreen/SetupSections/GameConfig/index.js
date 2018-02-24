@@ -1,2 +1,2 @@
-import GameConfig from './GameConfig'
+import GameConfig from './GameConfigContainer'
 export default GameConfig

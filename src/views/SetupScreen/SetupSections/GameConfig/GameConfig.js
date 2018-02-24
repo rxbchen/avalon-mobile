@@ -13,7 +13,10 @@ export default class GameConfig extends Component {
   }
 
   setGame(gameObj) {
-    this.setState({gameObj})
+    this.setState({gameObj});
+    this.props.createGame(gameObj);
+
+    console.log('game chosen', gameObj, this.props.game)
   }
 
   isSelected(gameObj) {
