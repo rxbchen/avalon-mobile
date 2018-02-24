@@ -24,7 +24,6 @@ class Game {
     return (state, action) => {
       state = state || initialState;
       const handler = handlers[action.type];
-      console.log('im here', state, action, handler)
       return handler ? handler(state, action) : state
     }
   }
