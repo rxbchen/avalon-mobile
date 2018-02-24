@@ -4,12 +4,12 @@ class Game {
   }
 
   getFromState = (state) => {
-    return state && state.game
+    return state && state.Game
   };
 
   getHandlers = () => {
     return Object.assign({}, {
-      createGame: (state, action) => Object.assign({}, state, {game: action.payload}),
+      createGame: (state, action) => Object.assign({}, state, action.payload),
     })
   };
 
