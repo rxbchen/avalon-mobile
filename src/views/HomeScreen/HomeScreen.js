@@ -1,21 +1,26 @@
 import React, { Component } from 'react';
-import { StackNavigator } from 'react-navigation';
-import { AppRegistry, Text, View, Button, TouchableOpacity } from 'react-native';
-import styles from './style'
+import { Text, View, TouchableOpacity } from 'react-native';
+import styles from './HomeScreenStyle'
+import SelectButton from '../../components/SelectButton/SelectButton'
+import Background from "../../components/Background/Background";
 
 export default class HomeScreen extends Component {
-    render() {
-        const {navigate} = this.props.navigation;
-        return (
-            <View style={styles.main_container}>
-                <Text style={styles.title}>Avalon Mobile</Text>
+  render() {
+    const navigateParams = {
+      routeName: 'SetupScreen'
+    };
 
-                <TouchableOpacity style={styles.button} onPress={() => navigate('Setup', { gameObject: {name: 'test', numRounds: 3} })}>
-                    <Text>Play</Text>
-                </TouchableOpacity>
+    return (
+      <Background style={styles.main_container}>
+        <Text style={styles.title}>Avalon Mobile</Text>
 
-            </View>
-        );
-    }
+          <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
+            <Text>Play</Text>
+          </TouchableOpacity>
+          <SelectButton onPress={() => console.log('press')}>
+            Play2!
+          </SelectButton>
+        </Background>
+    );
+  }
 }
-
