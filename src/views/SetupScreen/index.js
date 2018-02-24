@@ -1,3 +1,3 @@
-import SetupScreen from "./SetupScreen";
+import SetupScreen from "./SetupScreenContainer";
 
 export default SetupScreen;
