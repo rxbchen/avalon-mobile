@@ -10,6 +10,7 @@ export default class GameConfig extends Component {
   }
 
   isSelected(gameObj) {
+    console.log(this.props.Game)
     return gameObj === this.props.Game
   }
 
