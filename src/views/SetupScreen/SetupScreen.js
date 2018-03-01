@@ -12,7 +12,7 @@ export default class SetupScreen extends Component {
       return (
         <Background>
           <GameConfig/>
-          <PlayersConfig/>
+          {this.props.game !== undefined ? <PlayersConfig/> : null}
         </Background>
       )
     }

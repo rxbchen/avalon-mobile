@@ -3,20 +3,23 @@ class Player {
     this.initialState = initialState || {models: []}
   }
 
-  getPlayer = (state, name) => {
-    return state && state.Player
+  getPlayers = (state) => {
+    return state && state.Player && state.Player.models
   };
 
   getHandlers = () => {
     return Object.assign({}, {
-      createPlayer: (state, action) => Object.assign({}, state, action.payload),
+      createPlayers: (state, action) => Object.assign({}, state, action.payload),
     })
   };
 
-  createPlayer = (data) => {
+  createPlayers = (names) => {
     return (dispatch, getState) => {
       const newPlayerModel = Object.assign({}, getState)
-      newPlayerModel.models.push({name: data})
+      console.log("new player model: ", newPlayerModel)
+      names.forEach((name) => {
+        newPlayerModel.models.push({name})
+      })
       return dispatch({type: 'createPlayer', payload: newPlayerModel})
     }
   };
@@ -33,7 +36,7 @@ class Player {
 
 }
 
-const player = new Player({});
+const player = new Player({models: []});
 
 export const reducer = player.getReducer();
 export default player;

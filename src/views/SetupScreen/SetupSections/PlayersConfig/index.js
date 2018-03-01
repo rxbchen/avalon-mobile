@@ -1,2 +1,2 @@
-import PlayersConfig from './PlayersConfig'
+import PlayersConfig from './PlayersConfigContainer'
 export default PlayersConfig

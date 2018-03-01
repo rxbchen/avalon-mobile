@@ -5,11 +5,11 @@ import Game from "../../../../models/Game";
 
 const mapStateToProps = state => ({
   game: Game.getFromState(state),
-  player: Player.getFromState(state)
+  players: Player.getPlayers(state)
 });
 
 const mapActionCreators = {
-  createPlayer: Player.createPlayer
+  createPlayers: Player.createPlayers
 };
 
 export default connect(mapStateToProps, mapActionCreators)(PlayersConfig);
