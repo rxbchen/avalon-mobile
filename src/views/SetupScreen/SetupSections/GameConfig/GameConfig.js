@@ -10,14 +10,14 @@ export default class GameConfig extends Component {
   }
 
   isSelected(gameObj) {
-    console.log(this.props.Game)
     return gameObj === this.props.Game
   }
 
   render() {
+
     return (
       <View>
-        <TouchableOpacity onPress={() => this.props.createGame(defaultGameSetups.fivePlayers)}>
+        <TouchableOpacity onPress={() => this.props.createGame(defaultGameSetups.fivePlayers) }>
           <Text>GameConfig 1</Text>
         </TouchableOpacity>
         <TouchableOpacity onPress={() => this.props.createGame(defaultGameSetups.sixPlayers)}>
