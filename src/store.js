@@ -12,8 +12,6 @@ const AppReducer = combineReducers({
   Game
 });
 
-console.log('reducers', AppReducer)
-
 const store = createStore(AppReducer, applyMiddleware(...middlewares));
 
 export default store;
