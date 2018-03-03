@@ -11,6 +11,7 @@ Example:
 
 Also required to implement the onChangeText function where you call LabelledInput
 
+//OLD -FEB 28
   changeTextInputValue (text) {
     this.setState({
       name: text
@@ -25,11 +26,11 @@ export default class LabelledInput extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style ? this.props.style : null]}>
         <View style={styles.sectionStyle}>
           <TextInput
             style={styles.input}
-            onChangeText={(text) => this.props.onChangeText(text) }
+            onChange={(event) => this.props.onChange(event) }
             value={this.props.value}
             placeholder={this.props.placeholder ? this.props.placeholder : ''}
           />

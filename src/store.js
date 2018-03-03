@@ -4,12 +4,15 @@ import NavigationReducer from './navigation/AppNavigation/AppNavigationReducer'
 import { middleware } from "./navigation/AppNavigation/AppNavigation";
 
 import { reducer as Game } from "./models/Game"
+import { reducer as Player } from "./models/Player"
+
 
 const middlewares = [middleware, thunk];
 
 const AppReducer = combineReducers({
   NavigationReducer,
-  Game
+  Game,
+  Player
 });
 
 console.log('reducers', AppReducer)
