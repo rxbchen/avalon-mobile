@@ -62,9 +62,6 @@ export default class RoleConfig extends Component {
 
     let currentGoodRoles = []
 
-    console.log('roles', this.state)
-
-
     for(let i = 0; i < gameObject.numGood; i++){
 
       goodDropdownOptions.push(
