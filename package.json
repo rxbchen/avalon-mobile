@@ -21,6 +21,7 @@
     "babel-jest": "22.1.0",
     "babel-preset-react-native": "4.0.0",
     "jest": "22.1.4",
+    "react-native-collapsible": "^0.10.0",
     "react-test-renderer": "16.2.0"
   },
   "jest": {
