@@ -1,8 +1,17 @@
-import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View, TouchableOpacity } from 'react-native'
 import styles from './HomeScreenStyle'
-import SelectButton from '../../components/SelectButton/SelectButton'
-import Background from "../../components/Background/Background";
+
+import Background from "../../components/Background"
+import Card from '../../components/Card'
+
+state = {
+  collapsed: {
+    gameConfig: false,
+    rolesConfig: false,
+    playersConfig: false
+  }
+}
 
 export default class HomeScreen extends Component {
   render() {
@@ -17,11 +26,9 @@ export default class HomeScreen extends Component {
           <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
             <Text>Play</Text>
           </TouchableOpacity>
-          <SelectButton onPress={() => console.log('press')}
-            greenBackground={false}>
-            Play2!
-          </SelectButton>
         </Background>
+
     );
   }
 }
+
