@@ -17,7 +17,7 @@ export default class HomeScreen extends Component {
           <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
             <Text>Play</Text>
           </TouchableOpacity>
-          <SelectButton disabled={true} onPress={() => console.log('press')}>
+          <SelectButton onPress={() => console.log('press')}>
             Play2!
           </SelectButton>
         </Background>
