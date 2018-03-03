@@ -4,6 +4,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './SetupScreenStyle'
 
 import GameConfig from './SetupSections/GameConfig'
+import PlayersConfig from './SetupSections/PlayersConfig'
 import Background from "../../components/Background/Background";
 
 export default class SetupScreen extends Component {
@@ -11,6 +12,7 @@ export default class SetupScreen extends Component {
       return (
         <Background>
           <GameConfig/>
+          {this.props.game !== undefined ? <PlayersConfig/> : null}
         </Background>
       )
     }
