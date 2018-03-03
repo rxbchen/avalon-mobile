@@ -4,6 +4,9 @@ import CustomDropdown  from 'src/components/Dropdown'
 import styles from './RoleConfigStyle'
 import Card from 'src/components/Card'
 import SelectButton from "../../../../components/SelectButton/SelectButton";
+import defaultGameSetups from "../../../../static/DefaultGameSetups";
+import _ from 'lodash'
+import {reverseCamelCase} from "../../../../utils/stringUtils";
 
 export default class RoleConfig extends Component {
   constructor(props) {
@@ -16,30 +19,32 @@ export default class RoleConfig extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('called', nextProps.game)
+    const game = nextProps.game
     const rolesGood = []
     const rolesBad = []
-    for(let i = 0; i < nextProps.game.numBad; i++)
-    {
-      rolesBad.push('Minion of Mordred')
+    for( let role in game.rolesGood) {
+      for( let j = 0; j < game.rolesGood[role]; j++){
+        rolesGood.push({value: role, display: reverseCamelCase(role)})
+      }
     }
-    for(let i = 0; i < nextProps.game.numGood; i++)
-    {
-      rolesGood.push('Loyal Servant of Arthur')
+    for( let role in game.rolesBad) {
+      for( let j = 0; j < game.rolesBad[role]; j++){
+        rolesBad.push({value: role, display: reverseCamelCase(role)})
+      }
     }
 
     this.setState({rolesGood, rolesBad})
   }
 
-  selectRoleName(value, index,  team) {
-    const newRoles = this.state[`roles${team}`].slice(0)
-    newRoles[index] = value
+  selectRoleName(displayName, index,  team) {
+    const newRoles = _.cloneDeep(this.state[`roles${team}`])
+    newRoles[index].display = displayName
+    newRoles[index].value = _.camelCase(displayName)
     this.setState({ [`roles${team}`]: newRoles})
   }
 
 
   render() {
-    console.log("role", this.props)
 
     let goodDropdownOptions = []
     let badDropdownOptions = []
@@ -54,23 +59,17 @@ export default class RoleConfig extends Component {
       {value: 'Oberon'}]
 
      let gameObject = Object.assign({}, this.props.game)
-    // gameObject.rolesGood.merlin = 0
-    // gameObject.rolesGood.loyalServant = 0
-    // gameObject.rolesGood.percival = 0
-    // gameObject.rolesBad.minionMordred = 0
-    // gameObject.rolesBad.assassin = 0
-    // gameObject.rolesBad.morgana = 0
-    // gameObject.rolesBad.mordred = 0
-    // gameObject.rolesBad.oberon = 0
 
     let currentGoodRoles = []
+
+    console.log('roles', this.state)
 
 
     for(let i = 0; i < gameObject.numGood; i++){
 
       goodDropdownOptions.push(
         <View  key = {i} >
-          <CustomDropdown options={goodPlayerTypes} value={this.state.rolesGood[i]} onChange={(value) => this.selectRoleName(value, i, "Good")} />
+          <CustomDropdown options={goodPlayerTypes} value={this.state.rolesGood[i].display} onChange={(value) => this.selectRoleName(value, i, "Good")} />
         </View>
       )
     }
@@ -79,7 +78,7 @@ export default class RoleConfig extends Component {
 
       badDropdownOptions.push(
         <View key = {i}>
-          <CustomDropdown options={badPlayerTypes} value={this.state.rolesBad[i]} onChange={(value) => this.selectRoleName(value, i, "Bad")} />
+          <CustomDropdown options={badPlayerTypes} value={this.state.rolesBad[i].display} onChange={(value) => this.selectRoleName(value, i, "Bad")} />
         </View>
       )
     }
@@ -89,8 +88,8 @@ export default class RoleConfig extends Component {
           <View>
           {goodDropdownOptions}
           {badDropdownOptions}
+            <SelectButton onPress={() => this.props.updateRoles(this.state)}/>
           </View>
-          <SelectButton onPress={() => this.updateRoles()}/>
         </Card>
       </View>
 

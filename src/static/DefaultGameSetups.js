@@ -5,16 +5,16 @@ export default {
     numGood: 3,
     numBad: 2,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 3
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 2
     },
     maxFailedVotes: 5,
     quests: [
@@ -46,16 +46,16 @@ export default {
     numGood: 4,
     numBad: 2,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 4
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 2
     },
     maxFailedVotes: 5,
     quests: [
@@ -87,16 +87,16 @@ export default {
     numGood: 4,
     numBad: 3,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 4
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 3
     },
     maxFailedVotes: 5,
     quests: [
@@ -128,16 +128,16 @@ export default {
     numGood: 5,
     numBad: 3,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 5
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 3
     },
     maxFailedVotes: 5,
     quests: [
@@ -169,16 +169,16 @@ export default {
     numGood: 6,
     numBad: 3,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 6
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 3
     },
     maxFailedVotes: 5,
     quests: [
@@ -210,16 +210,16 @@ export default {
     numGood: 6,
     numBad: 4,
     rolesGood: {
-      loyalServant: 0,
       merlin: 0,
-      percival: 0
+      percival: 0,
+      loyalServantOfArthur: 6
     },
     rolesBad: {
-      minionMordred: 0,
-      assassin: 0,
-      morgana: 0,
       mordred: 0,
-      oberon: 0
+      morgana: 0,
+      assassin: 0,
+      oberon: 0,
+      minionOfMordred: 4
     },
     maxFailedVotes: 5,
     quests: [

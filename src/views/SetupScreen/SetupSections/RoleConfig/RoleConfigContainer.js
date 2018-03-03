@@ -6,8 +6,9 @@ const mapStateToProps = state => ({
   game: Game.getFromState(state)
 });
 
+
 const mapActionCreators = {
-  createGame: Game.createGame
+  updateRoles: Game.updateRoles
 };
 
 export default connect(mapStateToProps, mapActionCreators)(RoleConfig);
