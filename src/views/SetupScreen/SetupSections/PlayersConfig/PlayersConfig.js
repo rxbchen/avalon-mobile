@@ -3,7 +3,6 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './PlayersConfigStyle'
 import LabelledInput from '../../../../components/LabelledInput'
 import SelectButton from '../../../../components/SelectButton/SelectButton'
-import defaultGameSetups from "../../../../static/DefaultGameSetups";
 
 export default class PlayersConfig extends React.Component {
   constructor(props) {
@@ -27,7 +26,6 @@ export default class PlayersConfig extends React.Component {
   }
 
   validatePlayerName(name, index){
-    //unique name and not null
     let isValid = true
     this.state.names.forEach((stateName, stateIndex) => {
       if ((name.toLowerCase() === stateName.toLowerCase() && index !== stateIndex) || !stateName) isValid = false
@@ -51,11 +49,10 @@ export default class PlayersConfig extends React.Component {
         <LabelledInput key={i} value={this.state.names[i]} placeholder={"Player " + (i+1)} onChange={(event) => this.addPlayer(event, i)} style={styles.container}/>
       )
     }
-    console.log("Valid??", this.state.isValid)
     return (
       <View>
         {textInputs}
-        <SelectButton onPress={() => this.props.createPlayers(this.state.names)} greenBackground>
+        <SelectButton disabled={!this.state.isValid} onPress={() => this.props.createPlayers(this.state.names)} greenBackground>
           Save and Continue
         </SelectButton>
         {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}

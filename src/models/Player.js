@@ -14,10 +14,8 @@ class Player {
   };
 
   createPlayers = (names) => {
-    console.log("Names: ", names)
     return (dispatch, getState) => {
       const newPlayerModel = Object.assign({}, getState().Player)
-      console.log("new player model: ", newPlayerModel)
       names.forEach((name) => {
         newPlayerModel.models.push({name})
       })
