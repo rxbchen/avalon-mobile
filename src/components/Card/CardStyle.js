@@ -7,7 +7,6 @@ export default StyleSheet.create({
   },
   titleContainer: {
     justifyContent: 'space-around',
-    alignItems: 'center',
     paddingTop: 5,
     paddingBottom: 10,
   },
