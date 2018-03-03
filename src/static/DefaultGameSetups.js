@@ -4,6 +4,18 @@ export default {
     numPlayers: 5,
     numGood: 3,
     numBad: 2,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {
@@ -33,6 +45,18 @@ export default {
     numPlayers: 6,
     numGood: 4,
     numBad: 2,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {
@@ -62,6 +86,18 @@ export default {
     numPlayers: 7,
     numGood: 4,
     numBad: 3,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {
@@ -91,6 +127,18 @@ export default {
     numPlayers: 8,
     numGood: 5,
     numBad: 3,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {
@@ -120,6 +168,18 @@ export default {
     numPlayers: 9,
     numGood: 6,
     numBad: 3,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {
@@ -149,6 +209,18 @@ export default {
     numPlayers: 10,
     numGood: 6,
     numBad: 4,
+    rolesGood: {
+      loyalServant: 0,
+      merlin: 0,
+      percival: 0
+    },
+    rolesBad: {
+      minionMordred: 0,
+      assassin: 0,
+      morgana: 0,
+      mordred: 0,
+      oberon: 0
+    },
     maxFailedVotes: 5,
     quests: [
       {

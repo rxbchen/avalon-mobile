@@ -6,18 +6,24 @@ export default class CustomDropdown extends Component {
     constructor(props) {
         super(props)
     }
+    getValue()
+    {
+      this.refs.dropdown.selectedItem()
+    }
+
     render() {
         return (
 
-            <Dropdown
-
+            <Dropdown ref = 'dropdown'
+                textColor={'rgb(255,255,255)'}
                 label = {this.props.label ? this.props.label : ''}
                 data = {this.props.options}
-                value = {this.props.options[0]['value']}
+                value = {this.props.value}
                 dropdownPosition = {0}
                 onChangeText={this.props.onChange}
 
             />
+
         );
     }
 
@@ -27,5 +33,4 @@ CustomDropdown.propTypes = {
     onChange: proptypes.func,
     icon: proptypes.element,
     label: proptypes.string
-
 }

@@ -17,6 +17,11 @@ class Game {
     return (dispatch) => dispatch({type: 'createGame', payload: data})
   };
 
+  // updateRoles = (data) = {
+  //
+  //
+  //   return ()
+  // }
 
   getReducer() {
     let initialState = this.initialState;
