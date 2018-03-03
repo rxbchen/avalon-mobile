@@ -1,12 +1,15 @@
 import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+  cardContainter : {
+    padding: 10,
+    margin: 10
+  },
   titleContainer: {
     justifyContent: 'space-around',
     alignItems: 'center',
     paddingTop: 5,
     paddingBottom: 10,
-    margin: 2
   },
 
   titleText: {
@@ -24,7 +27,8 @@ export default StyleSheet.create({
   collapsibleContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    backgroundColor: '#f4e7b7'
+    backgroundColor: '#f4e7b7',
+    padding: 10
   },
 
   linearGradient: {

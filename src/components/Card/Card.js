@@ -21,7 +21,7 @@ export default class Card extends React.Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.cardContainter}>
         <LinearGradient colors={['#762323', '#5d1414']} style={styles.linearGradient}>
           <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
             <Text style={styles.titleText}>{this.props.title}</Text>
@@ -31,8 +31,6 @@ export default class Card extends React.Component {
         <Collapsible style={styles.collapsibleContainer} collapsed={this.state.isCollapsed}>
           {this.props.children}
         </Collapsible>
-
-        
       </View>
     )
   }
