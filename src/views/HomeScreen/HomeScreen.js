@@ -26,11 +26,6 @@ export default class HomeScreen extends Component {
           <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
             <Text>Play</Text>
           </TouchableOpacity>
-          <Card title='sametime' isCollapsed={false}>
-            <View>
-              <Text> test </Text>
-            </View>
-          </Card>
         </Background>
 
     );

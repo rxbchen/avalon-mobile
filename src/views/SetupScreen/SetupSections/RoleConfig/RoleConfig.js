@@ -81,10 +81,10 @@ export default class RoleConfig extends Component {
     }
     return (
       <View>
-        <Card title={'Role Configuration'} isCollapsed={false}>
+        <Card title='Role Configuration' isCollapsed={false}>
           <View>
-          {goodDropdownOptions}
-          {badDropdownOptions}
+            {goodDropdownOptions}
+            {badDropdownOptions}
             <SelectButton onPress={() => this.props.updateRoles(this.state)}/>
           </View>
         </Card>

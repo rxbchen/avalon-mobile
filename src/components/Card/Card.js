@@ -21,11 +21,11 @@ export default class Card extends React.Component {
 
   render() {
     return (
-      <View>
-        <LinearGradient colors={['#4c669f', '#3b5998', '#192f6a']} style={styles.linearGradient}>
+      <View style={styles.cardContainter}>
+        <LinearGradient colors={['#762323', '#5d1414']} style={styles.linearGradient}>
           <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
             <Text style={styles.titleText}>{this.props.title}</Text>
-           <Image style={styles.titleImage} src={this.props.icon} />
+            <Image style={styles.titleImage} src={this.props.icon} />
           </TouchableOpacity>
         </LinearGradient>
         <Collapsible style={styles.collapsibleContainer} collapsed={this.state.isCollapsed}>

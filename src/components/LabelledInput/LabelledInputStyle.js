@@ -3,7 +3,6 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
 
   input: {
-    fontFamily: "Roboto-Medium",
     fontSize: 15,
     flex: 1,
     backgroundColor: '#fff',
