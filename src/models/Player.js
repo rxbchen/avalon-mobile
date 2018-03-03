@@ -1,6 +1,6 @@
 class Player {
-  constructor({initialState}) {
-    this.initialState = initialState || {models: []}
+  constructor(initialState = {models: []}) {
+    this.initialState = initialState
   }
 
   getPlayers = (state) => {
@@ -14,8 +14,9 @@ class Player {
   };
 
   createPlayers = (names) => {
+    console.log("Names: ", names)
     return (dispatch, getState) => {
-      const newPlayerModel = Object.assign({}, getState)
+      const newPlayerModel = Object.assign({}, getState().Player)
       console.log("new player model: ", newPlayerModel)
       names.forEach((name) => {
         newPlayerModel.models.push({name})
@@ -36,7 +37,7 @@ class Player {
 
 }
 
-const player = new Player({models: []});
+const player = new Player();
 
 export const reducer = player.getReducer();
 export default player;

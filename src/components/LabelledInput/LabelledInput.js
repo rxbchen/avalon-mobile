@@ -26,7 +26,7 @@ export default class LabelledInput extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
+      <View style={[styles.container, this.props.style ? this.props.style : null]}>
         <View style={styles.sectionStyle}>
           <TextInput
             style={styles.input}
