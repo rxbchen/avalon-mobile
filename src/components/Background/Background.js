@@ -19,7 +19,7 @@ export default class BackgroundImage extends React.Component {
     return (
       <ImageBackground source={require(backgroundPath)} style={styles.backgroundImage} onLoad={() => this.displayContent()}>
         <ScrollView>
-        {this.state.showContent ? this.props.children : null}
+         {this.state.showContent ? this.props.children : null}
         </ScrollView>
       </ImageBackground>
     )

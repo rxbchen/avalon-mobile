@@ -15,7 +15,6 @@ export default class GameConfig extends Component {
   }
 
   render() {
-
     return (
       <Card title='Game Configuration' isCollapsed={false}>
         <View>

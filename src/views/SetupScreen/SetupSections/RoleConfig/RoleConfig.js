@@ -3,10 +3,10 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import CustomDropdown  from 'src/components/Dropdown'
 import styles from './RoleConfigStyle'
 import Card from 'src/components/Card'
-import SelectButton from "../../../../components/SelectButton/SelectButton";
+import SelectButton from "src/components/SelectButton/SelectButton";
 import defaultGameSetups from "../../../../static/DefaultGameSetups";
 import _ from 'lodash'
-import {reverseCamelCase} from "../../../../utils/stringUtils";
+import {reverseCamelCase} from "src/utils/stringUtils";
 
 export default class RoleConfig extends Component {
   constructor(props) {
@@ -15,7 +15,6 @@ export default class RoleConfig extends Component {
       rolesGood: [],
       rolesBad: [],
     }
-
   }
 
   componentWillReceiveProps(nextProps) {
@@ -32,7 +31,6 @@ export default class RoleConfig extends Component {
         rolesBad.push({value: role, display: reverseCamelCase(role)})
       }
     }
-
     this.setState({rolesGood, rolesBad})
   }
 
@@ -43,9 +41,7 @@ export default class RoleConfig extends Component {
     this.setState({ [`roles${team}`]: newRoles})
   }
 
-
   render() {
-
     let goodDropdownOptions = []
     let badDropdownOptions = []
 
@@ -58,8 +54,7 @@ export default class RoleConfig extends Component {
       {value: 'Mordred'},
       {value: 'Oberon'}]
 
-     let gameObject = Object.assign({}, this.props.game)
-
+    let gameObject = Object.assign({}, this.props.game)
     let currentGoodRoles = []
 
     for(let i = 0; i < gameObject.numGood; i++){
@@ -89,8 +84,6 @@ export default class RoleConfig extends Component {
           </View>
         </Card>
       </View>
-
     )
   }
-
 }
