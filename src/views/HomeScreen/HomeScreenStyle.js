@@ -4,11 +4,11 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
 
     title: {
-      alignItems: 'center',
-      marginTop: 20,
-      padding: 20,
-      fontSize: 20,
-      fontWeight: 'bold'
+      textAlign: "center",
+      fontFamily: "Roboto-Light",
+      color: '#FFF',
+      fontSize: 60,
+      fontWeight: '100',
     },
     main_container: {
       flex: 1,
