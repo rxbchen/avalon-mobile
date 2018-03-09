@@ -9,12 +9,13 @@ export default StyleSheet.create({
       color: '#FFF',
       fontSize: 60,
       fontWeight: '100',
+      lineHeight: 55
     },
-    main_container: {
-      flex: 1,
+    mainContainer: {
+      alignSelf: 'center',
       justifyContent: 'center',
       alignItems: 'center',
-      backgroundColor: '#d6d7da',
+      width: 300,
     },
     linearGradient: {
       height: 40,
@@ -22,6 +23,12 @@ export default StyleSheet.create({
       paddingRight: 15,
       borderRadius: 5,
       marginBottom: 20
+    },
+    smallButtonContainer: {
+      alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 230,
     },
     buttonText: {
       fontSize: 18,

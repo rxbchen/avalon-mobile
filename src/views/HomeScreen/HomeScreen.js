@@ -15,12 +15,25 @@ export default class HomeScreen extends Component {
     return (
       <Background style={styles.main_container}>
         <Text style={styles.title}> AVALON{"\n"}MOBILE</Text>
-          <SelectButton style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
-            Play
+          <View style={styles.mainContainer}>
+            <SelectButton style={styles.main_button} onPress={() => this.props.navigate(navigateParams)}>
+              PLAY
+            </SelectButton>
+          </View>
+        <View style={styles.smallButtonContainer}>
+          <SelectButton style={styles.button}>
+            MULTI-PHONE
           </SelectButton>
-          <SelectButton onPress={() => console.log('press')}>
-            Play2!
+          <SelectButton style={styles.button}>
+            STATISTICS
           </SelectButton>
+          <SelectButton style={styles.button}>
+            HELP
+          </SelectButton>
+          <SelectButton style={styles.button}>
+            SETTINGS
+          </SelectButton>
+        </View>
         </Background>
     );
   }
