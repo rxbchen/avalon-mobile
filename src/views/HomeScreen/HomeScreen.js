@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { Text } from 'react-native'
 import styles from './HomeScreenStyle'
 import SelectButton from 'src/components/SelectButton/SelectButton'
-import Background from "src/components/Background/Background";
-import Card from 'src/components/Card'
+import Background from "src/components/Background"
 
 export default class HomeScreen extends Component {
   render() {
@@ -33,3 +32,4 @@ export default class HomeScreen extends Component {
     );
   }
 }
+

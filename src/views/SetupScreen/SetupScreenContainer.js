@@ -1,7 +1,8 @@
 import SetupScreen from './SetupScreen'
 import { connect } from "react-redux"
-import Game from '../../models/Game'
-import Navigation from '../../models/Navigation'
+import Game from 'src/models/Game'
+import Player from 'src/models/Player'
+import Navigation from 'src/models/Navigation'
 
 
 const mapStateToProps = state => ({
@@ -9,7 +10,8 @@ const mapStateToProps = state => ({
 });
 
 const mapActionCreators = {
-  navigate: Navigation.navigate
+  navigate: Navigation.navigate,
+  assignRoles: Player.assignRoles
 };
 
 export default connect(mapStateToProps, mapActionCreators)(SetupScreen);
