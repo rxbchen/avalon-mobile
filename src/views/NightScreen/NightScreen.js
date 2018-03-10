@@ -14,18 +14,17 @@ export default class NightScreen extends React.Component {
     }
     console.log(this.state.currentPlayer)
   }
-  revealToggle(status) {
-    this.setState({revealed: status})
+  toggleReveal() {
+    this.setState({revealed: !this.state.revealed})
   }
 
   render() {
     return (
       <Background>
         <View>
-        <Text>{this.state.currentPlayer.role}</Text>
         { this.state.revealed ? <Text>HAI</Text> : 
           <NameView playerName = {this.state.currentPlayer}
-          revealToggle={() => this.revealToggle(true)}/>
+          revealToggle={() => this.toggleReveal()}/>
         }
           {/* <RolesView players={this.props.players} currentPlayer={this.state.currentPlayer}></RolesView> */}
         </View>
