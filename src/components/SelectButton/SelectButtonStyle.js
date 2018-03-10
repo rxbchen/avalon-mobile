@@ -4,18 +4,9 @@ import LinearGradient from 'react-native-linear-gradient';
 export default StyleSheet.create({
   selectedButton: {
     alignSelf: 'stretch',
-    backgroundColor: '#972525',
-    margin: 10
-  },
-  greenBackground: {
-    alignSelf: 'stretch',
-    backgroundColor: '#00a651',
-    margin: 10
   },
   unSelectedButton: {
     alignSelf: 'stretch',
-    backgroundColor: '#5d1413',
-    margin: 10
   },
   textStyle: {
     alignSelf: 'center',
@@ -35,8 +26,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    height: 40,
-    margin: 10,
     paddingTop: 10,
     paddingBottom: 10
   },
@@ -44,8 +33,6 @@ export default StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 40,
-    margin: 10,
     paddingTop: 10,
     paddingBottom: 10
   },
@@ -56,5 +43,8 @@ export default StyleSheet.create({
     width: 25,
     resizeMode : 'stretch',
     alignItems: 'center'
+  },
+  linearGradient: {
+    borderRadius: 5,
   }
 });

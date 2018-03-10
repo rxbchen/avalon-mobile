@@ -4,6 +4,17 @@ import styles from './HomeScreenStyle'
 import SelectButton from 'src/components/SelectButton/SelectButton'
 import Background from "src/components/Background/Background";
 
+import Background from "../../components/Background"
+import Card from '../../components/Card'
+
+state = {
+  collapsed: {
+    gameConfig: false,
+    rolesConfig: false,
+    playersConfig: false
+  }
+}
+
 export default class HomeScreen extends Component {
   render() {
     const navigateParams = {
@@ -13,11 +24,11 @@ export default class HomeScreen extends Component {
     return (
       <Background style={styles.main_container}>
         <Text style={styles.title}> AVALON{"\n"}MOBILE</Text>
-          <View style={styles.mainContainer}>
-            <SelectButton style={styles.main_button} onPress={() => this.props.navigate(navigateParams)}>
-              PLAY
-            </SelectButton>
-          </View>
+        <View style={styles.mainContainer}>
+          <SelectButton style={styles.main_button} onPress={() => this.props.navigate(navigateParams)}>
+            PLAY
+          </SelectButton>
+        </View>
         <View style={styles.smallButtonContainer}>
           <SelectButton style={styles.button}>
             MULTI-PHONE
@@ -32,7 +43,7 @@ export default class HomeScreen extends Component {
             SETTINGS
           </SelectButton>
         </View>
-        </Background>
+      </Background>
     );
   }
 }
