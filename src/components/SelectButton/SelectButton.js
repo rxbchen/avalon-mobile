@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Alert, Image, Text, View, TouchableOpacity } from 'react-native'
+import { Image, Text, View, TouchableOpacity } from 'react-native'
 import styles from './SelectButtonStyle'
+import proptypes from 'prop-types'
 import LinearGradient from 'react-native-linear-gradient';
 // Button component
 export default class SelectButton extends Component {
@@ -23,4 +24,13 @@ export default class SelectButton extends Component {
       </LinearGradient>
     );
   }
+}
+
+SelectButton.propTypes = {
+  greenBackground: proptypes.bool,
+  children: proptypes.string.isRequired,
+  icon: proptypes.any,
+  isSelected: proptypes.any,
+  disabled: proptypes.bool,
+  linearGradient: proptypes.any
 }

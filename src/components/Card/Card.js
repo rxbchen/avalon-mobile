@@ -5,8 +5,6 @@ import proptypes from 'prop-types'
 import styles from './CardStyle'
 import LinearGradient from 'react-native-linear-gradient';
 
-
-
 export default class Card extends React.Component {
   constructor(props) {
     super(props)

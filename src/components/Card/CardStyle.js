@@ -31,6 +31,8 @@ export default StyleSheet.create({
   linearGradient: {
     paddingLeft: 15,
     paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 5,
+    shadowRadius: 5,
+    shadowOpacity: 1.0
   }
 })
