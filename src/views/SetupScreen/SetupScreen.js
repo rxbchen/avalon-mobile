@@ -10,7 +10,6 @@ import RolesConfig from './SetupSections/RolesConfig'
 import PlayersConfig from './SetupSections/PlayersConfig'
 
 export default class SetupScreen extends Component {
-
   handleContinue() {
     //do random thing here
 

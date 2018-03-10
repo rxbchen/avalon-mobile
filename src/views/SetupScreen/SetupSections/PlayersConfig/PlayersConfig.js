@@ -3,6 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './PlayersConfigStyle'
 import LabelledInput from '../../../../components/LabelledInput'
 import SelectButton from '../../../../components/SelectButton/SelectButton'
+import Card from 'src/components/Card'
 
 export default class PlayersConfig extends React.Component {
   constructor(props) {
@@ -50,13 +51,15 @@ export default class PlayersConfig extends React.Component {
       )
     }
     return (
-      <View>
-        {textInputs}
-        <SelectButton disabled={!this.state.isValid} onPress={() => this.props.createPlayers(this.state.names)} greenBackground>
-          Save and Continue
-        </SelectButton>
-        {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
-      </View>
+      <Card title='Player Configuration' isCollapsed={false}>
+        <View>
+          {textInputs}
+          <SelectButton disabled={!this.state.isValid} onPress={() => this.props.createPlayers(this.state.names)} greenBackground>
+            Save and Continue
+          </SelectButton>
+          {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
+        </View>
+      </Card>
     )
   }
 }
