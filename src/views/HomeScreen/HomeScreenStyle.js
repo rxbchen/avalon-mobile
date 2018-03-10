@@ -1,31 +1,42 @@
 import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-    title: {
-      alignItems: 'center',
-      marginTop: 20,
-      padding: 20,
-      fontSize: 20,
-      fontWeight: 'bold'
-    },
-    main_container: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#d6d7da',
-    },
-    linearGradient: {
-      height: 40,
-      paddingLeft: 15,
-      paddingRight: 15,
-      borderRadius: 5,
-      marginBottom: 20
-    },
-    buttonText: {
-      fontSize: 18,
-      textAlign: 'center',
-      margin: 7,
-      color: '#ffffff',
-      backgroundColor: 'transparent',
-    }
-  });
+  title: {
+    textAlign: "center",
+    fontFamily: "Roboto-Light",
+    color: '#FFF',
+    fontSize: 60,
+    fontWeight: '100',
+    lineHeight: 55
+  },
+  linearGradient: {
+    height: 40,
+    paddingLeft: 15,
+    paddingRight: 15,
+    borderRadius: 5,
+    marginBottom: 20
+  },
+  buttonText: {
+    fontSize: 18,
+    textAlign: 'center',
+    margin: 7,
+    color: '#ffffff',
+    backgroundColor: 'transparent',
+  },
+  mainButton: {
+    margin: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 300,
+    height: 70
+  },
+  smallButton: {
+    margin: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 230,
+    height: 60
+  },
+})
