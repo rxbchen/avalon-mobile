@@ -3,9 +3,7 @@ import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './HomeScreenStyle'
 import SelectButton from 'src/components/SelectButton/SelectButton'
 import Background from "src/components/Background/Background";
-
-import Background from "../../components/Background"
-import Card from '../../components/Card'
+import Card from 'src/components/Card'
 
 state = {
   collapsed: {
@@ -23,26 +21,22 @@ export default class HomeScreen extends Component {
 
     return (
       <Background style={styles.main_container}>
-        <Text style={styles.title}> AVALON{"\n"}MOBILE</Text>
-        <View style={styles.mainContainer}>
-          <SelectButton style={styles.main_button} onPress={() => this.props.navigate(navigateParams)}>
-            PLAY
-          </SelectButton>
-        </View>
-        <View style={styles.smallButtonContainer}>
-          <SelectButton style={styles.button}>
-            MULTI-PHONE
-          </SelectButton>
-          <SelectButton style={styles.button}>
-            STATISTICS
-          </SelectButton>
-          <SelectButton style={styles.button}>
-            HELP
-          </SelectButton>
-          <SelectButton style={styles.button}>
-            SETTINGS
-          </SelectButton>
-        </View>
+        <Text style={styles.title}>AVALON MOBILE</Text>
+        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.navigate(navigateParams)}>
+          PLAY
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          MULTI-PHONE
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          STATISTICS
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          HELP
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          SETTINGS
+        </SelectButton>
       </Background>
     );
   }

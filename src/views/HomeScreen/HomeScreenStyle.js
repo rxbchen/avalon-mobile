@@ -11,12 +11,6 @@ export default StyleSheet.create({
       fontWeight: '100',
       lineHeight: 55
     },
-    mainContainer: {
-      alignSelf: 'center',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: 300,
-    },
     linearGradient: {
       height: 40,
       paddingLeft: 15,
@@ -24,17 +18,27 @@ export default StyleSheet.create({
       borderRadius: 5,
       marginBottom: 20
     },
-    smallButtonContainer: {
-      alignSelf: 'center',
-      justifyContent: 'center',
-      alignItems: 'center',
-      width: 230,
-    },
     buttonText: {
       fontSize: 18,
       textAlign: 'center',
       margin: 7,
       color: '#ffffff',
       backgroundColor: 'transparent',
-    }
+    },
+    mainButton: {
+      margin: 10,
+      alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 300,
+      height: 70
+    },
+    smallButton: {
+      margin: 10,
+      alignSelf: 'center',
+      justifyContent: 'center',
+      alignItems: 'center',
+      width: 230,
+      height: 60
+    },
   });
