@@ -7,13 +7,14 @@ export default StyleSheet.create({
   },
   unSelectedButton: {
     alignSelf: 'stretch',
+    margin: 10
   },
   textStyle: {
     alignSelf: 'center',
     textAlign: 'center',
     color: '#FFF',
     fontSize: 26,
-    fontWeight: "100",
+    fontWeight: "bold",
     paddingTop: 10,
     paddingBottom: 10
   },
@@ -22,17 +23,21 @@ export default StyleSheet.create({
     width: 25,
     justifyContent: 'center'
   },
-  sectionStyleNoIcon: {
+  sectionStyleIcon: {
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    height: 40,
+    margin: 10,
     paddingTop: 10,
     paddingBottom: 10
   },
-  sectionStyleIcon: {
+  sectionStyleNoIcon: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    height: 40,
+    margin: 10,
     paddingTop: 10,
     paddingBottom: 10
   },

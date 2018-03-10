@@ -10,14 +10,15 @@ export default class SelectButton extends Component {
 
   render() {
     return (
-      <LinearGradient colors={this.props.greenBackground ? ['#56bf00', '#57ab16'] : ['#762323', '#5d1414']} style={styles.linearGradient}>
-        <TouchableOpacity onPress={() => this.props.onPress()} 
+      <LinearGradient colors={this.props.greenBackground ? ['#56bf00', '#57ab16'] : ['#762323', '#5d1414']}
+                      style={this.props.linearGradient ? this.props.linearGradient : styles.linearGradient}>
+        <TouchableOpacity onPress={() => this.props.onPress()}
           style={this.props.isSelected ? styles.selectedButton : styles.unSelectedButton}
           disabled={ this.props.disabled }>
-            <View style={ this.props.icon ? styles.sectionStyleNoIcon : styles.sectionStyleIcon}>
+            <View style={ this.props.icon ? styles.sectionStyleIcon : styles.sectionStyleNoIcon}>
               <Text style={styles.textStyle}>{this.props.children}</Text>
-              <Image source={this.props.icon} style={styles.buttonIcon}/>   
-            </View>     
+              <Image source={this.props.icon} style={styles.buttonIcon}/>
+            </View>
         </TouchableOpacity>
       </LinearGradient>
     );

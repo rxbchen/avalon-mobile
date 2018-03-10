@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Text, View, TouchableOpacity } from 'react-native'
+import React, { Component } from 'react';
+import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './HomeScreenStyle'
-
-import Background from "../../components/Background"
-import Card from '../../components/Card'
+import SelectButton from 'src/components/SelectButton/SelectButton'
+import Background from "src/components/Background/Background";
+import Card from 'src/components/Card'
 
 export default class HomeScreen extends Component {
   render() {
@@ -13,13 +13,23 @@ export default class HomeScreen extends Component {
 
     return (
       <Background style={styles.main_container}>
-        <Text style={styles.title}>Avalon Mobile</Text>
-
-          <TouchableOpacity style={styles.button} onPress={() => this.props.navigate(navigateParams)}>
-            <Text>Play</Text>
-          </TouchableOpacity>
-        </Background>
+        <Text style={styles.title}>AVALON MOBILE</Text>
+        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.navigate(navigateParams)}>
+          PLAY
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          MULTI-PHONE
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          STATISTICS
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          HELP
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton}>
+          SETTINGS
+        </SelectButton>
+      </Background>
     );
   }
 }
-
