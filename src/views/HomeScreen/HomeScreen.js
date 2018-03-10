@@ -5,19 +5,11 @@ import styles from './HomeScreenStyle'
 import Background from "../../components/Background"
 import Card from '../../components/Card'
 
-state = {
-  collapsed: {
-    gameConfig: false,
-    rolesConfig: false,
-    playersConfig: false
-  }
-}
-
 export default class HomeScreen extends Component {
   render() {
     const navigateParams = {
       routeName: 'SetupScreen'
-    };
+    }
 
     return (
       <Background style={styles.main_container}>
@@ -28,7 +20,7 @@ export default class HomeScreen extends Component {
           </TouchableOpacity>
         </Background>
 
-    );
+    )
   }
 }
 
