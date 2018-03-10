@@ -5,19 +5,11 @@ import SelectButton from 'src/components/SelectButton/SelectButton'
 import Background from "src/components/Background/Background";
 import Card from 'src/components/Card'
 
-state = {
-  collapsed: {
-    gameConfig: false,
-    rolesConfig: false,
-    playersConfig: false
-  }
-}
-
 export default class HomeScreen extends Component {
   render() {
     const navigateParams = {
       routeName: 'SetupScreen'
-    };
+    }
 
     return (
       <Background style={styles.main_container}>
