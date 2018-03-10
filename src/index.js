@@ -5,11 +5,11 @@ import AppNavigation from './navigation/AppNavigation'
 
 
 export default class App extends Component {
-    render() {
-        return (
-            <Provider store={store}>
-                <AppNavigation />
-            </Provider>
-        );
-    }
+  render() {
+    return (
+      <Provider store={store}>
+        <AppNavigation />
+      </Provider>
+    );
+  }
 }

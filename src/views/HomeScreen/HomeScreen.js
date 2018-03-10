@@ -27,7 +27,6 @@ export default class HomeScreen extends Component {
             <Text>Play</Text>
           </TouchableOpacity>
         </Background>
-
     );
   }
 }

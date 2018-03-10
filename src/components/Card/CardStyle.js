@@ -8,11 +8,11 @@ export default StyleSheet.create({
   titleContainer: {
     justifyContent: 'space-around',
     paddingTop: 5,
-    paddingBottom: 10,
+    paddingBottom: 5,
   },
 
   titleText: {
-    fontFamily: 'Roboto-Medium',
+    // fontFamily: 'Roboto-Medium',
     fontSize: 30,
     color: '#FFF',
     textAlign: 'left'
@@ -24,8 +24,6 @@ export default StyleSheet.create({
   },
 
   collapsibleContainer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
     backgroundColor: '#f4e7b7',
     padding: 10
   },

@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground } from 'react-native';
+import { ImageBackground, ScrollView } from 'react-native';
 import styles from './BackgroundStyle'
 
 export default class BackgroundImage extends React.Component {
@@ -18,7 +18,9 @@ export default class BackgroundImage extends React.Component {
     const backgroundPath = '../../static/images/background.jpg';
     return (
       <ImageBackground source={require(backgroundPath)} style={styles.backgroundImage} onLoad={() => this.displayContent()}>
-        {this.state.showContent ? this.props.children : null}
+        <ScrollView>
+         {this.state.showContent ? this.props.children : null}
+        </ScrollView>
       </ImageBackground>
     )
   }
