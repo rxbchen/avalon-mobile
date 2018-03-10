@@ -2,20 +2,28 @@ import React, { Component } from 'react';
 import { StackNavigator } from 'react-navigation';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './SetupScreenStyle'
+import Background from "src/components/Background/Background";
+import SelectButton from "src/components/SelectButton"
 
 import GameConfig from './SetupSections/GameConfig'
+import RolesConfig from './SetupSections/RolesConfig'
 import PlayersConfig from './SetupSections/PlayersConfig'
-import Background from "../../components/Background/Background";
-import RoleConfig from "./SetupSections/RoleConfig";
 
 export default class SetupScreen extends Component {
-    render() {
-      return (
-        <Background>
-          <GameConfig/>
-          <RoleConfig/>
-          {this.props.game !== undefined ? <PlayersConfig/> : null}
-        </Background>
-      )
-    }
+  handleContinue() {
+    //do random thing here
+
+    this.props.navigate({routeName: 'NightScreen'})
+  }
+
+  render() {
+    return (
+      <Background>
+        <GameConfig/>
+        <RolesConfig/>
+        {this.props.game !== undefined ? <PlayersConfig/> : null}
+        <SelectButton greenBackground onPress={() => this.handleContinue()}>Continue</SelectButton>
+      </Background>
+    )
+  }
 }
