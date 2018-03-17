@@ -7,7 +7,6 @@ import Background from "src/components/Background/Background"
 
 
 export default class SetupScreen extends React.Component {
-  //currentPlayer: this.props.players[0]
   constructor(props) {
     super(props)
     this.state = {
@@ -19,7 +18,6 @@ export default class SetupScreen extends React.Component {
     this.setState({revealed: !this.state.revealed})
   }
   render() {
-    console.log(this.props.players)
     return (
       <Background>
         <View>

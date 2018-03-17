@@ -9,20 +9,23 @@ export default class RolesView extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      knownPlayers: [],
       revealedText: ""
     }
   }
 
-  initializeText(text) {
-    this.setState(function() {
-      return { revealedText: text};
+  addPlayer(player) {
+    this.setState(function(currentState) {
+      return { knownPlayers: currentState.knownPlayers.concat(player.name)};
     });
   }
 
-  addPlayer(player) {
-    this.setState(function(currentState) {
-      return { revealedText: currentState.revealedText + " " + player.name + "\n"};
-    });
+  findPlayers(roles){
+    this.props.players.forEach((player) => {
+      if (roles.indexOf(player.role) !== -1 && player.name !== this.props.currentPlayer.name){
+        this.addPlayer(player)
+      }
+    })
   }
 
   updateRevealedText(){
@@ -31,46 +34,29 @@ export default class RolesView extends Component {
     switch (this.props.currentPlayer.role){
       case 'morgana':
       case 'mordred':
-      case 'assasin':
+      case 'assassin':
       case 'minionOfMordred':
-        knownPlayers.push('minionOfMordred', 'assasin', 'morgana', 'mordred', 'oberon')
+        knownPlayers.push('minionOfMordred', 'assassin', 'morgana', 'mordred', 'oberon')
         return(
-          this.initializeText("Fellow Minions of Mordred:\n"),
-          this.props.players.forEach((player) => {
-            if (knownPlayers.indexOf(player.role) !== -1 && player.name !== this.props.currentPlayer.name){
-              this.addPlayer(player)
-            }
-          })
+          this.setState({revealedText: "Fellow Minions of Mordred:\n"}),
+          this.findPlayers(knownPlayers)
         );
       case 'oberon':
       case 'loyalServantOfArthur':
         return(
-          this.initializeText("You know nothing"),
-          this.props.players.forEach((player) => {
-            if (knownPlayers.indexOf(player.role) !== -1 && player.name !== this.props.currentPlayer.name){
-              this.addPlayer(player)
-            }
-          })
+          this.setState({revealedText: "You know nothing"})
         );
       case 'merlin':
         knownPlayers.push('minionOfMordred', 'assasin', 'morgana', 'oberon')
         return(
-          this.initializeText("All evil are revealed to you, except for Mordred:\n"),
-            this.props.players.forEach((player) => {
-              if (knownPlayers.indexOf(player.role) !== -1 && player.name !== this.props.currentPlayer.name){
-                this.addPlayer(player)
-              }
-            })
+          this.setState({revealedText: "All evil are revealed to you, except for Mordred:\n"}),
+          this.findPlayers(knownPlayers)
         );
       case 'percival':
         knownPlayers.push('merlin', 'morgana')
         return(
-          this.initializeText("The following players are either Merlin or Morgana:\n"),
-            this.props.players.forEach((player) => {
-              if (knownPlayers.indexOf(player.role) !== -1 && player.name !== this.props.currentPlayer.name){
-                this.addPlayer(player)
-              }
-            })
+          this.setState({revealedText: "The following players are either Merlin or Morgana:\n"}),
+          this.findPlayers(knownPlayers)
         );
     }
   }
@@ -80,7 +66,6 @@ export default class RolesView extends Component {
   }
 
   render() {
-    console.log("CURRENT PLAYER: ", this.props.currentPlayer)
     return (
       <View>
         <View style={styles.textView}>
@@ -93,6 +78,9 @@ export default class RolesView extends Component {
         <Card title='What you know' isCollapsed={false}>
           <View>
             <Text>{this.state.revealedText}</Text>
+            {this.state.knownPlayers.map((name, key)=>(
+              <Text key={key}> { name } </Text>)
+            )}
           </View>
         </Card>
         <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.toggleReveal()}>
