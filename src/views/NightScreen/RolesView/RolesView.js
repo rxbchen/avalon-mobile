@@ -47,7 +47,7 @@ export default class RolesView extends Component {
           this.setState({revealedText: "You know nothing"})
         );
       case 'merlin':
-        knownPlayers.push('minionOfMordred', 'assasin', 'morgana', 'oberon')
+        knownPlayers.push('minionOfMordred', 'assassin', 'morgana', 'oberon')
         return(
           this.setState({revealedText: "All evil are revealed to you, except for Mordred:\n"}),
           this.findPlayers(knownPlayers)
