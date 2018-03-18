@@ -13,7 +13,7 @@ export default class SetupScreen extends React.Component {
     this.state = {
       revealed: false,
       currentPlayer: this.props.players[0],
-      finalCheck: false
+      finalCheck: true
     }
   }
   toggleReveal() {
@@ -21,15 +21,26 @@ export default class SetupScreen extends React.Component {
   }
 
   finalCheckReturned(currentPlayer){
-    console.log("Current Player: ", currentPlayer)
     this.setState({finalCheck: false, currentPlayer: currentPlayer})
   }
-  //<RolesView toggleReveal={()=> this.revealToggle()} players={this.props.players} currentPlayer={this.state.currentPlayer}></RolesView>
+
+  renderScreen(){
+    if (this.state.finalCheck){
+      return <ConfirmView finalCheckReturned={(player)=> this.finalCheckReturned(player)} players={this.props.players}/>;
+    }
+    else if (this.state.revealed){
+      return <RolesView toggleReveal={()=> this.toggleReveal()} players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
+    }
+    else{
+      return <Text>Should be brians stuff here</Text>
+    }
+  }
+
   render() {
     return (
       <Background>
         <View>
-          <ConfirmView finalCheckReturned={()=> this.finalCheckReturned()} players={this.props.players}></ConfirmView>
+          {this.renderScreen()}
         </View>
       </Background>
     )
