@@ -21,11 +21,21 @@ export default class ConfirmView extends Component {
         </SelectButton>
       )
     }
+
     return (
       <View>
         <Text style={styles.headerText}>Does everyone know their role?</Text>
         <Text style={styles.text}>Confirm role for player...</Text>
         {playerButtons}
+        <SelectButton greenBackground>
+          Continue
+        </SelectButton>
+        <View style={{flexDirection: 'row'}}>
+          <Text style={styles.resetText}>Did something go wrong?</Text>
+          <SelectButton linearGradient={styles.resetButton} onPress={() => this.props.returnToSetup()}>
+            Reset
+          </SelectButton>
+        </View>
       </View>
     );
   }

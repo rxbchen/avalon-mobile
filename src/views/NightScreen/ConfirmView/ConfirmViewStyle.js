@@ -9,6 +9,14 @@ export default StyleSheet.create({
     width: 220,
     height: 70
   },
+  resetButton: {
+    margin: 10,
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 110,
+    height: 40
+  },
   textView: {
     paddingTop: 30,
     paddingBottom: 30
@@ -19,6 +27,12 @@ export default StyleSheet.create({
     color: '#FFF',
     fontSize: 23,
     fontWeight: "bold",
+  },
+  resetText:{
+    alignSelf: 'center',
+    textAlign: 'center',
+    color: '#FFF',
+    fontSize: 20
   },
   text:{
     alignSelf: 'center',
