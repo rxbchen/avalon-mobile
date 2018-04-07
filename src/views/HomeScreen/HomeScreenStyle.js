@@ -3,11 +3,12 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   title: {
     textAlign: "center",
-    fontFamily: "Roboto-Light",
+    //fontFamily: "Roboto-Light",
     color: '#FFF',
     fontSize: 60,
     fontWeight: '100',
-    lineHeight: 55
+    lineHeight: 55,
+    marginTop: 60,
   },
   linearGradient: {
     height: 40,

@@ -80,7 +80,9 @@ export default class RoleConfig extends Component {
           <View>
             {goodDropdownOptions}
             {badDropdownOptions}
-            <SelectButton onPress={() => this.props.updateRoles(this.state)}/>
+            <SelectButton onPress={() => this.props.updateRoles(this.state)} greenBackground>
+              Save and Continue
+            </SelectButton>
           </View>
         </Card>
       </View>
