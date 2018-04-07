@@ -3,12 +3,18 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   cardContainter : {
     padding: 10,
-    margin: 10
+    marginLeft: 10,
+    marginRight: 10,
+    marginTop: 5,
+    marginBottom: 5
   },
   titleContainer: {
     justifyContent: 'space-around',
-    paddingTop: 5,
-    paddingBottom: 5,
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    alignSelf: 'stretch'
   },
 
   titleText: {
@@ -29,8 +35,6 @@ export default StyleSheet.create({
   },
 
   linearGradient: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 1,
   }
 })
