@@ -3,7 +3,7 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   title: {
     textAlign: "center",
-    fontFamily: "Roboto-Light",
+    //fontFamily: "Roboto-Light",
     color: '#FFF',
     fontSize: 60,
     fontWeight: '100',
