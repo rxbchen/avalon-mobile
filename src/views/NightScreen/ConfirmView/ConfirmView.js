@@ -12,6 +12,15 @@ export default class ConfirmView extends Component {
     }
   }
 
+  continueToQuest()
+  {
+    const navigateParams = {
+      routeName: 'QuestScreen'
+    }
+    this.props.createQuests()
+    this.props.navigate(navigateParams)
+
+  }
   render() {
     let playerButtons = [];
     for (let i = 0; i < this.props.players.length; i++) {
@@ -27,7 +36,7 @@ export default class ConfirmView extends Component {
         <Text style={styles.headerText}>Does everyone know their role?</Text>
         <Text style={styles.text}>Confirm role for player...</Text>
         {playerButtons}
-        <SelectButton greenBackground>
+        <SelectButton greenBackground onPress={()=> this.continueToQuest()}>
           Continue
         </SelectButton>
         <View style={{flexDirection: 'row'}}>
