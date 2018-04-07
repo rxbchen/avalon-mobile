@@ -5,40 +5,40 @@ import RolesView from './RolesView'
 
 import Background from "src/components/Background/Background"
 import NameView from './NameView'
-// import RoleView from './RoleView/RoleView'
+import ConfirmView from "./ConfirmView";
 
 export default class NightScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       revealed: false,
-      currentPlayer: this.props.players[0]
+      currentPlayer: this.props.players[0],
+      finalCheck: true
     }
-    console.log(this.state.currentPlayer)
   }
   toggleReveal() {
     this.setState({revealed: !this.state.revealed})
   }
 
-export default class SetupScreen extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      revealed: false,
-      currentPlayer: this.props.players[0]
+  renderScreen(){
+    if (this.state.finalCheck){
+      return <ConfirmView returnToSetup={()=> this.props.navigate({routeName: 'SetupScreen'})}
+                          finalCheckReturned={(player)=> this.setState({finalCheck: false, currentPlayer: player})}
+                          players={this.props.players}/>
+    }
+    else if (this.state.revealed){
+      return <RolesView toggleReveal={()=> this.toggleReveal()} players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
+    }
+    else{
+      return <NameView playerName = {this.state.currentPlayer} revealToggle={() => this.toggleReveal()} />
     }
   }
-  toggleReveal() {
-    this.setState({revealed: !this.state.revealed})
-  }
+
   render() {
     return (
       <Background>
         <View>
-        { this.state.revealed ? <RolesView toggleReveal={()=> this.revealToggle()} players={this.props.players} currentPlayer={this.state.currentPlayer}></RolesView> : 
-          <NameView playerName = {this.state.currentPlayer}
-          revealToggle={() => this.toggleReveal()}/>
-        }
+          {this.renderScreen()}
         </View>
       </Background>
     )
