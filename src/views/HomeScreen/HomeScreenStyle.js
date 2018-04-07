@@ -7,7 +7,8 @@ export default StyleSheet.create({
     color: '#FFF',
     fontSize: 60,
     fontWeight: '100',
-    lineHeight: 55
+    lineHeight: 55,
+    marginTop: 60,
   },
   linearGradient: {
     height: 40,
