@@ -20,17 +20,25 @@ export default class NightScreen extends React.Component {
     this.setState({revealed: !this.state.revealed})
   }
 
+  goToFinal() {
+    this.setState({revealed: !this.state.revealed})
+    this.setState({finalCheck: true})
+  }
+
+
   renderScreen(){
+    console.log("Revealed: " + this.state.revealed + ", Final: " + this.state.revealed)
+
     if (this.state.finalCheck){
       return <ConfirmView returnToSetup={()=> this.props.navigate({routeName: 'SetupScreen'})}
                           finalCheckReturned={(player)=> this.setState({finalCheck: false, currentPlayer: player})}
                           players={this.props.players}/>
     }
     else if (this.state.revealed){
-      return <RolesView toggleReveal={()=> this.toggleReveal()} players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
+      return <RolesView goToFinal={()=> this.goToFinal()} goToFinal={ () => this.goToFinal() } players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
     }
     else{
-      return <NameView playerName = {this.state.currentPlayer} revealToggle={() => this.toggleReveal()} />
+      return <NameView playerName = {this.state.currentPlayer} toggleReveal={() => this.toggleReveal()} />
     }
   }
 

@@ -11,24 +11,24 @@ export default class NameView extends Component {
 
   render() {
     return (
-      <View>
-      <View>
-        <Text style={styles.caption}>
-          Please pass the phone to
-        </Text>
-      </View>
-      <View>
-        <Text style={styles.playerText}>
-          {this.props.playerName.name}
-        </Text>
-      </View>
-      <View>
-        <SelectButton 
-          onPress={() => this.props.toggleReveal()}
-          greenBackground={true}>
-          That's Me
-        </SelectButton>
-      </View>
+      <View style={styles.container}>
+        <View>
+          <Text style={styles.caption}>
+            Please pass the phone to
+          </Text>
+        </View>
+        <View>
+          <Text style={styles.playerText}>
+            {this.props.playerName.name}
+          </Text>
+        </View>
+        <View>
+          <SelectButton 
+            onPress={() => this.props.toggleReveal()}
+            greenBackground={true}>
+            That's Me
+          </SelectButton>
+        </View>
       </View>
     )
   }

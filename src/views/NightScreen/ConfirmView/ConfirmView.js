@@ -27,7 +27,7 @@ export default class ConfirmView extends Component {
         <Text style={styles.headerText}>Does everyone know their role?</Text>
         <Text style={styles.text}>Confirm role for player...</Text>
         {playerButtons}
-        <SelectButton greenBackground>
+        <SelectButton greenBackground onPress={() => {}}>
           Continue
         </SelectButton>
         <View style={{flexDirection: 'row'}}>
