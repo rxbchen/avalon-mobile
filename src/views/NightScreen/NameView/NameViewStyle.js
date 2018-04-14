@@ -2,31 +2,25 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   nameView: {
-    alignItems: 'center',
-    justifyContent: 'center'
+    paddingTop: 15,
+    paddingBottom: 15
   },
-  container: {
-    padding: 5,
-    margin: 5,
-    justifyContent: 'center',
-    alignItems: 'center',
+  buttonView: {
+    padding: 50
   },
   caption: {
     textAlign: "center",
-    fontFamily: "Roboto-Light",
     color: '#FFF',
     fontSize: 30,
     fontWeight: '100',
-    lineHeight: 55
+    margin: 5
   },
   playerText: {
     textAlign: "center",
-    alignSelf: "center",
     color: '#FFF',
     fontSize: 70,
     fontWeight: '200',
-    lineHeight: 55,
-    padding: 5
+    margin: 5
   },
   button: {
     borderRadius: 6,
