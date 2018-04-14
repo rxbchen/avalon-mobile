@@ -12,6 +12,10 @@ export default class HomeScreen extends Component {
       routeName: 'SetupScreen'
     }
 
+    const historyParams = {
+      routeName: 'HistoryScreen'
+    }
+
     return (
       <Background style={styles.main_container} isScrollEnabled={false}>
         <Text style={styles.title}>AVALON MOBILE</Text>
@@ -29,6 +33,9 @@ export default class HomeScreen extends Component {
         </SelectButton>
         <SelectButton linearGradient={styles.smallButton}>
           SETTINGS
+        </SelectButton>
+        <SelectButton linearGradient={styles.smallButton} onPress={() => this.props.navigate(historyParams)}>
+          History
         </SelectButton>
       </Background>
     );
