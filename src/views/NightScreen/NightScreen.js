@@ -1,5 +1,6 @@
 import React from 'react'
 import { View, Text } from 'react-native'
+import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base'
 import styles from './NightScreenStyle'
 import RolesView from './RolesView'
 
@@ -8,6 +9,7 @@ import NameView from './NameView'
 import ConfirmView from "./ConfirmView";
 
 export default class NightScreen extends React.Component {
+  static navigationOptions = {header: null}
   constructor(props) {
     super(props)
     this.state = {
@@ -44,11 +46,23 @@ export default class NightScreen extends React.Component {
 
   render() {
     return (
-      <Background>
-        <View>
-          {this.renderScreen()}
-        </View>
-      </Background>
+      <Container>
+        <Header style={styles.headerStyle}>
+          <Body>
+          <Title style={styles.headerFont}>Pre-Game</Title>
+          </Body>
+          <Right>
+            <Button transparent onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
+              <Text>Home</Text>
+            </Button>
+          </Right>
+        </Header>
+        <Background>
+          <View>
+            {this.renderScreen()}
+          </View>
+        </Background>
+      </Container>
     )
   }
 }
