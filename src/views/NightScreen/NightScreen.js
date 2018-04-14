@@ -13,34 +13,42 @@ export default class NightScreen extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      index: 1,
       revealed: false,
       currentPlayer: this.props.players[0],
-      finalCheck: true
+      finalCheck: false
     }
   }
   toggleReveal() {
     this.setState({revealed: !this.state.revealed})
   }
 
-  goToFinal() {
-    this.setState({revealed: !this.state.revealed})
-    this.setState({finalCheck: true})
+  goToNext() {
+    if ( this.state.index < this.props.players.length ) {
+      this.setState({
+        finalCheck: false,
+        index: this.state.index + 1,
+        currentPlayer: this.props.players[this.state.index],
+      })
+    }
+    else {
+      this.setState({ finalCheck: true })
+    }
+    this.toggleReveal()
   }
 
 
   renderScreen(){
-    console.log("Revealed: " + this.state.revealed + ", Final: " + this.state.revealed)
-
     if (this.state.finalCheck) {
       return <ConfirmView returnToSetup={()=> this.props.navigate({routeName: 'SetupScreen'})}
                           finalCheckReturned={(player)=> this.setState({finalCheck: false, currentPlayer: player})}
                           players={this.props.players}/>
     }
     else if (this.state.revealed) {
-      return <RolesView goToFinal={()=> this.goToFinal()} goToFinal={ () => this.goToFinal() } players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
+      return <RolesView goToNext={ () => this.goToNext() } players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
     }
     else{
-      return <NameView playerName = {this.state.currentPlayer} toggleReveal={() => this.toggleReveal()} />
+      return <NameView playerName={this.state.currentPlayer} toggleReveal={() => this.toggleReveal()} />
     }
   }
 
