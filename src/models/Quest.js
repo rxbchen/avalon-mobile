@@ -27,7 +27,7 @@ class Quest {
   createQuests = () =>{
     return (dispatch, getState) => {
       const newQuestModel = Object.assign({}, getState().Quest)
-      console.log("newquestmodel", newQuestModel)
+      if(newQuestModel.models.length) newQuestModel.models = []
       getState().Game.quests.forEach((quest,i) => {
         newQuestModel.models.push({quest})
         newQuestModel.models[i].status = i==0?'active':'unvisited'

@@ -29,6 +29,7 @@ class Player {
   createPlayers = (names) => {
     return (dispatch, getState) => {
       const newPlayerModel = Object.assign({}, getState().Player)
+      if (newPlayerModel.models.length) newPlayerModel.models = []
       names.forEach((name) => {
         newPlayerModel.models.push({name})
       })
