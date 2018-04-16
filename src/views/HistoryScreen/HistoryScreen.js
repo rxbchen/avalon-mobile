@@ -3,68 +3,63 @@ import { View, Text } from 'react-native'
 
 import styles from './HistoryScreenStyle'
 import Background from "src/components/Background/Background"
+import SelectButton from "src/components/SelectButton"
 
 export default class HistoryScreen extends Component {
   constructor(props) {
     super(props)
 
     this.state = {
-      overall_history: true,
       view_player: false,
       view_quest: false
     }
   }
 
-  viewOverallHistory() {
-    this.setState({ 
-      view_player: this.state.view_player = false,
-      view_quest: this.state.view_quest = false,
-      overall_history: this.state.overall_history = true
-    })
-  }
-
   viewPlayerHistory() {
     this.setState({ 
       view_player: this.state.view_player = true,
-      overall_history: this.state.overall_history = false
+      view_quest: this.state.view_quest = false
     })
   }
 
   viewQuestHistory() {
     this.setState({ 
-      view_player: this.state.view_quest = true,
-      overall_history: this.state.overall_history = false
+      view_quest: this.state.view_quest = true,
+      view_player: this.state.view_player = false
     })
   }
 
   renderScreen() {
-    if (this.state.overall_history) {
+    console.log("history: " + this.state.overall_history + ", " + "player: " + this.state.view_player + ", " + "quest: " + this.state.view_quest)
+    if (this.state.view_player) {
       return (
         <View>
-          <Text>Should be overall</Text>
+          <Text>PlayerView</Text>
         </View>
       )
     }
-    else {
-      if (this.state.view_player) {
-        return (
-          <View>
-            <Text>PlayerView</Text>
-          </View>
-        )
-      }
-      if (this.state.view_quest) {
+    if (this.state.view_quest) {
+      return (
         <View>
           <Text>QuestView</Text>
         </View>
-      }
+      )
     }
   }
   
   render() {
     return (
+      // quests Array -> QuestObject(captainIndex, adventurers)
       <Background>
         <View>
+          <View>
+            <SelectButton linearGradient={styles.topButton} onPress={() => { this.viewPlayerHistory() }}>
+              View Player History
+            </SelectButton>
+            <SelectButton linearGradient={styles.topButton} onPress={() => { this.viewQuestHistory() }}>
+              View Quest History
+            </SelectButton>
+          </View>
           { this.renderScreen() }
         </View>
       </Background>

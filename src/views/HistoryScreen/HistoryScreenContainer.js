@@ -1,10 +1,11 @@
-import NightScreen from './HistoryScreen'
+import HistoryScreen from './HistoryScreen'
 import Navigation from '../../models/Navigation'
 import { connect } from "react-redux"
 import Player from "src/models/Player"
 
 const mapStateToProps = state => ({
-  players: Player.getPlayers(state)
+  players: Player.getPlayers(state),
+  quests: Quest.getQuest(state)
 })
 
 const mapActionCreators = {
