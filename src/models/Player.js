@@ -7,14 +7,18 @@ class Player {
 
   getPlayers = (state) => {
     return state && state.Player && state.Player.models
-  };
+  }
+
+  getPlayerNames = (state) => {
+    return state && state.Player && state.Player.models && state.Player.models.map((player) => {return(player.name)})
+  }
 
   getHandlers = () => {
     return Object.assign({}, {
       createPlayers: (state, action) => Object.assign({}, state, action.payload),
       updatePlayers: (state, action) => Object.assign({}, state, {models: action.payload})
     })
-  };
+  }
 
   assignRoles = (roles) => {
     return (dispatch, getState) => {

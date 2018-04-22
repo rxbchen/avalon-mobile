@@ -13,7 +13,6 @@ export default class CustomDropdown extends Component {
 
     render() {
         return (
-
             <Dropdown ref = 'dropdown'
                 textColor={'rgb(0,0,0)'}
                 label = {this.props.label ? this.props.label : ''}
@@ -32,5 +31,6 @@ CustomDropdown.propTypes = {
     options: proptypes.array.isRequired,
     onChange: proptypes.func,
     icon: proptypes.element,
-    label: proptypes.string
+    label: proptypes.string,
+    value: proptypes.string
 }
