@@ -20,7 +20,6 @@ export default class CustomDropdown extends Component {
                 value = {this.props.value}
                 dropdownPosition = {0}
                 onChangeText={this.props.onChange}
-
             />
 
         );

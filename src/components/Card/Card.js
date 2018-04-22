@@ -36,9 +36,9 @@ export default class Card extends React.Component {
 
 Card.propTypes = {
   title: proptypes.string.isRequired,
-  children: proptypes.element.isRequired,
+  children: proptypes.any.isRequired,
   collapsed: proptypes.bool,
-  icon: proptypes.any,
+  icon: proptypes.any
 }
 
 Card.defaultProps = {

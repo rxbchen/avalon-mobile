@@ -1,6 +1,5 @@
 import _ from "lodash"
 
-
 class Quest {
   constructor(initialState = {models: []}) {
     this.initialState = initialState
@@ -59,8 +58,6 @@ class Quest {
 }
 
 const quest = new Quest();
-
-
 
 export const reducer = quest.getReducer();
 export default quest;

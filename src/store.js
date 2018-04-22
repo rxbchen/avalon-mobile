@@ -14,7 +14,7 @@ const AppReducer = combineReducers({
   NavigationReducer,
   Game,
   Player,
-  Quest,
+  Quest
 });
 
 const store = createStore(AppReducer, applyMiddleware(...middlewares));
