@@ -54,8 +54,6 @@ export default class QuestScreen extends Component {
     const getDropdowns = () => {
       let dropdowns = []
       for(let i = 0; i < quest.numAdventurers; ++i) {
-        // if (this.state.selectedPlayers[i]) players.push({value: this.state.selectedPlayers[i]})
-        console.log('players', players, this.state.selectedPlayers[i])
         dropdowns.push(
           <CustomDropdown
             options={players}
@@ -91,9 +89,9 @@ export default class QuestScreen extends Component {
     let QuestCards = this.props.quests.map((quest, i) => {
       return <Card title={"Quest" + (i + 1)} collapsed={!_.isEqual(quest, this.state.activeQuest)} icon={this.getIcon(quest)} >
         <View>
-          <Text>{quest.numAdventurers} Players</Text>
-          <Text>{quest.reqFails} Fails Required</Text>
-          <Text>{quest.failedVotes} Failed Votes</Text>
+          <Text>{quest.numAdventurers} {quest.numAdventurers !== 1 ? 'Players' : 'Player'}</Text>
+          <Text>{quest.reqFails} {quest.reqFails !== 1 ? 'Fails Required' : 'Fail Required'}</Text>
+          <Text>{quest.failedVotes} {quest.failedVotes !== 1 ? 'Failed Votes' : 'Failed Vote'}</Text>
         </View>
         {this.getProposalInfo(quest)}
       </Card>

@@ -38,7 +38,6 @@ class Quest {
         newQuestModel.models[i].status = i===0?'active':'unvisited'
         newQuestModel.models[i].failedVotes = 0
         newQuestModel.models[i].id = i
-        console.log("newquestmodel", newQuestModel)
       })
       newQuestModel.models[0].captainIndex = _.random(getState().Player.models.length -1)
       return dispatch({type: 'createQuests', payload: newQuestModel})
