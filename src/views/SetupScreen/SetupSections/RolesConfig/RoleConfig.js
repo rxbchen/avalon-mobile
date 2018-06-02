@@ -11,14 +11,21 @@ import {reverseCamelCase} from "src/utils/stringUtils";
 export default class RoleConfig extends Component {
   constructor(props) {
     super(props)
-    this.state = {
-      rolesGood: [],
-      rolesBad: [],
+    if (!_.isEmpty(this.props.game)) {
+      this.state = this.initializeRoles(this.props.game)
+    } else {
+      this.state = {
+        rolesGood: [],
+        rolesBad: [],
+      }
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const game = nextProps.game
+    this.setState(this.initializeRoles(nextProps.game))
+  }
+
+  initializeRoles(game) {
     const rolesGood = []
     const rolesBad = []
     for( let role in game.rolesGood) {
@@ -31,7 +38,7 @@ export default class RoleConfig extends Component {
         rolesBad.push({value: role, display: reverseCamelCase(role)})
       }
     }
-    this.setState({rolesGood, rolesBad})
+    return {rolesGood, rolesBad}
   }
 
   selectRoleName(displayName, index,  team) {
@@ -39,6 +46,11 @@ export default class RoleConfig extends Component {
     newRoles[index].display = displayName
     newRoles[index].value = _.camelCase(displayName)
     this.setState({ [`roles${team}`]: newRoles})
+  }
+
+  saveAndContinue(state){
+    this.props.updateRoles(state)
+    this.props.displayAndOpen({displayPlayers: true}, {openPlayers: true, openRoles: false})
   }
 
   render() {
@@ -76,11 +88,11 @@ export default class RoleConfig extends Component {
     }
     return (
       <View>
-        <Card title='Role Configuration' isCollapsed={false}>
+        <Card title='Role Configuration' collapsed={this.props.collapsed}>
           <View>
             {goodDropdownOptions}
             {badDropdownOptions}
-            <SelectButton onPress={() => this.props.updateRoles(this.state)} greenBackground>
+            <SelectButton onPress={() => this.saveAndContinue(this.state)} greenBackground>
               Save and Continue
             </SelectButton>
           </View>

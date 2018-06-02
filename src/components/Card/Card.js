@@ -13,6 +13,10 @@ export default class Card extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({isCollapsed: nextProps.collapsed})
+  }
+
   toggleCollapse() {
     this.setState({isCollapsed: !this.state.isCollapsed})
   }

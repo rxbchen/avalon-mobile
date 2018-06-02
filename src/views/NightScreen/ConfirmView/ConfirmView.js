@@ -12,15 +12,21 @@ export default class ConfirmView extends Component {
     }
   }
 
-  continueToQuest()
-  {
+  continueToQuest() {
     const navigateParams = {
       routeName: 'QuestScreen'
     }
     this.props.createQuests()
     this.props.navigate(navigateParams)
-
   }
+
+  returnToSetup() {
+    const navigateParams = {
+      routeName: 'SetupScreen'
+    }
+    this.props.navigate(navigateParams)
+  }
+
   render() {
     let playerButtons = [];
     for (let i = 0; i < this.props.players.length; i++) {
@@ -41,7 +47,7 @@ export default class ConfirmView extends Component {
         </SelectButton>
         <View style={{flexDirection: 'row'}}>
           <Text style={styles.resetText}>Did something go wrong?</Text>
-          <SelectButton linearGradient={styles.resetButton} onPress={() => this.props.returnToSetup()}>
+          <SelectButton linearGradient={styles.resetButton} onPress={() => this.returnToSetup()}>
             Reset
           </SelectButton>
         </View>
