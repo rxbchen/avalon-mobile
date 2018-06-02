@@ -1,6 +1,5 @@
 import React from 'react'
 import { View, Text } from 'react-native'
-import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'native-base'
 import styles from './NightScreenStyle'
 import RolesView from './RolesView'
 

@@ -3,7 +3,7 @@ import { ImageBackground, ScrollView } from 'react-native';
 import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
 import { Text } from 'react-native'
-import { Container, Header, Body, Right, Button, Title } from 'native-base'
+import { Header, Body, Right, Button, Title } from 'native-base'
 
 
 export default class BackgroundImage extends React.Component {
