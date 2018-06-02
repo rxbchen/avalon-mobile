@@ -4,7 +4,7 @@ import { Container, Header, Left, Body, Right, Button, Icon, Title } from 'nativ
 import styles from './NightScreenStyle'
 import RolesView from './RolesView'
 
-import Background from "src/components/Background/Background"
+import Background from "src/components/Background"
 import NameView from './NameView'
 import ConfirmView from "./ConfirmView";
 
@@ -53,23 +53,11 @@ export default class NightScreen extends React.Component {
 
   render() {
     return (
-      <Container>
-        <Header style={styles.headerStyle}>
-          <Body>
-          <Title style={styles.headerFont}>Pre-Game</Title>
-          </Body>
-          <Right>
-            <Button transparent onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
-              <Text>Home</Text>
-            </Button>
-          </Right>
-        </Header>
-        <Background>
+        <Background title='Pre Game'>
           <View>
             {this.renderScreen()}
           </View>
         </Background>
-      </Container>
     )
   }
 }

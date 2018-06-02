@@ -2,6 +2,9 @@ import React from 'react';
 import { ImageBackground, ScrollView } from 'react-native';
 import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
+import { Text } from 'react-native'
+import { Container, Header, Body, Right, Button, Title } from 'native-base'
+
 
 export default class BackgroundImage extends React.Component {
   constructor(props) {
@@ -21,6 +24,18 @@ export default class BackgroundImage extends React.Component {
       <ImageBackground source={require(backgroundPath)}
                        style={styles.backgroundImage}
                        onLoad={() => this.displayContent()}>
+        {this.props.header === false ? null :
+          <Header style={styles.headerStyle}>
+            <Body>
+              <Title style={styles.headerFont}>{this.props.title}</Title>
+            </Body>
+            <Right>
+              <Button transparent onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
+                <Text>Home</Text>
+              </Button>
+            </Right>
+          </Header>
+        }
         <ScrollView scrollEnabled={this.props.isScrollEnabled}>
           {this.state.showContent ? this.props.children : null}
         </ScrollView>
