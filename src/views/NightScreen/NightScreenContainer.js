@@ -8,8 +8,4 @@ const mapStateToProps = state => ({
   players: Player.getPlayers(state)
 })
 
-const mapActionCreators = {
-  navigate: Navigation.navigate,
-  createQuests: Quest.createQuests
-}
-export default connect(mapStateToProps, mapActionCreators)(NightScreen)
+export default connect(mapStateToProps)(NightScreen)

@@ -15,23 +15,28 @@ export default class GameConfig extends Component {
     return gameObj === this.props.Game
   }
 
+  onPressHandler(gameSetup) {
+    this.props.createGame(gameSetup)
+    this.props.displayAndOpen({displayRoles: true}, {openGame: false, openRoles: true})
+  }
+
   render() {
     return (
-      <Card title='Game Configuration' isCollapsed={false}>
+      <Card title='Game Configuration' collapsed={this.props.collapsed}>
         <View style={styles.buttonContainer}>
-          <SelectButton linearGradient={styles.button} onPress={() => this.props.createGame(defaultGameSetups.fivePlayers)}>
+          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.fivePlayers)}>
             GameConfig 1
           </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.props.createGame(defaultGameSetups.sixPlayers)}>
+          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sixPlayers)}>
             GameConfig 2
           </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.props.createGame(defaultGameSetups.sevenPlayers)}>
+          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sevenPlayers)}>
             GameConfig 3
           </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.props.createGame(defaultGameSetups.eightPlayers)}>
+          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.eightPlayers)}>
             GameConfig 4
           </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.props.createGame(defaultGameSetups.ninePlayers)}>
+          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.ninePlayers)}>
             GameConfig 5
           </SelectButton>
         </View>

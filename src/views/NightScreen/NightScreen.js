@@ -38,8 +38,7 @@ export default class NightScreen extends React.Component {
 
   renderScreen(){
     if (this.state.finalCheck) {
-      return <ConfirmView returnToSetup={()=> this.props.navigate({routeName: 'SetupScreen'})}
-                          finalCheckReturned={(player)=> this.setState({finalCheck: false, currentPlayer: player})}
+      return <ConfirmView finalCheckReturned={(player)=> this.setState({finalCheck: false, currentPlayer: player})}
                           players={this.props.players}/>
     }
     else if (this.state.revealed) {
