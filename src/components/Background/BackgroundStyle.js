@@ -5,5 +5,15 @@ export default StyleSheet.create({
     flex: 1,
     width: null,
     height: null,
+  },
+  container: {
+    color: '#FFF'
+  },
+  headerStyle: {
+    backgroundColor: '#f3e7b8',
+  },
+  headerFont: {
+    color: "#000",
+    fontWeight: 'bold'
   }
 });

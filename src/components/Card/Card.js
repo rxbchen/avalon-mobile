@@ -4,8 +4,7 @@ import Collapsible from 'react-native-collapsible'
 import proptypes from 'prop-types'
 import styles from './CardStyle'
 import LinearGradient from 'react-native-linear-gradient';
-
-
+import GLOBALS from 'src/globals'
 
 export default class Card extends React.Component {
   constructor(props) {
@@ -15,6 +14,10 @@ export default class Card extends React.Component {
     }
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({isCollapsed: nextProps.collapsed})
+  }
+
   toggleCollapse() {
     this.setState({isCollapsed: !this.state.isCollapsed})
   }
@@ -22,10 +25,10 @@ export default class Card extends React.Component {
   render() {
     return (
       <View style={styles.cardContainter}>
-        <LinearGradient colors={['#762323', '#5d1414']} style={styles.linearGradient}>
+        <LinearGradient colors={GLOBALS.COLOR.RED_GRADIENT} style={styles.linearGradient}>
           <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
             <Text style={styles.titleText}>{this.props.title}</Text>
-            <Image style={styles.titleImage} src={this.props.icon} />
+            <Image style={styles.titleImage} source={this.props.icon} />
           </TouchableOpacity>
         </LinearGradient>
         <Collapsible style={styles.collapsibleContainer} collapsed={this.state.isCollapsed}>
@@ -38,7 +41,7 @@ export default class Card extends React.Component {
 
 Card.propTypes = {
   title: proptypes.string.isRequired,
-  children: proptypes.element.isRequired,
+  children: proptypes.any.isRequired,
   collapsed: proptypes.bool,
   icon: proptypes.any
 }

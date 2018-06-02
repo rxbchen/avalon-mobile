@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Alert, Image, Text, View, TouchableOpacity } from 'react-native'
 import styles from './SelectButtonStyle'
 import LinearGradient from 'react-native-linear-gradient';
-// Button component
+import GLOBALS from 'src/globals'
 export default class SelectButton extends Component {
   constructor(props) {
     super(props)
@@ -10,7 +10,7 @@ export default class SelectButton extends Component {
 
   render() {
     return (
-      <LinearGradient colors={this.props.greenBackground ? ['#56bf00', '#57ab16'] : ['#762323', '#5d1414']}
+      <LinearGradient colors={this.props.greenBackground ? GLOBALS.COLOR.GREEN_GRADIENT : GLOBALS.COLOR.RED_GRADIENT}
                       style={this.props.linearGradient ? this.props.linearGradient : styles.linearGradient}>
         <TouchableOpacity onPress={() => this.props.onPress()}
           style={this.props.isSelected ? styles.selectedButton : styles.unSelectedButton}
