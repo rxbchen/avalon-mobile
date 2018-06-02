@@ -7,7 +7,6 @@ export default StyleSheet.create({
   },
   unSelectedButton: {
     alignSelf: 'stretch',
-    margin: 10
   },
   textStyle: {
     alignSelf: 'center',
@@ -15,13 +14,11 @@ export default StyleSheet.create({
     color: '#FFF',
     fontSize: 26,
     fontWeight: "bold",
-    paddingTop: 10,
-    paddingBottom: 10
+    padding: 10
   },
   buttonIcon: {
     height: 25,
     width: 25,
-    justifyContent: 'center'
   },
   sectionStyleIcon: {
     flexDirection: 'row',
@@ -50,6 +47,11 @@ export default StyleSheet.create({
     alignItems: 'center'
   },
   linearGradient: {
-    borderRadius: 5,
+    borderRadius: 6,
+    flex: 1,
+    marginLeft: 20,
+    marginRight: 20,
+    shadowOpacity: 0.75,
+    shadowRadius: 5,
   }
 });
