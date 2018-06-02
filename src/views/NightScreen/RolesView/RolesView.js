@@ -83,7 +83,7 @@ export default class RolesView extends Component {
             )}
           </View>
         </Card>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.toggleReveal()}>
+        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.goToNext()}>
           Continue
         </SelectButton>
       </View>
