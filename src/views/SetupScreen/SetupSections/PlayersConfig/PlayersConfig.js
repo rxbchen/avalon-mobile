@@ -10,7 +10,7 @@ export default class PlayersConfig extends React.Component {
     super(props);
     this.state = {
       names: [],
-      isValid: false
+      isValid: true
     }
   }
 
@@ -43,6 +43,11 @@ export default class PlayersConfig extends React.Component {
     })
   }
 
+  saveAndContinue(names) {
+    this.props.createPlayers(names)
+    this.props.displayAndOpen({displayButton: true}, {openPlayers: false})
+  }
+
   render() {
     let textInputs = [];
     for (let i = 0; i < this.props.game.numPlayers; i++) {
@@ -51,10 +56,10 @@ export default class PlayersConfig extends React.Component {
       )
     }
     return (
-      <Card title='Player Configuration' isCollapsed={false}>
+      <Card title='Player Configuration' collapsed={this.props.collapsed}>
         <View>
           {textInputs}
-          <SelectButton disabled={!this.state.isValid} onPress={() => this.props.createPlayers(this.state.names)} greenBackground>
+          <SelectButton disabled={!this.state.isValid} onPress={() => this.saveAndContinue(this.state.names)} greenBackground>
             Save and Continue
           </SelectButton>
           {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}

@@ -6,7 +6,10 @@ export default StyleSheet.create({
     margin: 10
   },
   titleContainer: {
-    justifyContent: 'space-around',
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: 5,
     paddingBottom: 5,
   },
