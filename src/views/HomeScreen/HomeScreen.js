@@ -13,7 +13,7 @@ export default class HomeScreen extends Component {
     }
 
     return (
-      <Background style={styles.main_container} isScrollEnabled={false}>
+      <Background header={false} style={styles.main_container} isScrollEnabled={false}>
         <Text style={styles.title}>AVALON MOBILE</Text>
         <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.navigate(navigateParams)}>
           PLAY

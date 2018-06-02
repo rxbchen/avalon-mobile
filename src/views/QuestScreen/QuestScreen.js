@@ -8,6 +8,7 @@ import _ from 'lodash'
 import CustomDropdown from "../../components/Dropdown/Dropdown";
 
 export default class QuestScreen extends Component {
+  static navigationOptions = {header: null}
   constructor(props) {
     super(props)
     let selectedPlayers = []
@@ -97,7 +98,7 @@ export default class QuestScreen extends Component {
       </Card>
     })
     return (
-      <Background>
+      <Background title='Quest'>
         <View>
           {QuestCards}
         </View>

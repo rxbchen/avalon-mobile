@@ -3,8 +3,8 @@ import _ from 'lodash'
 import { StackNavigator } from 'react-navigation';
 import { Text, View, TouchableOpacity } from 'react-native';
 import styles from './SetupScreenStyle'
-import { randomizeRoles } from "src/utils/helpers";
-import Background from "src/components/Background/Background";
+import { randomizeRoles } from "src/utils/helpers"
+import Background from "src/components/Background"
 import SelectButton from "src/components/SelectButton"
 
 import GameConfig from './SetupSections/GameConfig'
@@ -13,6 +13,7 @@ import PlayersConfig from './SetupSections/PlayersConfig'
 
 
 export default class SetupScreen extends Component {
+  static navigationOptions = {header: null}
   constructor(props) {
     super(props)
     const emptyGame = _.isEmpty(this.props.game)
@@ -40,7 +41,7 @@ export default class SetupScreen extends Component {
     const {openGame, openRoles, openPlayers} = this.state.openCards
 
     return (
-      <Background>
+      <Background title='Set up'>
         <GameConfig collapsed={!openGame} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/>
         {displayRoles ? <RolesConfig collapsed={!openRoles} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
         {displayPlayers ? <PlayersConfig collapsed={!openPlayers} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}

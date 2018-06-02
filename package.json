@@ -9,6 +9,7 @@
   "dependencies": {
     "helpers": "^0.0.6",
     "lodash": "^4.17.5",
+    "native-base": "^2.4.2",
     "prop-types": "^15.6.0",
     "react": "16.2.0",
     "react-native": "^0.52.2",
