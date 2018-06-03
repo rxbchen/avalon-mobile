@@ -34,9 +34,6 @@ export default class HomeScreen extends Component {
         <SelectButton linearGradient={styles.smallButton}>
           SETTINGS
         </SelectButton>
-        <SelectButton linearGradient={styles.smallButton} onPress={() => this.props.navigate(historyParams)}>
-          History
-        </SelectButton>
       </Background>
     );
   }

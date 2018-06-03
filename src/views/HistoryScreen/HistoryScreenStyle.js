@@ -6,6 +6,7 @@ export default StyleSheet.create({
     justifyContent: 'center'
   },
   topButton: {
-    flex: 1
-  }
+    margin: 5,
+    padding: 10
+  },
 })

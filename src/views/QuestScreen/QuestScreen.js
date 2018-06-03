@@ -101,6 +101,9 @@ export default class QuestScreen extends Component {
       <Background title='Quest'>
         <View>
           {QuestCards}
+          <SelectButton onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
+            History
+          </SelectButton>
         </View>
       </Background>
     )
