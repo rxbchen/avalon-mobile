@@ -2,8 +2,10 @@ import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   cardContainter : {
-    padding: 10,
-    margin: 10
+    paddingTop: 10,
+    marginTop: 10,
+    paddingBottom: 10,
+    marginBottom: 10,
   },
   titleContainer: {
     flex: 1,

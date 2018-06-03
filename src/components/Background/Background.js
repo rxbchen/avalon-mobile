@@ -21,7 +21,7 @@ export default class BackgroundImage extends React.Component {
       <ImageBackground source={require(backgroundPath)}
                        style={styles.backgroundImage}
                        onLoad={() => this.displayContent()}>
-        <ScrollView scrollEnabled={this.props.isScrollEnabled}>
+        <ScrollView style={{height: '100%'}} scrollEnabled={this.props.isScrollEnabled}>
           {this.state.showContent ? this.props.children : null}
         </ScrollView>
       </ImageBackground>

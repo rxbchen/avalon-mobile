@@ -10,13 +10,20 @@ import Background from "src/components/Background/Background"
 export default class MissionScreen extends React.Component {
   constructor(props) {
     super(props)
+    let currMission = -1
+    for(let i = 0; i < this.props.quest.length; i++){
+      if(this.props.quest[i].status === "active"){
+        currMission = i
+      }
+    }
     console.log("props", this.props)
     this.state = {
       index: 0,
       revealed: false,
-      currentPlayer: this.props.quest[0].adventurers[0],
+      currentPlayer: this.props.quest[currMission].adventurers[0],
       finalCheck: false,
       numFailVotes: 0,
+      currentMission: currMission
     }
   }
   toggleReveal() {
@@ -24,9 +31,9 @@ export default class MissionScreen extends React.Component {
   }
 
   goToNext(vote) {
-    if(vote == 'Fail'){
+    if(vote === 'Fail'){
       for(let i = 0; i < this.props.game.numPlayers; i++) {
-        if(this.props.players[i] === this.props.quest[0].adventurers[this.state.index]){
+        if(this.props.players[i] === this.props.quest[this.state.currentMission].adventurers[this.state.index]){
           switch(this.props.players[i].role)
           {
             case 'morgana':
@@ -41,11 +48,11 @@ export default class MissionScreen extends React.Component {
         }
       }
     }
-    if ( this.state.index < this.props.quest[0].numAdventurers - 1) {
+    if ( this.state.index < this.props.quest[this.state.currentMission].numAdventurers - 1) {
       this.setState({
         finalCheck: false,
         index: this.state.index + 1,
-        currentPlayer: this.props.quest[0].adventurers[this.state.index + 1],
+        currentPlayer: this.props.quest[this.state.currentMission].adventurers[this.state.index + 1],
       })
     }
     else {
@@ -57,7 +64,7 @@ export default class MissionScreen extends React.Component {
 
   renderScreen(){
     if (this.state.finalCheck) {
-      return <ResultsView numFails={this.state.numFailVotes}/>
+      return <ResultsView numFails={this.state.numFailVotes} currentMission={this.state.currentMission}/>
     }
     else if (this.state.revealed) {
       return <VoteView goToNext={ (vote) => this.goToNext(vote) } players={this.props.players} currentPlayer={this.state.currentPlayer}/>;
@@ -69,10 +76,8 @@ export default class MissionScreen extends React.Component {
 
   render() {
     return (
-      <Background>
-        <View>
-          {this.renderScreen()}
-        </View>
+      <Background isScrollEnabled={false}>
+        {this.renderScreen()}
       </Background>
     )
   }

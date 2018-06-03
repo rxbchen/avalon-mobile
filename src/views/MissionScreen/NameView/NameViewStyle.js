@@ -1,9 +1,11 @@
-import { StyleSheet } from 'react-native'
+import {Dimensions, StyleSheet} from 'react-native'
 
 export default StyleSheet.create({
   nameView: {
-    paddingTop: 15,
-    paddingBottom: 15
+    height: Dimensions.get('window').height,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
   },
   buttonView: {
     padding: 50
@@ -20,10 +22,9 @@ export default StyleSheet.create({
     color: '#FFF',
     fontSize: 70,
     fontWeight: '200',
-    margin: 5
   },
   button: {
     borderRadius: 6,
-    flex: 1,
+    marginBottom: Dimensions.get('window').height*0.1
   }
 })
