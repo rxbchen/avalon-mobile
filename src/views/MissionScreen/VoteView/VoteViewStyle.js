@@ -1,4 +1,5 @@
 import {Dimensions, StyleSheet} from 'react-native'
+import GLOBAL from 'src/globals'
 
 export default StyleSheet.create({
   playerText: {
@@ -23,9 +24,10 @@ export default StyleSheet.create({
   bottomButton: {
     width: Dimensions.get("window").width,
     height: 70,
+    marginBottom: GLOBAL.SIZE.SCREEN_OFFSET*2.25,
   },
   voteView: {
-    height: Dimensions.get('window').height*0.8,
+    height: GLOBAL.SIZE.SCREEN_HEIGHT,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",

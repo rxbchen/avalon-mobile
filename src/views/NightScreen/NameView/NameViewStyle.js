@@ -1,8 +1,9 @@
-import { StyleSheet, Dimensions } from 'react-native'
+import { StyleSheet } from 'react-native'
+import GLOBALS from 'src/globals'
 
 export default StyleSheet.create({
   nameView: {
-    height: Dimensions.get('window').height,
+    height: GLOBALS.SIZE.SCREEN_HEIGHT,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
@@ -23,6 +24,6 @@ export default StyleSheet.create({
   },
   button: {
     borderRadius: 6,
-    marginBottom: Dimensions.get('window').height*0.1
+    marginBottom: GLOBALS.SIZE.SCREEN_OFFSET
   }
 })

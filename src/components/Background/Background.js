@@ -36,7 +36,7 @@ export default class BackgroundImage extends React.Component {
             </Right>
           </Header>
         }
-        <ScrollView scrollEnabled={this.props.isScrollEnabled}>
+        <ScrollView style={styles.scrollView} scrollEnabled={this.props.isScrollEnabled}>
           {this.state.showContent ? this.props.children : null}
         </ScrollView>
       </ImageBackground>
@@ -46,4 +46,5 @@ export default class BackgroundImage extends React.Component {
 
 BackgroundImage.propTypes = {
   isScrollEnabled: proptypes.bool,
+  title: proptypes.string,
 }

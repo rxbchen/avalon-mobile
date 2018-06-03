@@ -76,7 +76,7 @@ export default class MissionScreen extends React.Component {
 
   render() {
     return (
-      <Background isScrollEnabled={false}>
+      <Background isScrollEnabled={false} title={'Mission'}>
         {this.renderScreen()}
       </Background>
     )
