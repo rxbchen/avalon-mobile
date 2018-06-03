@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native'
+import { Text, View} from 'react-native'
 import styles from './ConfirmViewStyle'
 import SelectButton from "src/components/SelectButton"
 
@@ -14,7 +14,9 @@ export default class ConfirmView extends Component {
 
   continueToQuest() {
     const navigateParams = {
-      routeName: 'QuestScreen'
+      //routeName: 'QuestScreen'
+      // TEMP TESTING FOR END SCREEN SHORTCUT
+      routeName: 'EndScreen'
     }
     this.props.createQuests()
     this.props.navigate(navigateParams)

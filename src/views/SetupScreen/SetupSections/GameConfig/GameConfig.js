@@ -25,19 +25,19 @@ export default class GameConfig extends Component {
       <Card title='Game Configuration' collapsed={this.props.collapsed}>
         <View style={styles.buttonContainer}>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.fivePlayers)}>
-            GameConfig 1
+            5 Players
           </SelectButton>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sixPlayers)}>
-            GameConfig 2
+            6 Players
           </SelectButton>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sevenPlayers)}>
-            GameConfig 3
+            7 Players
           </SelectButton>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.eightPlayers)}>
-            GameConfig 4
+            8 Players
           </SelectButton>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.ninePlayers)}>
-            GameConfig 5
+            9 Players
           </SelectButton>
         </View>
       </Card>
