@@ -70,18 +70,20 @@ export default class QuestScreen extends Component {
       const quest = this.getActiveQuest()
 
       if (this.state.voteCount < this.state.playerVotes.length) {
+        // error if not everyone voted
         this.setState({error: true})
       } else if (!this.state.voteComplete) {
+        // Take all votes and see if overall vote passed or failed then set voteComplete state to true
         this.state.playerVotes.forEach((player) => {
           if (player.voted === 'Approved') approved++
         })
         this.setState({voteComplete: true, passed: approved > this.state.playerVotes.length/2})
       } else {
-        for (let i=0; i<this.state.proposedPlayers.length; i++) {
-          if (this.state.proposedPlayers[i].vote === 'Approved') {
-            quest.proposals[quest.proposals.length-1].approved.push(this.state.proposedPlayers[i].name)
+        for (let i=0; i<this.state.playerVotes.length; i++) {
+          if (this.state.playerVotes[i].voted === 'Approved') {
+            quest.proposals[quest.proposals.length-1].approved.push(this.state.playerVotes[i].name)
           } else {
-            quest.proposals[quest.proposals.length-1].rejected.push(this.state.proposedPlayers[i].name)
+            quest.proposals[quest.proposals.length-1].rejected.push(this.state.playerVotes[i].name)
           }
         }
 
