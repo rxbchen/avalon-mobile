@@ -11,13 +11,13 @@ export default class SelectButton extends Component {
   render() {
     return (
       <LinearGradient colors={this.props.greenBackground ? GLOBALS.COLOR.GREEN_GRADIENT : GLOBALS.COLOR.RED_GRADIENT}
-                      style={this.props.linearGradient ? this.props.linearGradient : styles.linearGradient}>
+                      style={[styles.linearGradient, this.props.linearGradient ? this.props.linearGradient : null]}>
         <TouchableOpacity onPress={() => this.props.onPress()}
           style={this.props.isSelected ? styles.selectedButton : styles.unSelectedButton}
           disabled={ this.props.disabled }>
             <View style={ this.props.icon ? styles.sectionStyleIcon : styles.sectionStyleNoIcon}>
-              <Text style={styles.textStyle}>{this.props.children}</Text>
-              <Image source={this.props.icon} style={styles.buttonIcon}/>
+              <Text style={[styles.textStyle, this.props.textStyle ? this.props.textStyle : null]}>{this.props.children}</Text>
+              {this.props.icon ? <Image source={this.props.icon} style={styles.buttonIcon}/> : null }
             </View>
         </TouchableOpacity>
       </LinearGradient>

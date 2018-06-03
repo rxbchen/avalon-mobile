@@ -39,7 +39,7 @@ class Player {
       })
       return dispatch({type: 'createPlayer', payload: newPlayerModel})
     }
-  };
+  }
 
   getReducer = () => {
     let initialState = this.initialState;
