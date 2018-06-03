@@ -4,6 +4,7 @@ import Collapsible from 'react-native-collapsible'
 import proptypes from 'prop-types'
 import styles from './CardStyle'
 import LinearGradient from 'react-native-linear-gradient';
+import GLOBALS from 'src/globals'
 
 export default class Card extends React.Component {
   constructor(props) {
@@ -18,13 +19,13 @@ export default class Card extends React.Component {
   }
 
   toggleCollapse() {
-    this.setState({isCollapsed: !this.state.isCollapsed})
+    if (!this.props.locked) this.setState({isCollapsed: !this.state.isCollapsed})
   }
 
   render() {
     return (
-      <View style={styles.cardContainter}>
-        <LinearGradient colors={['#762323', '#5d1414']} style={styles.linearGradient}>
+      <View style={styles.cardContainer}>
+        <LinearGradient colors={GLOBALS.COLOR.RED_GRADIENT} style={styles.linearGradient}>
           <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
             <Text style={styles.titleText}>{this.props.title}</Text>
             <Image style={styles.titleImage} source={this.props.icon} />

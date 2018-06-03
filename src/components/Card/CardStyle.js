@@ -8,12 +8,12 @@ export default StyleSheet.create({
     marginBottom: 10,
   },
   titleContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingTop: 5,
-    paddingBottom: 5,
+    justifyContent: 'space-around',
+    paddingTop: 10,
+    paddingBottom: 10,
+    paddingLeft: 15,
+    paddingRight: 15,
+    alignSelf: 'stretch'
   },
 
   titleText: {
@@ -34,8 +34,6 @@ export default StyleSheet.create({
   },
 
   linearGradient: {
-    paddingLeft: 15,
-    paddingRight: 15,
-    borderRadius: 5
+    borderRadius: 1,
   }
 })

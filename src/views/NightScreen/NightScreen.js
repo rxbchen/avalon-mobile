@@ -8,6 +8,7 @@ import NameView from './NameView'
 import ConfirmView from "./ConfirmView";
 
 export default class NightScreen extends React.Component {
+  static navigationOptions = {header: null}
   constructor(props) {
     super(props)
     this.state = {
@@ -51,7 +52,7 @@ export default class NightScreen extends React.Component {
 
   render() {
     return (
-      <Background>
+      <Background title='Pre Game'>
         {this.renderScreen()}
       </Background>
     )
