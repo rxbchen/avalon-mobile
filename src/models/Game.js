@@ -5,17 +5,17 @@ class Game {
 
   getFromState = (state) => {
     return state && state.Game
-  };
+  }
 
   getHandlers = () => {
     return Object.assign({}, {
-      createGame: (state, action) => Object.assign({}, state, action.payload),
+      updateGame: (state, action) => Object.assign({}, state, action.payload),
     })
-  };
+  }
 
   createGame = (data) => {
-    return (dispatch) => dispatch({type: 'createGame', payload: data})
-  };
+    return (dispatch) => dispatch({type: 'updateGame', payload: data})
+  }
 
   updateRoles = (data) => {
     return (dispatch, getState) => {
@@ -36,7 +36,15 @@ class Game {
         const role = data.rolesBad[i].value
         gameObject.rolesBad[role]++;
       }
-      dispatch({type: 'createGame', payload: gameObject})
+      dispatch({type: 'updateGame', payload: gameObject})
+    }
+  }
+
+  endGame = (goodWin) => {
+    return (dispatch, getState) => {
+      let gameObject = Object.assign({}, getState().Game)
+      gameObject.goodWin = goodWin
+      dispatch({type: 'updateGame', payload: gameObject})
     }
   }
 
