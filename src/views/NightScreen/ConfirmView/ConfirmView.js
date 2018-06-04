@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Image } from 'react-native'
+import { Text, View} from 'react-native'
 import styles from './ConfirmViewStyle'
 import SelectButton from "src/components/SelectButton"
 

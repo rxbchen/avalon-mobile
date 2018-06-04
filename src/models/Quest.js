@@ -34,13 +34,18 @@ class Quest {
         newQuestModel.models.push({})
         newQuestModel.models[i].numAdventurers = quest.numAdventurers
         newQuestModel.models[i].reqFails = quest.reqFails
-        newQuestModel.models[i].status = i===0?'active':'unvisited'
+        newQuestModel.models[i].status = i===0 ? 'active':'unvisited'
         newQuestModel.models[i].failedVotes = 0
+        newQuestModel.models[i].proposals = []
         newQuestModel.models[i].id = i
       })
       newQuestModel.models[0].captainIndex = _.random(getState().Player.models.length -1)
       return dispatch({type: 'createQuests', payload: newQuestModel})
     }
+  }
+
+  clearQuest = () => {
+    return (dispatch) => dispatch({type: 'createQuests', payload: {models: []}})
   }
 
   updateQuest = (quest) => {

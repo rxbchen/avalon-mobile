@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text, StatusBar } from 'react-native'
+import { Text, View } from 'react-native'
 import styles from './HomeScreenStyle'
 import SelectButton from 'src/components/SelectButton/SelectButton'
 import Background from "src/components/Background"
@@ -17,23 +17,25 @@ export default class HomeScreen extends Component {
     }
 
     return (
-      <Background header={false} style={styles.main_container} isScrollEnabled={false}>
-        <Text style={styles.title}>AVALON MOBILE</Text>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.navigate(navigateParams)}>
-          PLAY
-        </SelectButton>
-        <SelectButton linearGradient={styles.smallButton}>
-          MULTI-PHONE
-        </SelectButton>
-        <SelectButton linearGradient={styles.smallButton}>
-          STATISTICS
-        </SelectButton>
-        <SelectButton linearGradient={styles.smallButton}>
-          HELP
-        </SelectButton>
-        <SelectButton linearGradient={styles.smallButton}>
-          SETTINGS
-        </SelectButton>
+      <Background header={false} isScrollEnabled={false}>
+        <View style={styles.container}>
+          <Text style={styles.title}>AVALON MOBILE</Text>
+          <SelectButton linearGradientStyle={styles.mainButton} onPress={() => this.props.navigate(navigateParams)}>
+            PLAY
+          </SelectButton>
+          {/*<SelectButton linearGradientStyle={styles.smallButton}>*/}
+            {/*MULTI-PHONE*/}
+          {/*</SelectButton>*/}
+          {/*<SelectButton linearGradientStyle={styles.smallButton}>*/}
+            {/*STATISTICS*/}
+          {/*</SelectButton>*/}
+          {/*<SelectButton linearGradientStyle={styles.smallButton}>*/}
+            {/*HELP*/}
+          {/*</SelectButton>*/}
+          {/*<SelectButton linearGradientStyle={styles.smallButton}>*/}
+            {/*SETTINGS*/}
+          {/*</SelectButton>*/}
+        </View>
       </Background>
     );
   }

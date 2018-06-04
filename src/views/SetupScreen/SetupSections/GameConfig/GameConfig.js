@@ -8,37 +8,37 @@ import defaultGameSetups from 'src/static/DefaultGameSetups'
 
 export default class GameConfig extends Component {
   constructor(props) {
-    super(props);
+    super(props)
+    this.state = {
+      selected: -1
+    }
   }
 
   isSelected(gameObj) {
     return gameObj === this.props.Game
   }
 
-  onPressHandler(gameSetup) {
-    this.props.createGame(gameSetup)
-    this.props.displayAndOpen({displayRoles: true}, {openGame: false, openRoles: true})
+  onPressHandler(gameSetup, index) {
+    this.setState({selected: index}, () => {
+      this.props.createGame(gameSetup)
+      this.props.displayAndOpen({displayRoles: true}, {openGame: false, openRoles: true})
+    })
   }
 
   render() {
     return (
       <Card title='Game Configuration' collapsed={this.props.collapsed}>
         <View style={styles.buttonContainer}>
-          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.fivePlayers)}>
-            GameConfig 1
-          </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sixPlayers)}>
-            GameConfig 2
-          </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.sevenPlayers)}>
-            GameConfig 3
-          </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.eightPlayers)}>
-            GameConfig 4
-          </SelectButton>
-          <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.ninePlayers)}>
-            GameConfig 5
-          </SelectButton>
+          {Object.keys(defaultGameSetups).map((key, index) => {
+            return (
+              <SelectButton key={defaultGameSetups[key].name + index}
+                            linearGradientStyle={styles.button}
+                            textStyle={{fontSize: 20}}
+                            isSelected={this.state.selected === index}
+                            onPress={() => this.onPressHandler(defaultGameSetups[key], index)}>
+                {defaultGameSetups[key].name}
+              </SelectButton>
+            )})}
         </View>
       </Card>
     )

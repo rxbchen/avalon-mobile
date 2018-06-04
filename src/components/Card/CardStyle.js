@@ -2,11 +2,10 @@ import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   cardContainter : {
-    padding: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    marginTop: 5,
-    marginBottom: 5
+    paddingTop: 10,
+    marginTop: 10,
+    paddingBottom: 10,
+    marginBottom: 10
   },
   titleContainer: {
     justifyContent: 'space-around',
@@ -36,5 +35,7 @@ export default StyleSheet.create({
 
   linearGradient: {
     borderRadius: 1,
+    justifyContent: 'center',
+    height: 70
   }
 })
