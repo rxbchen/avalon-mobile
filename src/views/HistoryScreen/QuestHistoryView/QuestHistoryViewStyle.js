@@ -6,13 +6,30 @@ export default StyleSheet.create({
     padding: 5
   },
   cardContainer: {
-    borderWidth: 2.0,
-    borderColor: '#000'
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15,
+  },
+  cardTitleContainer: {
+    justifyContent: 'space-around',
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 15,
+    paddingRight: 15,
+    alignSelf: 'stretch'
+  },
+  cardTitleText: {
+    // fontFamily: 'Roboto-Medium',
+    fontSize: 20,
+    color: '#FFF',
+    textAlign: 'left'
   },
   title: {
     textAlign: "center",
     color: '#FFF',
     fontSize: 40,
+    marginBottom: 10
   },
   backButton: {
     margin: 10,
@@ -27,7 +44,13 @@ export default StyleSheet.create({
     color: '#000',
     fontSize: 20
   },
-  boldInfoText: {
+  adventureInfoText: {
+    fontWeight: 'bold',
+    color: '#000',
+    fontSize: 20,
+    marginBottom: 15
+  },
+  otherInfoText: {
     fontWeight: 'bold',
     color: '#000',
     fontSize: 20,
