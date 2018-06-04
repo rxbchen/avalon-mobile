@@ -24,7 +24,7 @@ export default class Card extends React.Component {
 
   render() {
     return (
-      <View style={styles.cardContainer}>
+      <View style={this.props.style ? this.props.style : null}>
         <LinearGradient colors={GLOBALS.COLOR.RED_GRADIENT} style={styles.linearGradient}>
           <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
             <Text style={styles.titleText}>{this.props.title}</Text>

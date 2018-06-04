@@ -73,7 +73,6 @@ export default class QuestScreen extends Component {
       }
       return dropdowns
     }
-    console.log('quest', quest, this.state.activeQuest)
     return quest.status !== 'unvisited' ? (
       <View>
         <Text>Captain: {this.props.players[quest.captainIndex].name}</Text>

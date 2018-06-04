@@ -25,6 +25,6 @@ export default StyleSheet.create({
   scrollView: {
     paddingTop: 20,
     paddingRight: 25,
-    paddingLeft: 25,
+    paddingLeft: 25
   }
 });

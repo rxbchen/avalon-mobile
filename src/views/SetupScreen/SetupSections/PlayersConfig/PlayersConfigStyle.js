@@ -1,7 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -9,7 +8,7 @@ export default StyleSheet.create({
     margin: 25
   },
   error: {
-    color: "#FFF",
+    color: "red",
     justifyContent: 'center',
     alignItems: 'center',
   },

@@ -2,10 +2,8 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   container: {
-    paddingTop: 30,
-    paddingBottom: 30,
-    paddingLeft: 35,
-    paddingRight: 25,
+    paddingTop: 10,
+    paddingBottom: 50,
     display: 'flex',
     flexDirection: 'column'
   },
@@ -40,6 +38,10 @@ export default StyleSheet.create({
     flexDirection: 'row',
   },
   voteButton: {
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 0,
+    paddingRight: 0,
     width: 55,
     height: 50,
     marginRight: 10,
@@ -73,14 +75,19 @@ export default StyleSheet.create({
     textAlign: 'center'
   },
   restartContainer: {
-    marginTop: 20,
+    marginTop: 30,
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
   },
   restartText: {
-    fontSize: 18,
+    fontSize: 16,
     marginRight: 20,
     color: "#FFF"
+  },
+  restartButton: {
+    height: 30,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 })

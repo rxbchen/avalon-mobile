@@ -42,10 +42,12 @@ export default class SetupScreen extends Component {
 
     return (
       <Background title='Setup'>
-        <GameConfig collapsed={!openGame} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/>
-        {displayRoles ? <RolesConfig collapsed={!openRoles} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
-        {displayPlayers ? <PlayersConfig collapsed={!openPlayers} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
-        {displayButton ? <SelectButton greenBackground onPress={() => this.handleContinue()}>Continue</SelectButton> : null}
+        <View style={{alignItems: 'center'}}>
+          <GameConfig style={styles.card} collapsed={!openGame} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/>
+          {displayRoles ? <RolesConfig style={styles.card} collapsed={!openRoles} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
+          {displayPlayers ? <PlayersConfig style={styles.card} collapsed={!openPlayers} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
+          {displayButton ? <SelectButton confirm onPress={() => this.handleContinue()}>Continue</SelectButton> : null}
+        </View>
       </Background>
     )
   }
