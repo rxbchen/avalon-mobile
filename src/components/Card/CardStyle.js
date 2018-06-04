@@ -5,7 +5,7 @@ export default StyleSheet.create({
     paddingTop: 10,
     marginTop: 10,
     paddingBottom: 10,
-    marginBottom: 10,
+    marginBottom: 10
   },
   titleContainer: {
     justifyContent: 'space-around',
@@ -20,7 +20,7 @@ export default StyleSheet.create({
     // fontFamily: 'Roboto-Medium',
     fontSize: 30,
     color: '#FFF',
-    textAlign: 'left',
+    textAlign: 'left'
   },
 
   titleImage: {
