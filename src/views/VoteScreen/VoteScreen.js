@@ -6,7 +6,9 @@ import Background from 'src/components/Background'
 import _ from 'lodash'
 
 export default class QuestScreen extends Component {
-    constructor(props) {
+  static navigationOptions = { header: null }
+
+  constructor(props) {
       super(props)
       const playerVotes = []
       this.props.players.forEach((player) => {
@@ -57,11 +59,11 @@ export default class QuestScreen extends Component {
     getVoteButtons(player) {
       return player.voted === 'None' ? (
         <View style={styles.voteButtons}>
-          <SelectButton linearGradient={styles.voteButton} textStyle={styles.voteButtonText} onPress={() => this.vote(player, 'Approved')}>✔</SelectButton>
-          <SelectButton linearGradient={styles.voteButton} textStyle={styles.voteButtonText} onPress={() => this.vote(player, 'Rejected')}>✖</SelectButton>
+          <SelectButton linearGradientStyle={styles.voteButton} textStyle={styles.voteButtonText} onPress={() => this.vote(player, 'Approved')}>✔</SelectButton>
+          <SelectButton linearGradientStyle={styles.voteButton} textStyle={styles.voteButtonText} onPress={() => this.vote(player, 'Rejected')}>✖</SelectButton>
         </View>
       ) : (
-        <SelectButton linearGradient={styles.editButton} textStyle={{fontSize: 20}} onPress={() => this.vote(player, 'None')}>Edit</SelectButton>
+        <SelectButton linearGradientStyle={styles.editButton} textStyle={{fontSize: 20}} onPress={() => this.vote(player, 'None')}>Edit</SelectButton>
       )
     }
 
@@ -122,13 +124,13 @@ export default class QuestScreen extends Component {
       })
 
       return (
-        <Background title={"Voting"}>
+        <Background title="Vote" isScrollEnabled>
           <View style={styles.container}>
             <Text style={styles.title}>{!this.state.voteComplete ? 'Voting Time!' : `Vote ${this.state.passed ? 'Passed' : 'Failed'}`}</Text>
             <View>
               {playerRow}
             </View>
-            <SelectButton greenBackground disabled={this.state.error} onPress={()=> this.onContinue()}>
+            <SelectButton confirm disabled={this.state.error} onPress={()=> this.onContinue()}>
               Continue
             </SelectButton>
             {this.state.error ? <Text style={styles.error}>Make sure everyone voted!</Text> : null}
@@ -136,8 +138,8 @@ export default class QuestScreen extends Component {
               this.state.voteComplete ? (
                 <View style={styles.restartContainer}>
                   <Text style={styles.restartText}>Did something go wrong?</Text>
-                  <SelectButton onPress={() => this.resetVotes()}>
-                    Reset
+                  <SelectButton linearGradientStyle={styles.restartButton} textStyle={{fontSize: 14}} onPress={() => this.resetVotes()}>
+                    Restart
                   </SelectButton>
                 </View>
               ) : null

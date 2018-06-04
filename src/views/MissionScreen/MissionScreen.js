@@ -7,6 +7,7 @@ import ResultsView from './ResultsView'
 import Background from "src/components/Background/Background"
 
 export default class MissionScreen extends React.Component {
+  static navigationOptions = {header: null}
   constructor(props) {
     super(props)
     let currMission = -1

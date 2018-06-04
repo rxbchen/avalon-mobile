@@ -20,8 +20,8 @@ export default class NameView extends Component {
           </Text>
           <SelectButton 
             onPress={() => this.props.toggleReveal()}
-            greenBackground={true}
-            linearGradient={styles.button}>
+            confirm
+            linearGradientStyle={styles.button}>
             That's Me
           </SelectButton>
       </View>
