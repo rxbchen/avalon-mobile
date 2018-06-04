@@ -10,7 +10,9 @@ const mapStateToProps = state => ({
 })
 
 const mapActionCreators = {
-  navigate: Navigation.navigate
+  navigate: Navigation.navigate,
+  endGame: Game.endGame,
+  updateQuest: Quest.updateQuest,
 }
 
 export default connect(mapStateToProps, mapActionCreators)(ResultsView);

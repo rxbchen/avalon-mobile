@@ -10,7 +10,6 @@ export default class NameView extends Component {
   }
 
   render() {
-    console.log("props", this.props)
     return (
       <View style={styles.nameView}>
         <Text style={styles.caption}>

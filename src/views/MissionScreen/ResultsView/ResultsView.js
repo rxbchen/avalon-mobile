@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import { Text, View} from 'react-native'
 import styles from './ResultsView'
 import SelectButton from "src/components/SelectButton"
-import Quest from "src/models/Quest"
-import Game from "src/models/Game"
 
 export default class ResultsView extends Component {
   constructor(props) {
@@ -36,19 +34,19 @@ export default class ResultsView extends Component {
       this.props.quest[this.props.currentMission +1].adventurers = []
     }
 
-    Quest.updateQuest(this.props.quest)
+    this.props.updateQuest(this.props.quest)
 
     let navigateParams = {}
     if(numFails > this.props.quest.length/2){
       navigateParams = {
         routeName: 'EndScreen'
       }
-      //Game.endGame(false)
+      this.props.endGame(false)
     } else if(numPasses > this.props.quest.length/2) {
       navigateParams = {
         routeName: 'EndScreen'
       }
-      //Game.endGame(true)
+      this.props.endGame(true)
     } else{
       navigateParams = {
         routeName: 'QuestScreen'
@@ -59,11 +57,9 @@ export default class ResultsView extends Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.textView}>
-          <Text style={styles.text}>The Mission {this.props.quest[this.props.currentMission].status} with {this.props.numFails} fails</Text>
-        </View>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.MoveToNextScreen()}>
+      <View style={styles.resultView}>
+        <Text style={styles.resultText}>The Mission {this.props.quest[this.props.currentMission].status} with {this.props.numFails} fails</Text>
+        <SelectButton linearGradient={styles.button} onPress={() => this.MoveToNextScreen()}>
           Continue
         </SelectButton>
       </View>

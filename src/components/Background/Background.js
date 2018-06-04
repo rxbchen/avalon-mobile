@@ -4,9 +4,6 @@ import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
 import { Text } from 'react-native'
 import { Header, Body, Right, Button, Title } from 'native-base'
-import Game from 'src/models/Game'
-import Player from 'src/models/Player'
-import Quest from 'src/models/Quest'
 
 export default class BackgroundImage extends React.Component {
   constructor(props) {
@@ -21,9 +18,9 @@ export default class BackgroundImage extends React.Component {
   }
 
   resetEverything() {
-    Player.clearPlayers()
-    Game.clearGame()
-    Quest.clearQuest()
+    this.props.clearPlayers()
+    this.props.clearGame()
+    this.props.clearQuest()
     this.props.navigate({routeName: 'HomeScreen'})
   }
 
