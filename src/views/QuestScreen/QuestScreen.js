@@ -53,7 +53,7 @@ export default class QuestScreen extends Component {
   }
 
   getProposalInfo(quest) {
-    let players = this.props.playerNames.map(playerName => {
+    let players = this.props.playerNames.map((playerName) => {
       if (!this.state.selectedPlayers.includes(playerName)) {
         return {value: playerName}
       }
@@ -85,8 +85,8 @@ export default class QuestScreen extends Component {
           :
           <View>
             {
-              quest.adventurers.map((adventurer) => {
-                return <Text>{adventurer}</Text>
+              quest.adventurers.map((adventurer, i) => {
+                return <Text key={"adventurer"+ i}>{adventurer}</Text>
               })
             }
           </View>

@@ -122,7 +122,7 @@ export default class QuestScreen extends Component {
       })
 
       return (
-        <Background>
+        <Background title={"Voting"}>
           <View style={styles.container}>
             <Text style={styles.title}>{!this.state.voteComplete ? 'Voting Time!' : `Vote ${this.state.passed ? 'Passed' : 'Failed'}`}</Text>
             <View>
