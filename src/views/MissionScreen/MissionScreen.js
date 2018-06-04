@@ -16,7 +16,6 @@ export default class MissionScreen extends React.Component {
         currMission = i
       }
     }
-    console.log("props", this.props)
     this.state = {
       index: 0,
       revealed: false,
@@ -33,7 +32,7 @@ export default class MissionScreen extends React.Component {
   goToNext(vote) {
     if(vote === 'Fail'){
       for(let i = 0; i < this.props.game.numPlayers; i++) {
-        if(this.props.players[i] === this.props.quest[this.state.currentMission].adventurers[this.state.index]){
+        if(this.props.players[i].name === this.props.quest[this.state.currentMission].adventurers[this.state.index]){
           switch(this.props.players[i].role)
           {
             case 'morgana':
@@ -42,7 +41,7 @@ export default class MissionScreen extends React.Component {
             case 'minionOfMordred':
             case 'oberon':
               this.setState({
-                numFailedVotes: this.state.numFailVotes + 1
+                numFailVotes: this.state.numFailVotes + 1
               })
           }
         }

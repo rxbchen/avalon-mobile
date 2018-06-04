@@ -10,12 +10,15 @@ export default class ResultsView extends Component {
     super(props)
   }
 
-  MoveToNextScreen(){
+  componentWillMount(){
     if(this.props.quest[this.props.currentMission].reqFails > this.props.numFails){
       this.props.quest[this.props.currentMission].status = "passed"
     }else{
       this.props.quest[this.props.currentMission].status = "failed"
     }
+  }
+
+  MoveToNextScreen(){
     this.props.quest[this.props.currentMission].failedVotes = this.props.numFails
     let numPasses = 0
     let numFails = 0
@@ -58,9 +61,9 @@ export default class ResultsView extends Component {
     return (
       <View>
         <View style={styles.textView}>
-          <Text style={styles.text}>{this.props.numFails}</Text>
+          <Text style={styles.text}>The Mission {this.props.quest[this.props.currentMission].status} with {this.props.numFails} fails</Text>
         </View>
-        <SelectButton linearGradient={styles.mainButton} onPress={this.MoveToNextScreen()}>
+        <SelectButton linearGradient={styles.mainButton} onPress={() => this.MoveToNextScreen()}>
           Continue
         </SelectButton>
       </View>
