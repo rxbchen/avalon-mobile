@@ -5,17 +5,21 @@ class Game {
 
   getFromState = (state) => {
     return state && state.Game
-  };
+  }
 
   getHandlers = () => {
     return Object.assign({}, {
       createGame: (state, action) => Object.assign({}, state, action.payload),
     })
-  };
+  }
 
   createGame = (data) => {
     return (dispatch) => dispatch({type: 'createGame', payload: data})
-  };
+  }
+
+  clearGame = () => {
+    return (dispatch) => dispatch({type: 'createGame', payload: {}})
+  }
 
   updateRoles = (data) => {
     return (dispatch, getState) => {
