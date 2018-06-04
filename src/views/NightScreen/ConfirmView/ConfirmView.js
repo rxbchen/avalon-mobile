@@ -14,9 +14,7 @@ export default class ConfirmView extends Component {
 
   continueToQuest() {
     const navigateParams = {
-      //routeName: 'QuestScreen'
-      // TEMP TESTING FOR END SCREEN SHORTCUT
-      routeName: 'EndScreen'
+      routeName: 'QuestScreen'
     }
     this.props.createQuests()
     this.props.navigate(navigateParams)

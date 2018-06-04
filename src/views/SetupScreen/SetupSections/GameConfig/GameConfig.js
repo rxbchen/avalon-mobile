@@ -22,7 +22,7 @@ export default class GameConfig extends Component {
 
   render() {
     return (
-      <Card title='Game Configuration' collapsed={this.props.collapsed}>
+      <Card title='Game Configuration' collapsed={this.props.collapsed} style={styles.card}>
         <View style={styles.buttonContainer}>
           <SelectButton linearGradient={styles.button} onPress={() => this.onPressHandler(defaultGameSetups.fivePlayers)}>
             5 Players

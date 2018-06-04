@@ -29,8 +29,12 @@ export default class QuestScreen extends Component {
 
   proposePlayers(quest) {
     const newQuest = Object.assign({}, quest)
-    newQuest.adventurers = this.state.selectedPlayers
+    newQuest.adventurers = _.compact(this.state.selectedPlayers)
     this.props.updateQuest(newQuest)
+    const navigateParams = {
+      routeName: 'MissionScreen'
+    }
+    this.props.navigate(navigateParams)
   }
 
   getIcon(quest) {

@@ -7,7 +7,7 @@ export default StyleSheet.create({
     color: '#FFF',
     fontSize: 60,
     fontWeight: '100',
-    lineHeight: 55,
+    lineHeight: 57,
     marginTop: 60,
   },
   linearGradient: {
@@ -25,7 +25,8 @@ export default StyleSheet.create({
     backgroundColor: 'transparent',
   },
   mainButton: {
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
@@ -33,7 +34,8 @@ export default StyleSheet.create({
     height: 70
   },
   smallButton: {
-    margin: 10,
+    marginTop: 10,
+    marginBottom: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

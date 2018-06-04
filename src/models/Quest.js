@@ -43,6 +43,10 @@ class Quest {
     }
   }
 
+  clearQuest = () => {
+    return (dispatch) => dispatch({type: 'createQuests', payload: {models: []}})
+  }
+
   updateQuest = (quest) => {
     return (dispatch, getState) => {
       return dispatch({type: 'updateQuest', payload: quest})

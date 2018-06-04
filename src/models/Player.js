@@ -37,9 +37,13 @@ class Player {
       names.forEach((name) => {
         newPlayerModel.models.push({name})
       })
-      return dispatch({type: 'createPlayer', payload: newPlayerModel})
+      return dispatch({type: 'createPlayers', payload: newPlayerModel})
     }
-  };
+  }
+
+  clearPlayers = () => {
+    return (dispatch) => dispatch({type: 'createPlayers', payload: {models: []}})
+  }
 
   getReducer = () => {
     let initialState = this.initialState;
