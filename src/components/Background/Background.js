@@ -4,7 +4,9 @@ import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
 import { Text } from 'react-native'
 import { Header, Body, Right, Button, Title } from 'native-base'
-
+import Game from 'src/models/Game'
+import Player from 'src/models/Player'
+import Quest from 'src/models/Quest'
 
 export default class BackgroundImage extends React.Component {
   constructor(props) {
@@ -16,6 +18,13 @@ export default class BackgroundImage extends React.Component {
 
   displayContent() {
     this.setState({showContent: true})
+  }
+
+  resetEverything() {
+    Player.clearPlayers()
+    Game.clearGame()
+    Quest.clearQuest()
+    this.props.navigate({routeName: 'HomeScreen'})
   }
 
   render() {
@@ -30,13 +39,13 @@ export default class BackgroundImage extends React.Component {
               <Title style={styles.headerFont}>{this.props.title}</Title>
             </Body>
             <Right>
-              <Button transparent onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
+              <Button transparent onPress={() => this.resetEverything()}>
                 <Text>Home</Text>
               </Button>
             </Right>
           </Header>
         }
-        <ScrollView scrollEnabled={this.props.isScrollEnabled}>
+        <ScrollView style={styles.scrollView} scrollEnabled={this.props.isScrollEnabled}>
           {this.state.showContent ? this.props.children : null}
         </ScrollView>
       </ImageBackground>
@@ -46,4 +55,5 @@ export default class BackgroundImage extends React.Component {
 
 BackgroundImage.propTypes = {
   isScrollEnabled: proptypes.bool,
+  title: proptypes.string,
 }

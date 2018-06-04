@@ -5,6 +5,8 @@ import HomeScreen from "src/views/HomeScreen"
 import NightScreen from "src/views/NightScreen"
 import QuestScreen from "src/views/QuestScreen"
 import VoteScreen from "src/views/VoteScreen"
+import MissionScreen from "src/views/MissionScreen"
+import EndScreen from "src/views/EndScreen"
 
 const AppNavigationStack = StackNavigator({
   HomeScreen: {
@@ -21,8 +23,13 @@ const AppNavigationStack = StackNavigator({
   },
   VoteScreen: {
     screen: VoteScreen
-  }
-
+  },
+  MissionScreen: {
+    screen: MissionScreen
+  },
+  EndScreen: {
+    screen: EndScreen
+  },
 });
 
 export default AppNavigationStack;

@@ -37,16 +37,20 @@ class Player {
       names.forEach((name) => {
         newPlayerModel.models.push({name})
       })
-      return dispatch({type: 'createPlayer', payload: newPlayerModel})
+      return dispatch({type: 'createPlayers', payload: newPlayerModel})
     }
   }
 
+  clearPlayers = () => {
+    return (dispatch) => dispatch({type: 'createPlayers', payload: {models: []}})
+  }
+
   getReducer = () => {
-    let initialState = this.initialState;
-    let handlers = this.getHandlers();
+    let initialState = this.initialState
+    let handlers = this.getHandlers()
     return (state, action) => {
-      state = state || initialState;
-      const handler = handlers[action.type];
+      state = state || initialState
+      const handler = handlers[action.type]
       return handler ? handler(state, action) : state
     }
   }
@@ -55,5 +59,5 @@ class Player {
 
 const player = new Player();
 
-export const reducer = player.getReducer();
-export default player;
+export const reducer = player.getReducer()
+export default player

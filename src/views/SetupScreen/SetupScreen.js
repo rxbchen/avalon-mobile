@@ -41,7 +41,7 @@ export default class SetupScreen extends Component {
     const {openGame, openRoles, openPlayers} = this.state.openCards
 
     return (
-      <Background title='Set up'>
+      <Background title='Setup'>
         <GameConfig collapsed={!openGame} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/>
         {displayRoles ? <RolesConfig collapsed={!openRoles} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}
         {displayPlayers ? <PlayersConfig collapsed={!openPlayers} displayAndOpen={(display, open) => this.displayAndOpen(display, open)}/> : null}

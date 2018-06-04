@@ -17,6 +17,10 @@ class Game {
     return (dispatch) => dispatch({type: 'updateGame', payload: data})
   }
 
+  clearGame = () => {
+    return (dispatch) => dispatch({type: 'updateGame', payload: {}})
+  }
+
   updateRoles = (data) => {
     return (dispatch, getState) => {
       let gameObject = Object.assign({}, getState().Game)

@@ -2,13 +2,13 @@ import QuestScreen from './QuestScreen'
 import Navigation from '../../models/Navigation'
 import { connect } from "react-redux"
 import Quest from "src/models/Quest"
-import Players from "src/models/Player"
+import Player from "src/models/Player"
 
 
 const mapStateToProps = state => ({
   quests: Quest.getQuest(state),
-  players: Players.getPlayers(state),
-  playerNames: Players.getPlayerNames(state)
+  players: Player.getPlayers(state),
+  playerNames: Player.getPlayerNames(state)
 })
 
 const mapActionCreators = {

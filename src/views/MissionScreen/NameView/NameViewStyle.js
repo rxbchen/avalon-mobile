@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native'
+import {StyleSheet} from 'react-native'
 import GLOBALS from 'src/globals'
 
 export default StyleSheet.create({
@@ -8,22 +8,24 @@ export default StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  buttonView: {
+    padding: 50
+  },
   caption: {
-    paddingBottom: 10,
     textAlign: "center",
     color: '#FFF',
     fontSize: 30,
     fontWeight: '100',
+    margin: 5
   },
   playerText: {
-    paddingBottom: 10,
     textAlign: "center",
     color: '#FFF',
     fontSize: 70,
-    fontWeight: '200'
+    fontWeight: '200',
   },
   button: {
     borderRadius: 6,
-    marginBottom: GLOBALS.SIZE.SCREEN_OFFSET
+    marginBottom: GLOBALS.SIZE.SCREEN_OFFSET*2
   }
 })
