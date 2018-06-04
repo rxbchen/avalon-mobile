@@ -2,12 +2,6 @@ import { StyleSheet } from 'react-native'
 import LinearGradient from 'react-native-linear-gradient';
 
 export default StyleSheet.create({
-  // selectedButton: {
-  //   alignSelf: 'stretch',
-  // },
-  // unSelectedButton: {
-  //   alignSelf: 'stretch',
-  // },
   textStyle: {
     alignSelf: 'center',
     textAlign: 'center',
@@ -21,16 +15,12 @@ export default StyleSheet.create({
     width: 25,
   },
   sectionStyleIcon: {
-    flexDirection: 'row',
     justifyContent: 'space-between',
-    alignItems: 'center',
-    height: 40,
     margin: 10,
     paddingTop: 10,
     paddingBottom: 10
   },
-  sectionStyleNoIcon: {
-    display: 'flex',
+  viewStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -44,9 +34,19 @@ export default StyleSheet.create({
     resizeMode : 'stretch',
     alignItems: 'center'
   },
-  linearGradient: {
-    borderRadius: 6,
-    shadowOpacity: 0.75,
-    shadowRadius: 5,
-  }
+  linearGradientStyle: {
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 3,
+    paddingTop: 5,
+    paddingBottom: 5,
+    paddingLeft: 30,
+    paddingRight: 30,
+    shadowColor: 'rgba(0, 0, 0, 0.1)',
+    shadowOpacity: 0.8,
+    elevation: 6,
+    shadowRadius: 15 ,
+    shadowOffset : { width: 1, height: 13},
+  },
 });

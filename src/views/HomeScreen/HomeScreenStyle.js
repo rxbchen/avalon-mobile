@@ -1,14 +1,20 @@
-import React, { StyleSheet } from 'react-native'
+import React, { StyleSheet, Dimensions } from 'react-native'
 
 export default StyleSheet.create({
+  container: {
+    height: Dimensions.get('window').height,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingBottom: Dimensions.get('window').height*0.1
+  },
   title: {
     textAlign: "center",
     //fontFamily: "Roboto-Light",
     color: '#FFF',
-    fontSize: 60,
+    fontSize: 70,
     fontWeight: '100',
-    lineHeight: 55,
-    marginTop: 60,
+    lineHeight: 70,
+    marginBottom: 30
   },
   linearGradient: {
     height: 40,
@@ -21,14 +27,10 @@ export default StyleSheet.create({
     fontSize: 18,
     textAlign: 'center',
     margin: 7,
-    color: '#ffffff',
+    color: '#FFF',
     backgroundColor: 'transparent',
   },
   mainButton: {
-    margin: 10,
-    alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
     width: 300,
     height: 70
   },

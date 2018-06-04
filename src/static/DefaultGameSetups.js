@@ -1,5 +1,6 @@
 export default {
   fivePlayers: {
+    name: 'Five Players',
     numQuests: 5,
     numPlayers: 5,
     numGood: 3,
@@ -41,6 +42,7 @@ export default {
     ]
   },
   sixPlayers: {
+    name: 'Six Players',
     numQuests: 5,
     numPlayers: 6,
     numGood: 4,
@@ -82,6 +84,7 @@ export default {
     ]
   },
   sevenPlayers: {
+    name: 'Seven Players',
     numQuests: 5,
     numPlayers: 7,
     numGood: 4,
@@ -123,6 +126,7 @@ export default {
     ]
   },
   eightPlayers: {
+    name: 'Eight Players',
     numQuests: 5,
     numPlayers: 8,
     numGood: 5,
@@ -164,6 +168,7 @@ export default {
     ]
   },
   ninePlayers: {
+    name: 'Nine Players',
     numQuests: 5,
     numPlayers: 9,
     numGood: 6,
@@ -205,6 +210,7 @@ export default {
     ]
   },
   tenPlayers : {
+    name: 'Ten Players',
     numQuests: 5,
     numPlayers: 10,
     numGood: 6,

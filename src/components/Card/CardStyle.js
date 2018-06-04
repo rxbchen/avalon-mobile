@@ -21,7 +21,7 @@ export default StyleSheet.create({
     // fontFamily: 'Roboto-Medium',
     fontSize: 30,
     color: '#FFF',
-    textAlign: 'left'
+    textAlign: 'left',
   },
 
   titleImage: {
@@ -36,5 +36,7 @@ export default StyleSheet.create({
 
   linearGradient: {
     borderRadius: 1,
+    justifyContent: 'center',
+    height: 70
   }
 })
