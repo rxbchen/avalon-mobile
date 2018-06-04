@@ -7,7 +7,6 @@ export default StyleSheet.create({
     paddingBottom: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    height: 50,
     alignSelf: 'stretch'
   },
 
@@ -31,6 +30,5 @@ export default StyleSheet.create({
   linearGradient: {
     borderRadius: 1,
     justifyContent: 'center',
-    height: 70
   }
 })

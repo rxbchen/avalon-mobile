@@ -7,9 +7,11 @@ export default StyleSheet.create({
   },
   cardContainer: {
     shadowColor: 'rgba(0, 0, 0, 0.1)',
-    shadowOpacity: 0.8,
+    shadowOpacity: 1.0,
     elevation: 6,
     shadowRadius: 15,
+    borderRadius: 1,
+
   },
   cardTitleContainer: {
     justifyContent: 'space-around',

@@ -31,7 +31,11 @@ export default class QuestHistoryView extends Component {
         var proposals = []
         for (let j = 0; j < current_quest["proposals"].length; j++) {
           proposals.push(
-            <Card key={j} title={current_quest["proposals"][j]["captain"] + '\'s' + ' Proposal' } titleContainer={styles.cardTitleContainer} titleText={styles.cardTitleText} isCollapsed={true}>
+            <Card key={j}
+                  title={current_quest["proposals"][j]["captain"] + '\'s' + ' Proposal' } 
+                  titleContainer={{padding:2}} titleText={styles.cardTitleText}
+                  isCollapsed={true}
+            >
               <View>
                 <Text style={styles.adventureInfoText}>Adventurers:
                   <Text style={styles.questInfoText}> {current_quest["proposals"][j]["proposees"].join(", ")}</Text>
@@ -47,7 +51,11 @@ export default class QuestHistoryView extends Component {
           )
         }
         valid_quests.push(
-          <Card key={i} title={'Quest ' + (i+1) } isCollapsed={true}>
+          <Card key={i} 
+                title={'Quest ' + (i+1) } 
+                titleContainer={styles.cardTitleContainer} 
+                isCollapsed={true}
+          >
             <View style={styles.cardContainer}>
               {proposals}
             </View>
