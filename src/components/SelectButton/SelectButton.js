@@ -12,7 +12,7 @@ export default class SelectButton extends Component {
     return (
         <TouchableOpacity onPress={() => this.props.onPress()}
                           disabled={ this.props.disabled }
-                          style={this.props.confirm ? {width: '80%', alignSelf: 'center'} : null}>
+                          style={[this.props.buttonStyle, this.props.confirm ? {width: '80%', alignSelf: 'center'} : null]}>
           <LinearGradient colors={this.props.disabled ? GLOBALS.COLOR.DISABLED : this.props.confirm ? GLOBALS.COLOR.GREEN_GRADIENT : this.props.isSelected ? GLOBALS.COLOR.LIGHT_RED_GRADIENT : GLOBALS.COLOR.RED_GRADIENT}
                         style={[styles.linearGradientStyle, this.props.linearGradientStyle ? this.props.linearGradientStyle : null, this.props.confirm  ? styles.confirmButton : null]}>
               <View style={[styles.viewStyle, this.props.icon ? styles.sectionStyleIcon : null]}>

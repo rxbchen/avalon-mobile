@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
-import { Text, View, TouchableOpacity } from 'react-native';
+import React, { Component } from 'react'
+import { Text, View, TouchableOpacity } from 'react-native'
 import CustomDropdown  from 'src/components/Dropdown'
 import Card from 'src/components/Card'
-import SelectButton from "src/components/SelectButton/SelectButton";
-import defaultGameSetups from "../../../../static/DefaultGameSetups";
+import SelectButton from "src/components/SelectButton/SelectButton"
 import _ from 'lodash'
-import {reverseCamelCase} from "src/utils/stringUtils";
+import {reverseCamelCase} from "src/utils/stringUtils"
+import styles from './RoleConfigStyle'
 
 export default class RoleConfig extends Component {
   constructor(props) {
@@ -71,26 +71,25 @@ export default class RoleConfig extends Component {
     for(let i = 0; i < gameObject.numGood; i++){
 
       goodDropdownOptions.push(
-        <View  key = {i} >
-          <CustomDropdown options={goodPlayerTypes} value={this.state.rolesGood[i].display} onChange={(value) => this.selectRoleName(value, i, "Good")} />
-        </View>
+        <CustomDropdown key = {i} options={goodPlayerTypes} value={this.state.rolesGood[i].display} onChange={(value) => this.selectRoleName(value, i, "Good")} />
       )
     }
 
     for(let i = 0; i < gameObject.numBad; i++){
 
       badDropdownOptions.push(
-        <View key = {i}>
-          <CustomDropdown options={badPlayerTypes} value={this.state.rolesBad[i].display} onChange={(value) => this.selectRoleName(value, i, "Bad")} />
-        </View>
+        <CustomDropdown key = {i} options={badPlayerTypes} value={this.state.rolesBad[i].display} onChange={(value) => this.selectRoleName(value, i, "Bad")} />
       )
     }
     return (
       <Card title='Role Configuration' collapsed={this.props.collapsed} style={this.props.style}>
         <View>
+          <Text style={styles.text}>Please select your roles!</Text>
+          <Text style={styles.text}>Good:</Text>
           {goodDropdownOptions}
+          <Text style={styles.evilText}>Evil:</Text>
           {badDropdownOptions}
-          <SelectButton textStyle={{fontSize: 20}} onPress={() => this.saveAndContinue(this.state)} confirm>
+          <SelectButton textStyle={styles.textButton} onPress={() => this.saveAndContinue(this.state)} confirm>
             Save and Continue
           </SelectButton>
         </View>
