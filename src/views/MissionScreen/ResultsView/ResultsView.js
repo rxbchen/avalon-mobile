@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View} from 'react-native'
-import styles from './ResultsView'
+import styles from './ResultsViewStyle'
 import SelectButton from "src/components/SelectButton"
 import Quest from "src/models/Quest"
 import Game from "src/models/Game"

@@ -6,7 +6,8 @@ import Background from 'src/components/Background'
 import _ from 'lodash'
 
 export default class QuestScreen extends Component {
-    constructor(props) {
+  static navigationOptions = {header: null}
+  constructor(props) {
       super(props)
       const playerVotes = []
       this.props.players.forEach((player) => {
@@ -122,7 +123,7 @@ export default class QuestScreen extends Component {
       })
 
       return (
-        <Background>
+        <Background title="Voting">
           <View style={styles.container}>
             <Text style={styles.title}>{!this.state.voteComplete ? 'Voting Time!' : `Vote ${this.state.passed ? 'Passed' : 'Failed'}`}</Text>
             <View>
