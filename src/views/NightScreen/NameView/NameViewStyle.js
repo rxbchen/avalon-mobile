@@ -9,14 +9,14 @@ export default StyleSheet.create({
     justifyContent: "center",
   },
   caption: {
-    paddingBottom: 10,
     textAlign: "center",
     color: '#FFF',
     fontSize: 30,
     fontWeight: '100',
   },
   playerText: {
-    paddingBottom: 10,
+    lineHeight: 80,
+    marginBottom: 30,
     textAlign: "center",
     color: '#FFF',
     fontSize: 70,

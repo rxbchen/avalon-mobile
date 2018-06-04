@@ -49,4 +49,8 @@ export default StyleSheet.create({
     shadowRadius: 15 ,
     shadowOffset : { width: 1, height: 13},
   },
+  confirmButton: {
+    width: '100%',
+    alignSelf: 'center'
+  }
 });

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import CustomDropdown  from 'src/components/Dropdown'
-import styles from './RoleConfigStyle'
 import Card from 'src/components/Card'
 import SelectButton from "src/components/SelectButton/SelectButton";
 import defaultGameSetups from "../../../../static/DefaultGameSetups";
@@ -87,17 +86,15 @@ export default class RoleConfig extends Component {
       )
     }
     return (
-      <View>
-        <Card title='Role Configuration' collapsed={this.props.collapsed}>
-          <View>
-            {goodDropdownOptions}
-            {badDropdownOptions}
-            <SelectButton onPress={() => this.saveAndContinue(this.state)} greenBackground>
-              Save and Continue
-            </SelectButton>
-          </View>
-        </Card>
-      </View>
+      <Card title='Role Configuration' collapsed={this.props.collapsed} style={this.props.style}>
+        <View>
+          {goodDropdownOptions}
+          {badDropdownOptions}
+          <SelectButton textStyle={{fontSize: 20}} onPress={() => this.saveAndContinue(this.state)} confirm>
+            Save and Continue
+          </SelectButton>
+        </View>
+      </Card>
     )
   }
 }
