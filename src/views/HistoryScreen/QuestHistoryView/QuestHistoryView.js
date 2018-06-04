@@ -10,28 +10,6 @@ export default class QuestHistoryView extends Component {
     super(props)
     this.state = {
       questHistory: []
-      // dummy: [
-      //   { 
-      //     quest: {
-      //       proposals: [ 
-      //         { captain: 'name', propsee: ['name', 'what', 'lool'], rejected: ['name', 'what', 'lool'], approved: ['nope'] },
-      //         { captain: 'what', propsee: ['name', 'what', 'lool'], rejected: ['name', 'what', 'lool'], approved: ['nope'] },
-      //         { captain: 'lool', propsee: ['name', 'what', 'lool'], approved: ['name', 'what', 'lool'], rejected: ['nope'] }
-      //       ],
-      //       adventurers: ['name', 'what', 'lool']
-      //     }
-      //   },
-      //   { 
-      //     quest: {
-      //       proposals: [ 
-      //         { captain: 'name', propsee: ['name', 'what', 'lool'], rejected: ['name', 'what', 'lool'], approved: ['nope'] },
-      //         { captain: 'what', propsee: ['name', 'what', 'lool'], rejected: ['name', 'what', 'lool'], approved: ['nope'] },
-      //         { captain: 'lool', propsee: ['name', 'what', 'lool'], approved: ['name', 'what', 'lool'], rejected: ['nope'] }
-      //       ],
-      //       adventurers: ['name', 'what', 'lool']
-      //     }
-      //   }
-      // ]
     }
   }
 
@@ -41,7 +19,7 @@ export default class QuestHistoryView extends Component {
     console.log(this.props.quests)
     for (let i = 0; i < this.props.quests.length; i++) {
       var current_quest = this.props.quests[i]
-      if (current_quest['status'] == 'active' || current_quest['status'] == 'visted') {
+      if (current_quest['status'] === 'passed' || current_quest['status'] === 'failed') {
         
         // var valid_members = []
         // for (let j = 0; j < current_quest['adventurers'].length; j++) {
@@ -50,13 +28,28 @@ export default class QuestHistoryView extends Component {
         //   }
         // }
         // current_quest['adventurers'] = valid_members
+        var proposals = []
+        for (let j = 0; j < current_quest["proposals"].length; j++) {
+          proposals.push(
+            <Card key={j} title={current_quest["proposals"][j]["captain"] + '\'s' + ' Proposal' } isCollapsed={true}>
+              <View>
+                <Text style={styles.boldInfoText}>Adventurers:
+                  <Text style={styles.questInfoText}> {current_quest["proposals"][j]["proposees"].join(", ")}</Text>
+                </Text>
+                <Text style={styles.boldInfoText}>Accepted:
+                  <Text style={styles.questInfoText}> {current_quest["proposals"][j]["approved"].join(", ")}</Text>
+                </Text>
+                <Text style={styles.boldInfoText}>Rejected:
+                  <Text style={styles.questInfoText}> {current_quest["proposals"][j]["rejected"].join(", ")}</Text>
+                </Text>
+              </View>
+            </Card>
+          )
+        }
         valid_quests.push(
-          <Card key={i} title={'Quest: ' + current_quest["id"]+1 } isCollapsed={false}>
-            <View>
-
-              <Text>
-                Captain: {this.props.players[current_quest["captainIndex"]].name}
-              </Text>
+          <Card key={i} title={'Quest ' + (i+1) } isCollapsed={true}>
+            <View style={styles.cardContainer}>
+              {proposals}
             </View>
           </Card>
         )
@@ -73,9 +66,6 @@ export default class QuestHistoryView extends Component {
           Quest History
         </Text>
         { this.questObjects() }
-        <SelectButton linearGradient={styles.backButton} onPress={() => this.props.returnToHistory()}>
-          Back
-        </SelectButton>
       </View>
     )
   }

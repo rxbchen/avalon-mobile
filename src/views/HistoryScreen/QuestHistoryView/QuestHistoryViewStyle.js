@@ -5,6 +5,10 @@ export default StyleSheet.create({
     margin: 2,
     padding: 5
   },
+  cardContainer: {
+    borderWidth: 2.0,
+    borderColor: '#000'
+  },
   title: {
     textAlign: "center",
     color: '#FFF',
@@ -19,7 +23,14 @@ export default StyleSheet.create({
     height: 40
   },
   questInfoText: {
-    color: '#FFF',
+    fontWeight: 'normal',
+    color: '#000',
+    fontSize: 20
+  },
+  boldInfoText: {
+    fontWeight: 'bold',
+    color: '#000',
     fontSize: 20,
+    marginBottom: 10
   }
 })
