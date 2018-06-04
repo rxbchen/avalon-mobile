@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, View, TouchableOpacity, Image } from 'react-native';
+import { Text, View, TouchableOpacity, Image } from 'react-native'
 import Collapsible from 'react-native-collapsible'
 import proptypes from 'prop-types'
 import styles from './CardStyle'

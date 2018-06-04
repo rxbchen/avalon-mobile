@@ -5,7 +5,7 @@ import Card from 'src/components/Card'
 import SelectButton from 'src/components/SelectButton'
 import Background from 'src/components/Background'
 import _ from 'lodash'
-import CustomDropdown from "../../components/Dropdown/Dropdown";
+import CustomDropdown from "src/components/Dropdown/Dropdown";
 
 export default class QuestScreen extends Component {
   static navigationOptions = {header: null}
@@ -29,12 +29,15 @@ export default class QuestScreen extends Component {
 
   proposePlayers(quest) {
     const newQuest = Object.assign({}, quest)
-    newQuest.adventurers = _.compact(this.state.selectedPlayers)
-    this.props.updateQuest(newQuest)
-    const navigateParams = {
-      routeName: 'MissionScreen'
+    const proposal = {
+      captain: this.props.players[quest.captainIndex].name,
+      proposees: _.compact(this.state.selectedPlayers),
+      approved: [],
+      rejected: []
     }
-    this.props.navigate(navigateParams)
+    newQuest.proposals.push(proposal)
+    this.props.updateQuest(newQuest)
+    this.props.navigate({routeName: 'VoteScreen'})
   }
 
   getIcon(quest) {
@@ -70,20 +73,23 @@ export default class QuestScreen extends Component {
       }
       return dropdowns
     }
+    console.log('quest', quest, this.state.activeQuest)
     return quest.status !== 'unvisited' ? (
       <View>
         <Text>Captain: {this.props.players[quest.captainIndex].name}</Text>
         <Text>Adventurers: </Text>
-        { _.isEqual(this.state.activeQuest, quest) ?
+        { this.state.activeQuest.id === quest.id ?
           <View>
             {getDropdowns()}
-            <SelectButton onPress={() => this.proposePlayers(quest)}>Vote</SelectButton>
+            {_.compact(this.state.selectedPlayers).length < quest.numAdventurers ? null : <SelectButton onPress={() => this.proposePlayers(quest)}>Vote</SelectButton>}
           </View>
           :
           <View>
-            { quest.adventurers.map((adventurer) => {
-              return <Text>{adventurer}</Text>
-            })}
+            {
+              quest.adventurers.map((adventurer) => {
+                return <Text>{adventurer}</Text>
+              })
+            }
           </View>
         }
       </View>

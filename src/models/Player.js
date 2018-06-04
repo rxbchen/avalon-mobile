@@ -46,11 +46,11 @@ class Player {
   }
 
   getReducer = () => {
-    let initialState = this.initialState;
-    let handlers = this.getHandlers();
+    let initialState = this.initialState
+    let handlers = this.getHandlers()
     return (state, action) => {
-      state = state || initialState;
-      const handler = handlers[action.type];
+      state = state || initialState
+      const handler = handlers[action.type]
       return handler ? handler(state, action) : state
     }
   }
@@ -59,5 +59,5 @@ class Player {
 
 const player = new Player();
 
-export const reducer = player.getReducer();
-export default player;
+export const reducer = player.getReducer()
+export default player

@@ -10,17 +10,16 @@ export default class SelectButton extends Component {
 
   render() {
     return (
-      <LinearGradient colors={this.props.greenBackground ? GLOBALS.COLOR.GREEN_GRADIENT : GLOBALS.COLOR.RED_GRADIENT}
-                      style={this.props.linearGradient ? this.props.linearGradient : styles.linearGradient}>
         <TouchableOpacity onPress={() => this.props.onPress()}
-          style={this.props.isSelected ? styles.selectedButton : styles.unSelectedButton}
-          disabled={ this.props.disabled }>
-            <View style={ this.props.icon ? styles.sectionStyleIcon : styles.sectionStyleNoIcon}>
-              <Text style={styles.textStyle}>{this.props.children}</Text>
-              <Image source={this.props.icon} style={styles.buttonIcon}/>
-            </View>
+                          disabled={ this.props.disabled }>
+          <LinearGradient colors={this.props.confirm ? GLOBALS.COLOR.GREEN_GRADIENT : this.props.isSelected ? GLOBALS.COLOR.LIGHT_RED_GRADIENT : GLOBALS.COLOR.RED_GRADIENT}
+                        style={[styles.linearGradientStyle, this.props.linearGradientStyle ? this.props.linearGradientStyle : null]}>
+              <View style={[styles.viewStyle, this.props.icon ? styles.sectionStyleIcon : null]}>
+                <Text style={[styles.textStyle, this.props.textStyle ? this.props.textStyle : null]}>{this.props.children}</Text>
+                {this.props.icon ? <Image source={this.props.icon} style={styles.buttonIcon}/> : null }
+              </View>
+          </LinearGradient>
         </TouchableOpacity>
-      </LinearGradient>
     );
   }
 }
