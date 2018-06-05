@@ -73,7 +73,6 @@ export default class QuestScreen extends Component {
       }
       return dropdowns
     }
-    console.log('quest', quest, this.state.activeQuest)
     return quest.status !== 'unvisited' ? (
       <View>
         <Text>Captain: {this.props.players[quest.captainIndex].name}</Text>
@@ -111,6 +110,9 @@ export default class QuestScreen extends Component {
       <Background title='Quest'>
         <View>
           {QuestCards}
+          <SelectButton onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
+            History
+          </SelectButton>
         </View>
       </Background>
     )

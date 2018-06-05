@@ -7,7 +7,7 @@ import Card from 'src/components/Card'
 
 export default class PlayersConfig extends React.Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       names: [],
       isValid: true
@@ -43,9 +43,15 @@ export default class PlayersConfig extends React.Component {
     })
   }
 
-  saveAndContinue(names) {
-    this.props.createPlayers(names)
-    this.props.displayAndOpen({displayButton: true}, {openPlayers: false})
+  saveAndContinue() {
+    // check for any duplicate or empty names
+    console.log('names')
+    if (this.state.names.length !== _.uniq(this.state.names).length ||  _.compact(this.state.names).length < this.props.game.numPlayers) {
+      this.setState({isValid: false})
+    } else {
+      this.props.createPlayers(this.state.names)
+      this.props.displayAndOpen({displayButton: true}, {openPlayers: false})
+    }
   }
 
   render() {
@@ -56,14 +62,12 @@ export default class PlayersConfig extends React.Component {
       )
     }
     return (
-      <Card title='Player Configuration' collapsed={this.props.collapsed}>
-        <View>
-          {textInputs}
-          <SelectButton disabled={!this.state.isValid} onPress={() => this.saveAndContinue(this.state.names)} greenBackground>
-            Save and Continue
-          </SelectButton>
-          {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
-        </View>
+      <Card title='Player Configuration' collapsed={this.props.collapsed} style={this.props.style}>
+        {textInputs}
+        <SelectButton textStyle={{fontSize: 20}} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
+          Save and Continue
+        </SelectButton>
+        {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
       </Card>
     )
   }
