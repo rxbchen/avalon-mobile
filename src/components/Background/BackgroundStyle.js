@@ -4,9 +4,7 @@ import GLOBALS from 'src/globals'
 export default StyleSheet.create({
   backgroundImage: {
     flex: 1,
-    flexDirection: 'column',
-    width: null,
-    height: null,
+    flexDirection: 'column'
   },
   container: {
     color: '#FFF'
@@ -23,6 +21,7 @@ export default StyleSheet.create({
     alignSelf: 'stretch',
   },
   scrollView: {
+    flex: 1,
     paddingTop: 20,
     paddingRight: 25,
     paddingLeft: 25

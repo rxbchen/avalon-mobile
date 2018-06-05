@@ -87,13 +87,11 @@ export default class RoleConfig extends Component {
     }
     return (
       <Card title='Role Configuration' collapsed={this.props.collapsed} style={this.props.style}>
-        <View>
           {goodDropdownOptions}
           {badDropdownOptions}
           <SelectButton textStyle={{fontSize: 20}} onPress={() => this.saveAndContinue(this.state)} confirm>
             Save and Continue
           </SelectButton>
-        </View>
       </Card>
     )
   }

@@ -2,7 +2,6 @@ import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   textView: {
-    paddingTop: 30,
     paddingBottom: 15
   },
   imageView: {
@@ -29,17 +28,19 @@ export default StyleSheet.create({
     paddingBottom: 15
   },
   button: {
+    marginBottom: 20,
+    paddingTop: 0,
+    paddingBottom: 0,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    height: 60,
     width: 270,
-    margin: 10
   },
   buttonContainer: {
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 40
   },
   imageView: {
     flex: 1,

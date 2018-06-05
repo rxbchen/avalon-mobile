@@ -31,7 +31,7 @@ export default class ConfirmView extends Component {
     let playerButtons = [];
     for (let i = 0; i < this.props.players.length; i++) {
       playerButtons.push(
-        <SelectButton key={i} linearGradient={styles.playerButton} onPress={() => this.props.finalCheckReturned(this.props.players[i])}>
+        <SelectButton key={i} linearGradientStyle={styles.playerButton} textStyle={{fontSize: 25}} onPress={() => this.props.finalCheckReturned(this.props.players[i])}>
           {this.props.players[i].name}
         </SelectButton>
       )
@@ -42,12 +42,12 @@ export default class ConfirmView extends Component {
         <Text style={styles.headerText}>Does everyone know their role?</Text>
         <Text style={styles.text}>Confirm role for player...</Text>
         {playerButtons}
-        <SelectButton greenBackground onPress={()=> this.continueToQuest()}>
+        <SelectButton confirm onPress={()=> this.continueToQuest()}>
           Continue
         </SelectButton>
-        <View style={{flexDirection: 'row'}}>
-          <Text style={styles.resetText}>Did something go wrong?</Text>
-          <SelectButton linearGradient={styles.resetButton} onPress={() => this.returnToSetup()}>
+        <View style={styles.restartContainer}>
+          <Text style={styles.restartText}>Did something go wrong?</Text>
+          <SelectButton linearGradientStyle={styles.restartButton} textStyle={{fontSize: 14, lineHeight: 14}} onPress={() => this.returnToSetup()}>
             Reset
           </SelectButton>
         </View>

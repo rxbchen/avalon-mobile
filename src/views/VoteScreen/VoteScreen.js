@@ -116,7 +116,7 @@ export default class QuestScreen extends Component {
     render() {
       const playerRow = this.state.playerVotes.map((player, index) => {
         return (
-          <View style={[styles.playerRow, index === this.state.playerVotes.length-1 ? {borderBottomWidth: 0} : null]}>
+          <View key={player.name + index} style={[styles.playerRow, index === this.state.playerVotes.length-1 ? {borderBottomWidth: 0} : null]}>
             <Text numberOfLines={1} style={styles.playerName}>{player.name}</Text>
             {this.state.voteComplete ? <Text style={styles.voteText}>{player.voted}</Text> : this.getVoteButtons(player)}
           </View>
@@ -139,7 +139,7 @@ export default class QuestScreen extends Component {
                 <View style={styles.restartContainer}>
                   <Text style={styles.restartText}>Did something go wrong?</Text>
                   <SelectButton linearGradientStyle={styles.restartButton} textStyle={{fontSize: 14}} onPress={() => this.resetVotes()}>
-                    Restart
+                    Redo Votes
                   </SelectButton>
                 </View>
               ) : null

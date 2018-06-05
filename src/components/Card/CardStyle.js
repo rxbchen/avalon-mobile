@@ -30,6 +30,5 @@ export default StyleSheet.create({
   linearGradient: {
     borderRadius: 1,
     justifyContent: 'center',
-    height: 70
   }
 })

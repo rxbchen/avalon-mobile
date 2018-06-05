@@ -23,8 +23,7 @@ export default StyleSheet.create({
   viewStyle: {
     flexDirection: 'row',
     justifyContent: 'center',
-    alignItems: 'center',
-    height: 40
+    alignItems: 'stretch'
   },
   ImageStyle: {
     padding: 10,
@@ -50,6 +49,8 @@ export default StyleSheet.create({
     shadowOffset : { width: 1, height: 13},
   },
   confirmButton: {
+    paddingTop: 0,
+    paddingBottom: 0,
     width: '100%',
     alignSelf: 'center'
   }

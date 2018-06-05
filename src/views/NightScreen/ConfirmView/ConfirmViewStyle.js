@@ -2,12 +2,13 @@ import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   playerButton: {
-    margin: 10,
+    marginBottom: 30,
+    paddingTop: 0,
+    paddingBottom: 0,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    width: 220,
-    height: 70
+    width: 250,
   },
   resetButton: {
     margin: 10,
@@ -28,16 +29,28 @@ export default StyleSheet.create({
     fontSize: 23,
     fontWeight: "bold",
   },
-  resetText:{
-    alignSelf: 'center',
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 20
-  },
   text:{
     alignSelf: 'center',
     textAlign: 'center',
     color: '#FFF',
-    fontSize: 20
+    fontSize: 20,
+    marginBottom: 30
+  },
+  restartContainer: {
+    marginTop: 30,
+    marginBottom: 50,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  restartText: {
+    fontSize: 16,
+    marginRight: 20,
+    color: "#FFF"
+  },
+  restartButton: {
+    height: 30,
+    paddingLeft: 10,
+    paddingRight: 10
   }
 })

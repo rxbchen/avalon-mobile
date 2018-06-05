@@ -40,7 +40,7 @@ export default class EndScreen extends React.Component {
       }
     })
     return (
-      <Background title={(this.state.assassinTrigger && assassinFlag && merlinFlag) ? "Assassin's Play" : 'Game Over'}>
+      <Background title={(this.state.assassinTrigger && assassinFlag && merlinFlag) ? "Assassin's Play" : 'Game Over'} isScrollEnabled>
         <View>
           {this.renderScreen(assassinFlag, merlinFlag)}
         </View>
