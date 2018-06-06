@@ -52,7 +52,7 @@ export default class NightScreen extends React.Component {
 
   render() {
     return (
-      <Background title='Pre Game' isScrollEnabled={false}>
+      <Background title='Pre Game'>
         {this.renderScreen()}
       </Background>
     )

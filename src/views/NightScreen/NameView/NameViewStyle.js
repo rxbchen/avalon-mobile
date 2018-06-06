@@ -15,6 +15,7 @@ export default StyleSheet.create({
     fontWeight: '100',
   },
   playerText: {
+    width: '100%',
     lineHeight: 80,
     marginBottom: 30,
     textAlign: "center",
@@ -23,7 +24,6 @@ export default StyleSheet.create({
     fontWeight: '200'
   },
   button: {
-    borderRadius: 6,
     marginBottom: GLOBALS.SIZE.SCREEN_OFFSET
   }
 })

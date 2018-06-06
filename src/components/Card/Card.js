@@ -19,19 +19,20 @@ export default class Card extends React.Component {
   }
 
   toggleCollapse() {
-    if (!this.props.locked) this.setState({isCollapsed: !this.state.isCollapsed})
+    this.setState({isCollapsed: !this.state.isCollapsed})
   }
 
   render() {
     return (
       <View style={this.props.style ? this.props.style : null}>
         <LinearGradient colors={GLOBALS.COLOR.RED_GRADIENT} style={styles.linearGradient}>
-          <TouchableOpacity style={styles.titleContainer} onPress={() => this.toggleCollapse()}>
-            <Text style={styles.titleText}>{this.props.title}</Text>
+          <TouchableOpacity style={[styles.titleContainer, this.props.titleContainer ? this.props.titleContainer : null]} disabled={this.props.locked} onPress={() => this.toggleCollapse()}>
+            <Text style={[styles.titleText, this.props.titleText ? this.props.titleText : null]}>{this.props.title}</Text>
             <Image style={styles.titleImage} source={this.props.icon} />
           </TouchableOpacity>
         </LinearGradient>
-        <Collapsible style={styles.collapsibleContainer} collapsed={this.state.isCollapsed}>
+        <Collapsible style={[styles.collapsibleContainer, this.props.collapsibleContainer ? this.props.collapsibleContainer : null]}
+                     collapsed={this.state.isCollapsed}>
           {this.props.children}
         </Collapsible>
       </View>

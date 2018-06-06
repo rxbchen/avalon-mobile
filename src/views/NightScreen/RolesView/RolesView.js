@@ -67,7 +67,7 @@ export default class RolesView extends Component {
 
   render() {
     return (
-      <View>
+      <View style={styles.rolesView}>
         <View style={styles.textView}>
           <Text style={styles.text}>You are...</Text>
           <Text style={styles.roleText}>{reverseCamelCase(this.props.currentPlayer.role)}</Text>
@@ -75,7 +75,9 @@ export default class RolesView extends Component {
         <View style={styles.imageView}>
           <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
         </View>
-        <Card title='What you know' isCollapsed={false}>
+        <Card title='What you know' locked collapsed={false} style={{alignSelf: 'stretch'}}
+              collapsibleContainer={styles.cardCollapsibleContainer}
+              titleText={{fontSize: 20}} titleContainer={styles.cardTitleContainer} >
           <View>
             <Text>{this.state.revealedText}</Text>
             {this.state.knownPlayers.map((name, key)=>(
@@ -83,7 +85,7 @@ export default class RolesView extends Component {
             )}
           </View>
         </Card>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.goToNext()}>
+        <SelectButton confirm linearGradientStyle={styles.continueButton} onPress={() => this.props.goToNext()}>
           Continue
         </SelectButton>
       </View>

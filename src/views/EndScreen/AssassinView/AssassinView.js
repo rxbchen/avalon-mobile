@@ -30,7 +30,7 @@ export default class AssassinView extends Component {
       }
       if (_.includes(['merlin', 'percival', 'loyalServantOfArthur'], player.role)) {
         playerList.push(
-          <SelectButton key={player.name} linearGradient={styles.button} onPress={() => this.checkMerlin(player)}>{player.name}</SelectButton>
+          <SelectButton key={player.name} linearGradientStyle={styles.button}  textStyle={{fontSize: 20, lineHeight: 22}} onPress={() => this.checkMerlin(player)}>{player.name}</SelectButton>
         )
       }
     })
@@ -43,7 +43,7 @@ export default class AssassinView extends Component {
           <View style={styles.imageView}>
             <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
           </View>
-          <Text style={styles.subTitle}>Choose Merlin correctly, and Evil shall win</Text>
+          <Text style={styles.subTitle}>Correctly assassinate Merlin</Text>
           <View style={styles.buttonContainer}>
             {playerList}
           </View>

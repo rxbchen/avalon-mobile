@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View} from 'react-native'
-import styles from './ResultsView'
+import styles from './ResultsViewStyle'
 import SelectButton from "src/components/SelectButton"
+import _ from 'lodash'
+
 
 export default class ResultsView extends Component {
   constructor(props) {
@@ -57,9 +59,10 @@ export default class ResultsView extends Component {
 
   render() {
     return (
-      <View style={styles.resultView}>
-        <Text style={styles.resultText}>The Mission {this.props.quest[this.props.currentMission].status} with {this.props.numFails} fails</Text>
-        <SelectButton linearGradient={styles.button} onPress={() => this.MoveToNextScreen()}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Mission {_.upperFirst(this.props.quest[this.props.currentMission].status)}</Text>
+        <Text style={styles.caption}>{this.props.numFails ? this.props.numFails : 'No'} Fail{this.props.numFails !== 1 ? 's' : null}</Text>
+        <SelectButton confirm onPress={() => this.MoveToNextScreen()} linearGradientStyle={styles.button}>
           Continue
         </SelectButton>
       </View>
