@@ -12,6 +12,10 @@ export default class HomeScreen extends Component {
       routeName: 'SetupScreen'
     }
 
+    const historyParams = {
+      routeName: 'HistoryScreen'
+    }
+
     return (
       <Background header={false} isScrollEnabled={false}>
         <View style={styles.container}>
