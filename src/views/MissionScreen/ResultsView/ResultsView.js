@@ -32,7 +32,7 @@ export default class ResultsView extends Component {
     if(this.props.currentMission + 1 < this.props.game.numQuests)
     {
       this.props.quest[this.props.currentMission +1].status = "active"
-      this.props.quest[this.props.currentMission +1].captainIndex = (this.props.quest[0].captainIndex + 1)%this.props.game.numPlayers
+      this.props.quest[this.props.currentMission +1].captainIndex = (this.props.quest[this.props.currentMission].captainIndex + 1)%this.props.game.numPlayers
       this.props.quest[this.props.currentMission +1].adventurers = []
     }
 
