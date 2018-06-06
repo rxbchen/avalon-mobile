@@ -12,7 +12,6 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10
   },
 
   sectionStyle: {
@@ -24,12 +23,9 @@ export default StyleSheet.create({
     borderColor: '#000',
     height: 40,
     borderRadius: 5 ,
-    margin: 10
   },
 
   imageStyle: {
-    padding: 10,
-    margin: 5,
     height: 25,
     width: 25,
     resizeMode : 'stretch',

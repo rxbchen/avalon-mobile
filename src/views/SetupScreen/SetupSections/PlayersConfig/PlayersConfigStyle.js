@@ -1,15 +1,24 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
+  textInputs: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 25
+    paddingTop: 17,
   },
   error: {
     color: "red",
     justifyContent: 'center',
     alignItems: 'center',
   },
+  textButton: {
+    fontSize: 18,
+  },
+  button: {
+    paddingTop: 20,
+  },
+  text: {
+    fontSize: 18,
+  }
 });

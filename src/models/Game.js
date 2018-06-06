@@ -31,7 +31,6 @@ class Game {
       for (let role in gameObject.rolesBad) {
         gameObject.rolesBad[role] = 0
       }
-
       for( let i = 0; i < data.rolesGood.length; i++) {
         const role = data.rolesGood[i].value
         gameObject.rolesGood[role]++;

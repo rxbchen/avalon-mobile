@@ -53,7 +53,7 @@ export default class QuestScreen extends Component {
   }
 
   getProposalInfo(quest) {
-    let players = this.props.playerNames.map(playerName => {
+    let players = this.props.playerNames.map((playerName) => {
       if (!this.state.selectedPlayers.includes(playerName)) {
         return {value: playerName}
       }
@@ -120,9 +120,9 @@ export default class QuestScreen extends Component {
     })
     return (
       <Background title='Quest'>
-        <SelectButton linearGradientStyle={styles.historyButton} textStyle={{fontSize: 16, lineHeight: 18}} onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
-          History
-        </SelectButton>
+        {/*<SelectButton linearGradientStyle={styles.historyButton} textStyle={{fontSize: 16, lineHeight: 18}} onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>*/}
+          {/*History*/}
+        {/*</SelectButton>*/}
         <View>
           {QuestCards}
         </View>

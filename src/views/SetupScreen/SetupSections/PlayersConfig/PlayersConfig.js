@@ -58,13 +58,14 @@ export default class PlayersConfig extends React.Component {
     let textInputs = [];
     for (let i = 0; i < this.props.game.numPlayers; i++) {
       textInputs.push(
-        <LabelledInput key={i} value={this.state.names[i]} placeholder={"Player " + (i+1)} onChange={(event) => this.addPlayer(event, i)} style={styles.container}/>
+        <LabelledInput key={i} value={this.state.names[i]} placeholder={"Player " + (i+1)} onChange={(event) => this.addPlayer(event, i)} style={styles.textInputs}/>
       )
     }
     return (
       <Card title='Player Configuration' collapsed={this.props.collapsed} style={this.props.style}>
+        <Text style={styles.text}>Enter your player names:</Text>
         {textInputs}
-        <SelectButton textStyle={{fontSize: 20}} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
+        <SelectButton textStyle={styles.textButton} touchableOpacityStyle={styles.button} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
           Save and Continue
         </SelectButton>
         {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
