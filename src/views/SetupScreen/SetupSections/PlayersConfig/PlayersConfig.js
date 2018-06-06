@@ -65,7 +65,7 @@ export default class PlayersConfig extends React.Component {
       <Card title='Player Configuration' collapsed={this.props.collapsed} style={this.props.style}>
         <Text style={styles.text}>Enter your player names:</Text>
         {textInputs}
-        <SelectButton textStyle={styles.textButton} buttonStyle={styles.button} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
+        <SelectButton textStyle={styles.textButton} touchableOpacityStyle={styles.button} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
           Save and Continue
         </SelectButton>
         {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}

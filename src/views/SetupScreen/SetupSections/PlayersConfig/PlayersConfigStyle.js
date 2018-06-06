@@ -16,7 +16,7 @@ export default StyleSheet.create({
     fontSize: 18,
   },
   button: {
-    paddingTop: 17,
+    paddingTop: 20,
   },
   text: {
     fontSize: 18,
