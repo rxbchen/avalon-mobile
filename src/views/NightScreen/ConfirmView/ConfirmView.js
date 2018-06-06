@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View} from 'react-native'
+import { Text, View, Alert} from 'react-native'
 import styles from './ConfirmViewStyle'
 import SelectButton from "src/components/SelectButton"
 
@@ -24,7 +24,15 @@ export default class ConfirmView extends Component {
     const navigateParams = {
       routeName: 'SetupScreen'
     }
-    this.props.navigate(navigateParams)
+    Alert.alert(
+      'Return to Setup',
+      'Are you sure? This is not reversible.',
+      [
+        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+        {text: 'OK', onPress: () => this.props.navigate(navigateParams)}
+      ],
+      {cancelable: true}
+    )
   }
 
   render() {

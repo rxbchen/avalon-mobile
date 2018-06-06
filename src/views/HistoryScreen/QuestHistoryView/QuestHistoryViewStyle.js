@@ -1,37 +1,23 @@
 import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  container: {
-    margin: 2,
-    padding: 5
-  },
-  cardContainer: {
+  proposalCardContainer: {
     shadowColor: 'rgba(0, 0, 0, 0.1)',
     shadowOpacity: 1.0,
     elevation: 6,
     shadowRadius: 15,
     borderRadius: 1,
+    margin: 10
+  },
 
-  },
-  cardTitleContainer: {
-    justifyContent: 'space-around',
-    paddingTop: 5,
-    paddingBottom: 5,
-    paddingLeft: 15,
-    paddingRight: 15,
-    alignSelf: 'stretch'
-  },
-  cardTitleText: {
+  proposalCardTitleText: {
     // fontFamily: 'Roboto-Medium',
     fontSize: 20,
-    color: '#FFF',
-    textAlign: 'left'
   },
   title: {
-    textAlign: "center",
     color: '#FFF',
     fontSize: 40,
-    marginBottom: 10
+    marginBottom: 20
   },
   backButton: {
     margin: 10,
@@ -41,21 +27,12 @@ export default StyleSheet.create({
     width: 110,
     height: 40
   },
-  questInfoText: {
+  playersText: {
     fontWeight: 'normal',
-    color: '#000',
-    fontSize: 20
+    fontSize: 14
   },
-  adventureInfoText: {
+  contentText: {
     fontWeight: 'bold',
-    color: '#000',
-    fontSize: 20,
-    marginBottom: 15
-  },
-  otherInfoText: {
-    fontWeight: 'bold',
-    color: '#000',
-    fontSize: 20,
-    marginBottom: 10
+    fontSize: 16
   }
 })

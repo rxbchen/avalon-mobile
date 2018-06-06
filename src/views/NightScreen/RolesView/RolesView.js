@@ -79,9 +79,9 @@ export default class RolesView extends Component {
               collapsibleContainer={styles.cardCollapsibleContainer}
               titleText={{fontSize: 20}} titleContainer={styles.cardTitleContainer} >
           <View>
-            <Text>{this.state.revealedText}</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}>{this.state.revealedText}</Text>
             {this.state.knownPlayers.map((name, key)=>(
-              <Text key={key}> { name } </Text>)
+              <Text style={{fontSize: 16}} key={key}> { name } </Text>)
             )}
           </View>
         </Card>

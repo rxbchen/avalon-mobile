@@ -1,5 +1,5 @@
 import React from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, Alert } from 'react-native';
 import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
 import { Text } from 'react-native'
@@ -18,6 +18,18 @@ export default class BackgroundImage extends React.Component {
 
   displayContent() {
     this.setState({showContent: true})
+  }
+
+  onHomePress() {
+    Alert.alert(
+      'Return to Home',
+      'Are you sure? This will wipe your game.',
+      [
+        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+        {text: 'OK', onPress: () => this.resetEverything()}
+      ],
+      {cancelable: true}
+    )
   }
 
   resetEverything() {
@@ -39,7 +51,7 @@ export default class BackgroundImage extends React.Component {
               <Title style={styles.headerFont}>{this.props.title}</Title>
             </Body>
             <Right>
-              <Button transparent onPress={() => this.resetEverything()}>
+              <Button transparent onPress={() => this.onHomePress()}>
                 <Text>Home</Text>
               </Button>
             </Right>

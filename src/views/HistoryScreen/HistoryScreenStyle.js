@@ -1,9 +1,13 @@
 import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  buttonView: {
-    flexDirection: 'row',
-    justifyContent: 'center'
+  questButton: {
+    marginBottom: 10,
+    alignSelf: 'flex-start',
+    paddingTop: 0,
+    paddingBottom: 0,
+    paddingLeft: 20,
+    paddingRight: 20
   },
   topButton: {
     margin: 5,
