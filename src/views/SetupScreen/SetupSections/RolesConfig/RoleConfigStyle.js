@@ -1,12 +1,16 @@
 import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
-  text: {
-    fontSize: 18,
+  subtitleText: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
-  evilText: {
-    fontSize:18,
-    paddingTop: 25,
+  text: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: -25,
+    marginTop: 25
   },
   textButton: {
     fontSize: 18,

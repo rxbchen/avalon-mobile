@@ -99,8 +99,9 @@ export default class QuestScreen extends Component {
 
   render() {
     let QuestCards = this.props.quests.map((quest, i) => {
-      return <Card key={quest.id} title={"Quest " + (i + 1)} style={styles.card} collapsed={!_.isEqual(quest, this.state.activeQuest)} icon={this.getIcon(quest)} >
-        <View style={{margin: 10}}>
+      return (
+        <Card key={quest.id} title={"Quest " + (i + 1)} style={styles.card} collapsed={!_.isEqual(quest, this.state.activeQuest)} icon={this.getIcon(quest)} >
+          <View style={{margin: 10}}>
           { quest.status === 'passed' || quest.status === 'failed' ? (
               <Text style={[styles.text, {fontWeight: 'bold', fontSize: 18, marginBottom: 10}]}>
                 {quest.status === 'passed' ? 'Quest Passed!' : 'Quest Failed!'}
@@ -117,12 +118,13 @@ export default class QuestScreen extends Component {
         </View>
         {this.getProposalInfo(quest)}
       </Card>
+      )
     })
     return (
       <Background title='Quest'>
-        {/*<SelectButton linearGradientStyle={styles.historyButton} textStyle={{fontSize: 16, lineHeight: 18}} onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>*/}
-          {/*History*/}
-        {/*</SelectButton>*/}
+        <SelectButton linearGradientStyle={styles.historyButton} textStyle={{fontSize: 16, lineHeight: 18}} onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
+          History
+        </SelectButton>
         <View>
           {QuestCards}
         </View>

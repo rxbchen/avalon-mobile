@@ -83,13 +83,13 @@ export default class RoleConfig extends Component {
     }
     return (
       <Card title='Role Configuration' collapsed={this.props.collapsed} style={this.props.style}>
-        <View>
-          <Text style={styles.text}>Please select your roles!</Text>
+        <View style={{padding: 15}}>
+          <Text style={styles.subtitleText}>Please select your roles!</Text>
           <Text style={styles.text}>Good:</Text>
           {goodDropdownOptions}
-          <Text style={styles.evilText}>Evil:</Text>
+          <Text style={styles.text}>Evil:</Text>
           {badDropdownOptions}
-          <SelectButton textStyle={styles.textButton} onPress={() => this.saveAndContinue(this.state)} confirm>
+          <SelectButton touchableOpacityStyle={{marginTop: 20}} textStyle={styles.textButton} onPress={() => this.saveAndContinue(this.state)} confirm>
             Save and Continue
           </SelectButton>
         </View>

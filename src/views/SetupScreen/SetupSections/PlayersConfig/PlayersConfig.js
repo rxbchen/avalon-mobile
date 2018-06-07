@@ -45,7 +45,6 @@ export default class PlayersConfig extends React.Component {
 
   saveAndContinue() {
     // check for any duplicate or empty names
-    console.log('names')
     if (this.state.names.length !== _.uniq(this.state.names).length ||  _.compact(this.state.names).length < this.props.game.numPlayers) {
       this.setState({isValid: false})
     } else {
@@ -63,12 +62,14 @@ export default class PlayersConfig extends React.Component {
     }
     return (
       <Card title='Player Configuration' collapsed={this.props.collapsed} style={this.props.style}>
-        <Text style={styles.text}>Enter your player names:</Text>
-        {textInputs}
-        <SelectButton textStyle={styles.textButton} touchableOpacityStyle={styles.button} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
-          Save and Continue
-        </SelectButton>
-        {!this.state.isValid ? <Text style={styles.error}> Invalid names!</Text> : null}
+        <View style={{paddingTop: 15}}>
+          <Text style={styles.text}>Enter your player names</Text>
+          {textInputs}
+          <SelectButton textStyle={styles.textButton} touchableOpacityStyle={styles.button} disabled={!this.state.isValid} onPress={() => this.saveAndContinue()} confirm>
+            Save and Continue
+          </SelectButton>
+          {!this.state.isValid ? <Text style={styles.error}> No duplicate or empty names allowed!</Text> : null}
+        </View>
       </Card>
     )
   }

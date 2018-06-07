@@ -2,23 +2,23 @@ import { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   textInputs: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingTop: 17,
+    padding: 15,
   },
   error: {
+    marginTop: 10,
     color: "red",
-    justifyContent: 'center',
-    alignItems: 'center',
+    textAlign: 'center'
   },
   textButton: {
     fontSize: 18,
   },
   button: {
-    paddingTop: 20,
+    marginTop: 30,
   },
   text: {
-    fontSize: 18,
+    fontSize: 16,
+    fontWeight: 'bold',
+    textAlign: 'center',
+    marginBottom: -10
   }
 });
