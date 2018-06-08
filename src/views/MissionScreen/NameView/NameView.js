@@ -10,19 +10,18 @@ export default class NameView extends Component {
   }
 
   render() {
-    console.log("props", this.props)
     return (
       <View style={styles.nameView}>
         <Text style={styles.caption}>
           Please pass the phone to
         </Text>
-        <Text style={styles.playerText}>
+        <Text style={styles.playerText} numberOfLines={2}>
           {this.props.playerName}
         </Text>
         <SelectButton
           onPress={() => this.props.toggleReveal()}
-          greenBackground={true}
-          linearGradient={styles.button}>
+          confirm
+          linearGradientStyle={styles.button}>
           That's Me
         </SelectButton>
       </View>

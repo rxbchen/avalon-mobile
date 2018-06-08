@@ -2,12 +2,13 @@ import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   titleContainer: {
-    justifyContent: 'space-around',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 15,
     paddingRight: 15,
-    alignSelf: 'stretch'
   },
 
   titleText: {

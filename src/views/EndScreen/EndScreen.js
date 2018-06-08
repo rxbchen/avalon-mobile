@@ -1,10 +1,6 @@
 import React from 'react'
 import { View, Text, Image } from 'react-native'
-import styles from './EndScreenStyle'
 import Background from "src/components/Background"
-import Card from "src/components/Card"
-import SelectButton from "src/components/SelectButton"
-import {reverseCamelCase} from "src/utils/stringUtils";
 import GameOverView from './GameOverView'
 import AssassinView from './AssassinView'
 
@@ -16,7 +12,7 @@ export default class EndScreen extends React.Component {
     this.state = {
       assassinTrigger: true,
       // goodWin comes from Game state
-      goodWin: true
+      goodWin: this.props.game.goodWin
     }
   }
 
@@ -40,7 +36,7 @@ export default class EndScreen extends React.Component {
       }
     })
     return (
-      <Background title={(this.state.assassinTrigger && assassinFlag && merlinFlag) ? "Assassin's Play" : 'Game Over'}>
+      <Background title={(this.state.assassinTrigger && assassinFlag && merlinFlag) ? "Assassin's Play" : 'Game Over'} isScrollEnabled>
         <View>
           {this.renderScreen(assassinFlag, merlinFlag)}
         </View>

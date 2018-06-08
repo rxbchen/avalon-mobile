@@ -1,9 +1,11 @@
 import React, { StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
+  container: {
+    marginBottom: 30
+  },
   textView: {
-    paddingTop: 30,
-
+    marginBottom: 10
   },
   winnerText: {
     alignSelf: 'center',
@@ -22,7 +24,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    paddingBottom: 15
+    marginBottom: 15
   },
   circleImage: {
     height: 150,
@@ -30,15 +32,21 @@ export default StyleSheet.create({
     width: 150
   },
   returnButton: {
-    margin: 10,
+    paddingTop: 0,
+    paddingBottom: 0,
+    marginBottom: 10,
     alignSelf: 'center',
-    justifyContent: 'center',
-    alignItems: 'center',
     width: 300,
-    height: 70
   },
   buttonView: {
     alignSelf: 'center',
     flexDirection: 'row'
+  },
+  cardCollapsibleContainer: {
+    minHeight: 50
+  },
+  cardTitleContainer: {
+    paddingTop: 10,
+    paddingBottom: 10
   }
 })

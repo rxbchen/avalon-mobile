@@ -1,12 +1,9 @@
 import React from 'react';
-import { ImageBackground, ScrollView } from 'react-native';
+import { ImageBackground, ScrollView, Alert } from 'react-native';
 import styles from './BackgroundStyle'
 import proptypes from 'prop-types';
 import { Text } from 'react-native'
 import { Header, Body, Right, Button, Title } from 'native-base'
-import Game from 'src/models/Game'
-import Player from 'src/models/Player'
-import Quest from 'src/models/Quest'
 
 export default class BackgroundImage extends React.Component {
   constructor(props) {
@@ -20,10 +17,22 @@ export default class BackgroundImage extends React.Component {
     this.setState({showContent: true})
   }
 
+  onHomePress() {
+    Alert.alert(
+      'Return to Home',
+      'Are you sure? This will wipe your game.',
+      [
+        {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+        {text: 'OK', onPress: () => this.resetEverything()}
+      ],
+      {cancelable: true}
+    )
+  }
+
   resetEverything() {
-    Player.clearPlayers()
-    Game.clearGame()
-    Quest.clearQuest()
+    this.props.clearPlayers()
+    this.props.clearGame()
+    this.props.clearQuest()
     this.props.navigate({routeName: 'HomeScreen'})
   }
 
@@ -39,7 +48,7 @@ export default class BackgroundImage extends React.Component {
               <Title style={styles.headerFont}>{this.props.title}</Title>
             </Body>
             <Right>
-              <Button transparent onPress={() => this.resetEverything()}>
+              <Button transparent onPress={() => this.onHomePress()}>
                 <Text>Home</Text>
               </Button>
             </Right>

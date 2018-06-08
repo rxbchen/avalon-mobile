@@ -1,32 +1,47 @@
 import React, { StyleSheet } from 'react-native'
+import GLOBALS from 'src/globals'
 
 export default StyleSheet.create({
-  textView: {
-    paddingTop: 30,
-    paddingBottom: 30
+  rolesView: {
+    height: GLOBALS.SIZE.SCREEN_HEIGHT,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  roleText: {
-    alignSelf: 'center',
-    textAlign: 'center',
-    color: '#FFF',
-    fontSize: 26,
-    fontWeight: "bold",
+  textView: {
+    paddingBottom: 20
   },
   text:{
     alignSelf: 'center',
     textAlign: 'center',
     color: '#FFF',
-    fontSize: 20
+    fontSize: 22
+  },
+  roleText: {
+    alignSelf: 'center',
+    textAlign: 'center',
+    color: '#FFF',
+    fontSize: 30,
+    fontWeight: "bold",
   },
   imageView: {
-    flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10
+    marginBottom: 20
   },
   circleImage: {
     height: 150,
     borderRadius: 75,
     width: 150
+  },
+  continueButton: {
+    marginTop: 20,
+    marginBottom: GLOBALS.SIZE.SCREEN_OFFSET
+  },
+  cardCollapsibleContainer: {
+    minHeight: 50
+  },
+  cardTitleContainer: {
+    paddingTop: 10,
+    paddingBottom: 10
   }
 })
