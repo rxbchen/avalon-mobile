@@ -3,7 +3,7 @@ import React, { StyleSheet } from 'react-native'
 export default StyleSheet.create({
   textView: {
     paddingTop: 30,
-    paddingBottom: 15
+
   },
   winnerText: {
     alignSelf: 'center',
@@ -22,7 +22,7 @@ export default StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 0
+    paddingBottom: 15
   },
   circleImage: {
     height: 150,

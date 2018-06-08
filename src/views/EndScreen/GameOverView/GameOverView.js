@@ -57,6 +57,10 @@ export default class GameOverView extends React.Component {
     this.findPlayers(roles)
   }
 
+  winningIcon(){
+    return this.props.goodWin ? require('src/static/images/icons/merlin.png') : require('src/static/images/icons/mordred.png')
+  }
+
   componentDidMount(){
     this.generatePlayerList()
   }
@@ -69,7 +73,7 @@ export default class GameOverView extends React.Component {
             <Text style={styles.winnerText}>{winner} Team Wins</Text>
           </View>
           <View style={styles.imageView}>
-            <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
+            <Image style={styles.circleImage} source={this.winningIcon()}/>
           </View>
           <Card title='Player Roles' locked collapsed={false}>
             <View>

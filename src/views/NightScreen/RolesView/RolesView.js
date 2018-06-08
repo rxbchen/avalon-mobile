@@ -10,7 +10,8 @@ export default class RolesView extends Component {
     super(props)
     this.state = {
       knownPlayers: [],
-      revealedText: ""
+      revealedText: "",
+      icon: ""
     }
   }
 
@@ -61,6 +62,27 @@ export default class RolesView extends Component {
     }
   }
 
+  setIcon(){
+    switch (this.props.currentPlayer.role){
+      case 'morgana':
+        return require('src/static/images/icons/morgana.png')
+      case 'mordred':
+        return require('src/static/images/icons/mordred.png')
+      case 'assassin':
+        return require('src/static/images/icons/assassin.png')
+      case 'minionOfMordred':
+        return require('src/static/images/icons/minionOfMordred.png')
+      case 'oberon':
+        return require('src/static/images/icons/oberon.png')
+      case 'loyalServantOfArthur':
+        return require('src/static/images/icons/loyalServantOfArthur.png')
+      case 'merlin':
+        return require('src/static/images/icons/merlin.png')
+      case 'percival':
+        return require('src/static/images/icons/percival.png')
+    }
+  }
+
   componentDidMount(){
     this.updateRevealedText()
   }
@@ -73,7 +95,7 @@ export default class RolesView extends Component {
           <Text style={styles.roleText}>{reverseCamelCase(this.props.currentPlayer.role)}</Text>
         </View>
         <View style={styles.imageView}>
-          <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
+          <Image style={styles.circleImage} source={this.setIcon()}/>
         </View>
         <Card title='What you know' isCollapsed={false}>
           <View>
