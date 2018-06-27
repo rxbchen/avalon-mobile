@@ -10,7 +10,8 @@ export default class RolesView extends Component {
     super(props)
     this.state = {
       knownPlayers: [],
-      revealedText: ""
+      revealedText: "",
+      icon: ""
     }
   }
 
@@ -61,29 +62,52 @@ export default class RolesView extends Component {
     }
   }
 
+  setIcon(){
+    switch (this.props.currentPlayer.role){
+      case 'morgana':
+        return require('src/static/images/icons/morgana.png')
+      case 'mordred':
+        return require('src/static/images/icons/mordred.png')
+      case 'assassin':
+        return require('src/static/images/icons/assassin.png')
+      case 'minionOfMordred':
+        return require('src/static/images/icons/minionOfMordred.png')
+      case 'oberon':
+        return require('src/static/images/icons/oberon.png')
+      case 'loyalServantOfArthur':
+        return require('src/static/images/icons/loyalServantOfArthur.png')
+      case 'merlin':
+        return require('src/static/images/icons/merlin.png')
+      case 'percival':
+        return require('src/static/images/icons/percival.png')
+    }
+  }
+
   componentDidMount(){
     this.updateRevealedText()
   }
 
   render() {
     return (
-      <View>
+      <View style={styles.rolesView}>
         <View style={styles.textView}>
           <Text style={styles.text}>You are...</Text>
           <Text style={styles.roleText}>{reverseCamelCase(this.props.currentPlayer.role)}</Text>
         </View>
         <View style={styles.imageView}>
-          <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
+          <Image style={styles.circleImage} source={this.setIcon()}/>
         </View>
-        <Card title='What you know' isCollapsed={false}>
+        <Card title='What you know' locked collapsed={false} style={{alignSelf: 'stretch'}}
+              collapsibleContainer={styles.cardCollapsibleContainer}
+              titleText={{fontSize: 20}} titleContainer={styles.cardTitleContainer} >
           <View>
-            <Text>{this.state.revealedText}</Text>
+            <Text style={{fontSize: 16, fontWeight: 'bold'}}>{this.state.revealedText}</Text>
             {this.state.knownPlayers.map((name, key)=>(
-              <Text key={key}> { name } </Text>)
+              <Text style={{fontSize: 16}} key={key}> { name } </Text>)
             )}
           </View>
         </Card>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.props.goToNext()}>
+        <SelectButton confirm linearGradientStyle={styles.continueButton} onPress={() => this.props.goToNext()}>
           Continue
         </SelectButton>
       </View>

@@ -1,6 +1,5 @@
 import React from 'react'
 import { View } from 'react-native'
-import styles from './MissionScreenStyle'
 import VoteView from './VoteView'
 import NameView from './NameView'
 import ResultsView from './ResultsView'

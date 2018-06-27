@@ -15,7 +15,7 @@ export default class NameView extends Component {
           <Text style={styles.caption}>
             Please pass the phone to
           </Text>
-          <Text style={styles.playerText}>
+          <Text numberOfLines={2} style={styles.playerText}>
             {this.props.playerName.name}
           </Text>
           <SelectButton 

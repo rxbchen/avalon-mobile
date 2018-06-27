@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Alert } from 'react-native'
 import styles from './VoteScreenStyle'
 import SelectButton from 'src/components/SelectButton'
 import Background from 'src/components/Background'
@@ -105,6 +105,18 @@ export default class QuestScreen extends Component {
       }
     }
 
+    onResetPress() {
+      Alert.alert(
+        'Redo Votes',
+        'Are you sure? This is not reversible.',
+        [
+          {text: 'Cancel', onPress: () => {}, style: 'cancel'},
+          {text: 'OK', onPress: () => this.resetVotes()}
+        ],
+        {cancelable: true}
+      )
+    }
+
     resetVotes() {
       const playerVotes = _.cloneDeep(this.state.playerVotes)
       playerVotes.forEach((player) => {
@@ -116,7 +128,7 @@ export default class QuestScreen extends Component {
     render() {
       const playerRow = this.state.playerVotes.map((player, index) => {
         return (
-          <View style={[styles.playerRow, index === this.state.playerVotes.length-1 ? {borderBottomWidth: 0} : null]}>
+          <View key={player.name + index} style={[styles.playerRow, index === this.state.playerVotes.length-1 ? {borderBottomWidth: 0} : null]}>
             <Text numberOfLines={1} style={styles.playerName}>{player.name}</Text>
             {this.state.voteComplete ? <Text style={styles.voteText}>{player.voted}</Text> : this.getVoteButtons(player)}
           </View>
@@ -138,8 +150,8 @@ export default class QuestScreen extends Component {
               this.state.voteComplete ? (
                 <View style={styles.restartContainer}>
                   <Text style={styles.restartText}>Did something go wrong?</Text>
-                  <SelectButton linearGradientStyle={styles.restartButton} textStyle={{fontSize: 14}} onPress={() => this.resetVotes()}>
-                    Restart
+                  <SelectButton linearGradientStyle={styles.restartButton} textStyle={{fontSize: 14}} onPress={() => this.onResetPress()}>
+                    Redo Votes
                   </SelectButton>
                 </View>
               ) : null

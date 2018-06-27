@@ -24,25 +24,15 @@ export default class HistoryScreen extends Component {
     this.props.navigate(navigateParams)
   }
 
-  renderScreen() {
-    console.log("Quest: " + this.state.view_quest)
-    return(
-      <View>
-        <View style={ styles.topButton }>
-          <SelectButton linearGradient={ styles.topButton } onPress={ () => { this.backToQuest() } }>
-            Go Back To Quest
-          </SelectButton>
-        </View>
-        <QuestHistoryView players={this.props.players} quests={ this.props.quests } />
-      </View>
-    )
-  }
-  
   render() {
     return (
-      // quests Array -> QuestObject(captainIndex, adventurers)
-      <Background>
-        { this.renderScreen() }
+      <Background title='History'>
+        <View>
+          <SelectButton linearGradientStyle={ styles.questButton } textStyle={{fontSize: 16, lineHeight: 18}} onPress={ () => { this.backToQuest() } }>
+            Go Back To Quest
+          </SelectButton>
+          <QuestHistoryView players={this.props.players} quests={ this.props.quests } />
+        </View>
       </Background>
     )
   }

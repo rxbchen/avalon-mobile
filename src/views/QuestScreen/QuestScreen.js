@@ -53,7 +53,7 @@ export default class QuestScreen extends Component {
   }
 
   getProposalInfo(quest) {
-    let players = this.props.playerNames.map(playerName => {
+    let players = this.props.playerNames.map((playerName) => {
       if (!this.state.selectedPlayers.includes(playerName)) {
         return {value: playerName}
       }
@@ -74,19 +74,21 @@ export default class QuestScreen extends Component {
       return dropdowns
     }
     return quest.status !== 'unvisited' ? (
-      <View>
-        <Text>Captain: {this.props.players[quest.captainIndex].name}</Text>
-        <Text>Adventurers: </Text>
+      <View style={{margin: 10}}>
+        <Text style={styles.text}><Text style={{fontWeight: 'bold'}}>Captain:</Text> {this.props.players[quest.captainIndex].name}</Text>
+        <Text style={[styles.text, {fontWeight:'bold'}]}>{this.state.activeQuest.id === quest.id ? 'Choose your Adventurers:' : 'Adventurers:'}</Text>
         { this.state.activeQuest.id === quest.id ?
           <View>
             {getDropdowns()}
-            {_.compact(this.state.selectedPlayers).length < quest.numAdventurers ? null : <SelectButton onPress={() => this.proposePlayers(quest)}>Vote</SelectButton>}
+            {_.compact(this.state.selectedPlayers).length < quest.numAdventurers ? null :
+              <SelectButton confirm onPress={() => this.proposePlayers(quest)} linearGradientStyle={{marginTop: 10}} textStyle={{fontSize: 20}}>Vote</SelectButton>
+            }
           </View>
           :
           <View>
             {
-              quest.adventurers.map((adventurer) => {
-                return <Text>{adventurer}</Text>
+              quest.adventurers.map((adventurer, index) => {
+                return <Text key={adventurer + index} style={styles.text}>{adventurer}</Text>
               })
             }
           </View>
@@ -97,22 +99,34 @@ export default class QuestScreen extends Component {
 
   render() {
     let QuestCards = this.props.quests.map((quest, i) => {
-      return <Card key={quest.id} title={"Quest" + (i + 1)} collapsed={!_.isEqual(quest, this.state.activeQuest)} icon={this.getIcon(quest)} >
-        <View>
-          <Text>{quest.numAdventurers} {quest.numAdventurers !== 1 ? 'Players' : 'Player'}</Text>
-          <Text>{quest.reqFails} {quest.reqFails !== 1 ? 'Fails Required' : 'Fail Required'}</Text>
-          <Text>{quest.failedVotes} {quest.failedVotes !== 1 ? 'Failed Votes' : 'Failed Vote'}</Text>
+      return (
+        <Card key={quest.id} title={"Quest " + (i + 1)} style={styles.card} collapsed={!_.isEqual(quest, this.state.activeQuest)} icon={this.getIcon(quest)} >
+          <View style={{margin: 10}}>
+          { quest.status === 'passed' || quest.status === 'failed' ? (
+              <Text style={[styles.text, {fontWeight: 'bold', fontSize: 18, marginBottom: 10}]}>
+                {quest.status === 'passed' ? 'Quest Passed!' : 'Quest Failed!'}
+              </Text>
+            ): null
+          }
+          <Text style={styles.text}><Text style={{fontWeight: 'bold'}}>{quest.numAdventurers}</Text> {quest.numAdventurers !== 1 ? 'Players' : 'Player'}</Text>
+          <Text style={styles.text}><Text style={{fontWeight: 'bold'}}>{quest.reqFails}</Text> {quest.reqFails !== 1 ? 'Fails Required' : 'Fail Required'}</Text>
+          {
+            quest.status !== 'unvisited' ?
+              <Text style={styles.text}><Text style={{fontWeight: 'bold'}}>{quest.failedVotes}</Text> {quest.failedVotes !== 1 ? 'Failed Votes' : 'Failed Vote'}</Text>
+            : null
+          }
         </View>
         {this.getProposalInfo(quest)}
       </Card>
+      )
     })
     return (
       <Background title='Quest'>
+        <SelectButton linearGradientStyle={styles.historyButton} textStyle={{fontSize: 16, lineHeight: 18}} onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
+          History
+        </SelectButton>
         <View>
           {QuestCards}
-          <SelectButton onPress={() => this.props.navigate({routeName: 'HistoryScreen'})}>
-            History
-          </SelectButton>
         </View>
       </Background>
     )

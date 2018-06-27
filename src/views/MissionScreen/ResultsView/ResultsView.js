@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Text, View} from 'react-native'
-import styles from './ResultsView'
+import styles from './ResultsViewStyle'
 import SelectButton from "src/components/SelectButton"
-import Quest from "src/models/Quest"
-import Game from "src/models/Game"
+import _ from 'lodash'
+
 
 export default class ResultsView extends Component {
   constructor(props) {
@@ -32,23 +32,23 @@ export default class ResultsView extends Component {
     if(this.props.currentMission + 1 < this.props.game.numQuests)
     {
       this.props.quest[this.props.currentMission +1].status = "active"
-      this.props.quest[this.props.currentMission +1].captainIndex = (this.props.quest[0].captainIndex + 1)%this.props.game.numPlayers
+      this.props.quest[this.props.currentMission +1].captainIndex = (this.props.quest[this.props.currentMission].captainIndex + 1)%this.props.game.numPlayers
       this.props.quest[this.props.currentMission +1].adventurers = []
     }
 
-    Quest.updateQuest(this.props.quest)
+    this.props.updateQuest(this.props.quest)
 
     let navigateParams = {}
     if(numFails > this.props.quest.length/2){
       navigateParams = {
         routeName: 'EndScreen'
       }
-      //Game.endGame(false)
+      this.props.endGame(false)
     } else if(numPasses > this.props.quest.length/2) {
       navigateParams = {
         routeName: 'EndScreen'
       }
-      //Game.endGame(true)
+      this.props.endGame(true)
     } else{
       navigateParams = {
         routeName: 'QuestScreen'
@@ -59,11 +59,10 @@ export default class ResultsView extends Component {
 
   render() {
     return (
-      <View>
-        <View style={styles.textView}>
-          <Text style={styles.text}>The Mission {this.props.quest[this.props.currentMission].status} with {this.props.numFails} fails</Text>
-        </View>
-        <SelectButton linearGradient={styles.mainButton} onPress={() => this.MoveToNextScreen()}>
+      <View style={styles.container}>
+        <Text style={styles.title}>Mission {_.upperFirst(this.props.quest[this.props.currentMission].status)}</Text>
+        <Text style={styles.caption}>{this.props.numFails ? this.props.numFails : 'No'} Fail{this.props.numFails !== 1 ? 's' : null}</Text>
+        <SelectButton confirm onPress={() => this.MoveToNextScreen()} linearGradientStyle={styles.button}>
           Continue
         </SelectButton>
       </View>

@@ -1,5 +1,5 @@
 import HistoryScreen from './HistoryScreen'
-import Navigation from '../../models/Navigation'
+import Navigation from 'src/models/Navigation'
 import { connect } from "react-redux"
 import Player from "src/models/Player"
 import Quest from "src/models/Quest"

@@ -29,6 +29,7 @@ export default class GameConfig extends Component {
     return (
       <Card title='Game Configuration' collapsed={this.props.collapsed} style={this.props.style}>
         <View style={styles.buttonContainer}>
+          <Text style={styles.text}>Select your game setup!</Text>
           {Object.keys(defaultGameSetups).map((key, index) => {
             return (
               <SelectButton key={defaultGameSetups[key].name + index}

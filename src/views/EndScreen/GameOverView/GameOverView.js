@@ -57,6 +57,10 @@ export default class GameOverView extends React.Component {
     this.findPlayers(roles)
   }
 
+  winningIcon(){
+    return this.props.goodWin ? require('src/static/images/icons/merlin.png') : require('src/static/images/icons/mordred.png')
+  }
+
   componentDidMount(){
     this.generatePlayerList()
   }
@@ -64,24 +68,29 @@ export default class GameOverView extends React.Component {
   render() {
     const winner = this.props.goodWin ? "Good" : "Evil"
     return (
-        <View>
+        <View style={styles.container}>
           <View style={styles.textView}>
             <Text style={styles.winnerText}>{winner} Team Wins</Text>
           </View>
           <View style={styles.imageView}>
-            <Image style={styles.circleImage} source={{uri: 'http://placehold.it/150x150'}}/>
+            <Image style={styles.circleImage} source={this.winningIcon()}/>
           </View>
-          <Card title='Player Roles' locked collapsed={false}>
-            <View>
+          <Card title='Player Roles' locked collapsed={false}
+                style={{alignSelf: 'stretch', marginBottom: 15}}
+                collapsibleContainer={styles.cardCollapsibleContainer}
+                titleText={{fontSize: 20}}
+                titleContainer={styles.cardTitleContainer}>
               {this.state.playerList.map((name, key)=>(
                 <Text key={key}> { name } </Text>)
               )}
-            </View>
           </Card>
-            <SelectButton linearGradient={styles.returnButton} onPress={() => this.props.navigate({routeName: 'SetupScreen'})}>
+            <SelectButton confirm textStyle={{fontSize: 20}}
+                          linearGradientStyle={styles.returnButton}
+                          touchableOpacityStyle={{width: '100%'}}
+                          onPress={() => this.props.navigate({routeName: 'SetupScreen'})}>
               Play Again
             </SelectButton>
-            <SelectButton linearGradient={styles.returnButton} onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
+            <SelectButton textStyle={{fontSize: 20}} linearGradientStyle={styles.returnButton} onPress={() => this.props.navigate({routeName: 'HomeScreen'})}>
               Home
             </SelectButton>
         </View>
